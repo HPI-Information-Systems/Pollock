@@ -38,6 +38,7 @@ execute_polluter(f,pl.dummyPolluter)
 #File name polluters
 execute_polluter(f,pl.changeFilename, "source")
 execute_polluter(f,pl.changeFilename, "\u00A0")
+execute_polluter(f,pl.changeFilename, "\u00A0.csv")
 execute_polluter(f,pl.changeFilename, "$.csv")
 execute_polluter(f,pl.changeFilename, ".csv")
 execute_polluter(f,pl.changeFilename, "source.tsv")
