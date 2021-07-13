@@ -1,3 +1,4 @@
+from pathlib import Path
 import sys
 import os
 import csv
@@ -118,8 +119,10 @@ class CSVFile:
         output = transform(self.xml)
 
         if verbose: print("\n" + str(output))
+        Path(out_path).mkdir(parents=True, exist_ok=True)
         with open(out_path + self.filename, "w", encoding= self.encoding) as out:
             out.write(str(output))
 
     def write_xml(self, out_path = "./", pretty=False):
+        Path(out_path).mkdir(parents=True, exist_ok=True)
         self.xml.write(out_path + self.filename+".xml", pretty_print=pretty)

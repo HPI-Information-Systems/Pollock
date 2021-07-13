@@ -1,3 +1,16 @@
+#Full repository files
+result.csv
+sut/db/
+sut/ss/
+sut/bi/
+sut/ds/
+files/gov_uk/
+files/mendeley/
+files/polluted_files_xml/
+files/polluted_files_csv/
+files/govuk.tar.gz
+files/mendeley.tar.gz
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
