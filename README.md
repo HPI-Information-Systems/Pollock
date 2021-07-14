@@ -51,97 +51,97 @@ For the complete list of benchmark files, expand the following table.
 |Dialect | "table_record_delimiter_0xA.csv"| File where rows end with the LF character.|
 | |"table_record_delimiter_0xD.csv" | File where rows end with the CR character.|
 | |"table_record_delimiter_0xD_0xA.csv" | File where rows end with the CRLF sequence |
-|table_field_delimiter_0x20.csv| File where fields are delimited with space
-|table_field_delimiter_0x2C.csv| File where fields are delimited with comma
-|table_field_delimiter_0x2C_0x20.csv| File where fields are delimited with comma and space
-|table_field_delimiter_0x3A.csv| File where fields are delimited with colon
-|table_field_delimiter_0x3B.csv| File where fields are delimited with semicolon
-|table_field_delimiter_0x5C_0x74.csv| File where fields are delimited with the "\t" sequence
-|table_field_delimiter_0x7C.csv| File where fields are delimited with the pipe symbol
-|table_field_delimiter_0x9.csv| File where fields are delimited with tab
-|table_field_delimiter_0x9_0x9.csv| File where fields are delimited with double tab
-|table_quotation_char_0x22.csv| File where the quotation character is the double quote character
-|table_quotation_char_0x22_0x20.csv| File where the quotation character is the sequence of double quote and space
-|table_quotation_char_0x27.csv| File where the quotation character is the apostrophe
-|table_escape_char_0x22_0x22.csv| File where the escape character is the sequence of two double quotes
-|table_escape_char_0x5C.csv| File where the escape character is the backslash
-Row Structure|row_n_fields_1_empty.csv| File where the header row is empty
-|row_n_fields_1_less.csv| File where the header row has less fields than the others
-|row_n_fields_1_more.csv| File where the header row has more fields than the others
-|row_n_fields_2_empty.csv| File where the first data row is empty
-|row_n_fields_2_less.csv| File where the first data row has less fields than the others
-|row_n_fields_2_more.csv| File where the first data row has more fields than the others
-|row_n_fields_50_empty.csv| File where the 50th data row is empty
-|row_n_fields_50_less.csv| File where the 50th data row has less fields than the others
-|row_n_fields_50_more.csv| File where the 50th data row has more fields than the others
-|row_n_fields_last()-0_empty.csv| File where the last data row is empty
-|row_n_fields_last()-0_less.csv|File where the last data row has less fields than the others
-|row_n_fields_last()-0_more.csv|File where the last data row has more fields than the others
-Row Dialect|row_record_delimiter_1_0xA.csv| File where only the header row ends with the LF character
-|row_record_delimiter_2_0xA.csv|File where only the first data row ends with the LF character
-|row_record_delimiter_50_0xA.csv| File where only the 50th row ends with the LF character
-|row_record_delimiter_last()-0_0xA.csv| File where only the last row ends with the LF character
-|row_field_delimiter_1_0x3B.csv| File where only the header row is delimited with semicolon
-|row_field_delimiter_2_0x3B.csv| File where only the first data row is delimited with semicolon
-|row_field_delimiter_50_0x3B.csv| File where only the 50th row is delimited with semicolon
-|row_field_delimiter_last()-0_0x3B.csv| File where only the last row is delimited with semicolon
-|row_quotation_mark_1_0x27.csv| File where only the header row is quoted with apostrophe
-|row_quotation_mark_2_0x27.csv| File where only the first data row is quoted with apostrophe
-|row_quotation_mark_50_0x27.csv| File where only the 50th row is quoted with apostrophe
-|row_quotation_mark_last()-0_0x27.csv| File where only the last row is quoted with apostrophe
-|row_escape_char_1_0x5C.csv| File where only the header row is escaped with backslash
-|row_escape_char_2_0x5C.csv| File where only the first data row is escaped with backslash
-|row_escape_char_50_0x5C.csv| File where only the 50th row is escaped with backslash
-|row_escape_char_last()-0_0x5C.csv| File where only the last row is escaped with backslash
-Column Header|column_header_[1, 2]_regular_nonunique.csv| File where the first two columns have the same header
-|column_header_1_empty_nonalnum.csv| File where the first column header is empty
-|column_header_1_large.csv| File where the first column header is larger than 255 characters
-|column_header_1_regular_multiple.csv| File where the first column header spans multiple rows
-|column_header_1_regular_nonalnum.csv| File where the first column header contains the percentage symbol
-|column_header_3_empty_nonalnum.csv|File where the 3rd column header is empty
-|column_header_3_large.csv|File where the 3rd column header is larger than 255 characters
-|column_header_3_regular_multiple.csv|File where the 3rd column header spans multiple rows
-|column_header_3_regular_nonalnum.csv|File where the 3rd column header contains the percentage symbol
-|column_header_last()-0_empty_nonalnum.csv|File where the last column header is empty
-|column_header_last()-0_large.csv|File where the last column header is larger than 255 characters
-|column_header_last()-0_regular_multiple.csv|File where the last column header spans multiple rows
-|column_header_last()-0_regular_nonalnum.csv|File where the last column header contains the percentage symbol
-Column Format|column_heterogeneous_format_col1_row_-1.csv|
-|column_heterogeneous_format_col1_row_2.csv|
-|column_heterogeneous_format_col1_row_50.csv|
-|column_heterogeneous_format_col1_row_range(1, 50).csv|
-|column_heterogeneous_format_col1_row_range(30, 80).csv|
-|column_heterogeneous_format_col1_row_range(50, 100).csv|
-|column_heterogeneous_format_col2_row_-1.csv|
-|column_heterogeneous_format_col2_row_2.csv|
-|column_heterogeneous_format_col2_row_50.csv|
-|column_heterogeneous_format_col2_row_range(1, 50).csv|
-|column_heterogeneous_format_col2_row_range(30, 80).csv|
-|column_heterogeneous_format_col2_row_range(50, 100).csv|
-|column_heterogeneous_format_col3_row_-1.csv|
-|column_heterogeneous_format_col3_row_2.csv|
-|column_heterogeneous_format_col3_row_50.csv|
-|column_heterogeneous_format_col3_row_range(1, 50).csv|
-|column_heterogeneous_format_col3_row_range(30, 80).csv|
-|column_heterogeneous_format_col3_row_range(50, 100).csv|
-|column_heterogeneous_format_col4_row_-1.csv|
-|column_heterogeneous_format_col4_row_2.csv|
-|column_heterogeneous_format_col4_row_50.csv|
-|column_heterogeneous_format_col4_row_range(1, 50).csv|
-|column_heterogeneous_format_col4_row_range(30, 80).csv|
-|column_heterogeneous_format_col4_row_range(50, 100).csv|
-|column_heterogeneous_format_col5_row_-1.csv|
-|column_heterogeneous_format_col5_row_2.csv|
-|column_heterogeneous_format_col5_row_50.csv|
-|column_heterogeneous_format_col5_row_range(1, 50).csv|
-|column_heterogeneous_format_col5_row_range(30, 80).csv|
-|column_heterogeneous_format_col5_row_range(50, 100).csv|
-|column_heterogeneous_format_col8_row_-1.csv|
-|column_heterogeneous_format_col8_row_2.csv|
-|column_heterogeneous_format_col8_row_50.csv|
-|column_heterogeneous_format_col8_row_range(1, 50).csv|
-|column_heterogeneous_format_col8_row_range(30, 80).csv|
-|column_heterogeneous_format_col8_row_range(50, 100).csv|
+||table_field_delimiter_0x20.csv| File where fields are delimited with space
+||table_field_delimiter_0x2C.csv| File where fields are delimited with comma
+||table_field_delimiter_0x2C_0x20.csv| File where fields are delimited with comma and space
+||table_field_delimiter_0x3A.csv| File where fields are delimited with colon
+||table_field_delimiter_0x3B.csv| File where fields are delimited with semicolon
+||table_field_delimiter_0x5C_0x74.csv| File where fields are delimited with the "\t" sequence
+||table_field_delimiter_0x7C.csv| File where fields are delimited with the pipe symbol
+||table_field_delimiter_0x9.csv| File where fields are delimited with tab
+||table_field_delimiter_0x9_0x9.csv| File where fields are delimited with double tab
+||table_quotation_char_0x22.csv| File where the quotation character is the double quote character
+||table_quotation_char_0x22_0x20.csv| File where the quotation character is the sequence of double quote and space
+||table_quotation_char_0x27.csv| File where the quotation character is the apostrophe
+||table_escape_char_0x22_0x22.csv| File where the escape character is the sequence of two double quotes
+||table_escape_char_0x5C.csv| File where the escape character is the backslash
+|Row Structure|row_n_fields_1_empty.csv| File where the header row is empty
+||row_n_fields_1_less.csv| File where the header row has less fields than the others
+||row_n_fields_1_more.csv| File where the header row has more fields than the others
+||row_n_fields_2_empty.csv| File where the first data row is empty
+||row_n_fields_2_less.csv| File where the first data row has less fields than the others
+||row_n_fields_2_more.csv| File where the first data row has more fields than the others
+||row_n_fields_50_empty.csv| File where the 50th data row is empty
+||row_n_fields_50_less.csv| File where the 50th data row has less fields than the others
+||row_n_fields_50_more.csv| File where the 50th data row has more fields than the others
+||row_n_fields_last()-0_empty.csv| File where the last data row is empty
+||row_n_fields_last()-0_less.csv|File where the last data row has less fields than the others
+||row_n_fields_last()-0_more.csv|File where the last data row has more fields than the others
+|Row Dialect|row_record_delimiter_1_0xA.csv| File where only the header row ends with the LF character
+||row_record_delimiter_2_0xA.csv|File where only the first data row ends with the LF character
+||row_record_delimiter_50_0xA.csv| File where only the 50th row ends with the LF character
+||row_record_delimiter_last()-0_0xA.csv| File where only the last row ends with the LF character
+||row_field_delimiter_1_0x3B.csv| File where only the header row is delimited with semicolon
+||row_field_delimiter_2_0x3B.csv| File where only the first data row is delimited with semicolon
+||row_field_delimiter_50_0x3B.csv| File where only the 50th row is delimited with semicolon
+||row_field_delimiter_last()-0_0x3B.csv| File where only the last row is delimited with semicolon
+||row_quotation_mark_1_0x27.csv| File where only the header row is quoted with apostrophe
+||row_quotation_mark_2_0x27.csv| File where only the first data row is quoted with apostrophe
+||row_quotation_mark_50_0x27.csv| File where only the 50th row is quoted with apostrophe
+||row_quotation_mark_last()-0_0x27.csv| File where only the last row is quoted with apostrophe
+||row_escape_char_1_0x5C.csv| File where only the header row is escaped with backslash
+||row_escape_char_2_0x5C.csv| File where only the first data row is escaped with backslash
+||row_escape_char_50_0x5C.csv| File where only the 50th row is escaped with backslash
+||row_escape_char_last()-0_0x5C.csv| File where only the last row is escaped with backslash
+|Column Header|column_header_[1, 2]_regular_nonunique.csv| File where the first two columns have the same header
+||column_header_1_empty_nonalnum.csv| File where the first column header is empty
+||column_header_1_large.csv| File where the first column header is larger than 255 characters
+||column_header_1_regular_multiple.csv| File where the first column header spans multiple rows
+||column_header_1_regular_nonalnum.csv| File where the first column header contains the percentage symbol
+||column_header_3_empty_nonalnum.csv|File where the 3rd column header is empty
+||column_header_3_large.csv|File where the 3rd column header is larger than 255 characters
+||column_header_3_regular_multiple.csv|File where the 3rd column header spans multiple rows
+||column_header_3_regular_nonalnum.csv|File where the 3rd column header contains the percentage symbol
+||column_header_last()-0_empty_nonalnum.csv|File where the last column header is empty
+||column_header_last()-0_large.csv|File where the last column header is larger than 255 characters
+||column_header_last()-0_regular_multiple.csv|File where the last column header spans multiple rows
+||column_header_last()-0_regular_nonalnum.csv|File where the last column header contains the percentage symbol
+|Column Format|column_heterogeneous_format_col1_row_-1.csv|
+||column_heterogeneous_format_col1_row_2.csv|
+||column_heterogeneous_format_col1_row_50.csv|
+||column_heterogeneous_format_col1_row_range(1, 50).csv|
+||column_heterogeneous_format_col1_row_range(30, 80).csv|
+||column_heterogeneous_format_col1_row_range(50, 100).csv|
+||column_heterogeneous_format_col2_row_-1.csv|
+||column_heterogeneous_format_col2_row_2.csv|
+||column_heterogeneous_format_col2_row_50.csv|
+||column_heterogeneous_format_col2_row_range(1, 50).csv|
+||column_heterogeneous_format_col2_row_range(30, 80).csv|
+||column_heterogeneous_format_col2_row_range(50, 100).csv|
+||column_heterogeneous_format_col3_row_-1.csv|
+||column_heterogeneous_format_col3_row_2.csv|
+||column_heterogeneous_format_col3_row_50.csv|
+||column_heterogeneous_format_col3_row_range(1, 50).csv|
+||column_heterogeneous_format_col3_row_range(30, 80).csv|
+||column_heterogeneous_format_col3_row_range(50, 100).csv|
+||column_heterogeneous_format_col4_row_-1.csv|
+||column_heterogeneous_format_col4_row_2.csv|
+||column_heterogeneous_format_col4_row_50.csv|
+||column_heterogeneous_format_col4_row_range(1, 50).csv|
+||column_heterogeneous_format_col4_row_range(30, 80).csv|
+||column_heterogeneous_format_col4_row_range(50, 100).csv|
+||column_heterogeneous_format_col5_row_-1.csv|
+||column_heterogeneous_format_col5_row_2.csv|
+||column_heterogeneous_format_col5_row_50.csv|
+||column_heterogeneous_format_col5_row_range(1, 50).csv|
+||column_heterogeneous_format_col5_row_range(30, 80).csv|
+||column_heterogeneous_format_col5_row_range(50, 100).csv|
+||column_heterogeneous_format_col8_row_-1.csv|
+||column_heterogeneous_format_col8_row_2.csv|
+||column_heterogeneous_format_col8_row_50.csv|
+||column_heterogeneous_format_col8_row_range(1, 50).csv|
+||column_heterogeneous_format_col8_row_range(30, 80).csv|
+||column_heterogeneous_format_col8_row_range(50, 100).csv|
 
 </details>
 
