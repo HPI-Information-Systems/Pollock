@@ -77,12 +77,10 @@ execute_polluter(f,pl.addFootnote,3,True, True) #delimited, with empty
 execute_polluter(f,pl.addFootnote,3,False, True) #not delimited with empty
 
 #Record Delimiter
-execute_polluter(f,pl.changeRecordDelimiter,"\r\n")
 execute_polluter(f,pl.changeRecordDelimiter,"\n")
 execute_polluter(f,pl.changeRecordDelimiter,"\r")
 
 #Field Delimiter
-execute_polluter(f,pl.changeFieldDelimiter,",")
 execute_polluter(f,pl.changeFieldDelimiter,";")
 execute_polluter(f,pl.changeFieldDelimiter,"|")
 execute_polluter(f,pl.changeFieldDelimiter," ")

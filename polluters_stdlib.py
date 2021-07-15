@@ -42,7 +42,7 @@ def changeDimension(file: CSVFile, target_dimension=-1):
         remove_rows = list(range(file.row_count - n_rows_to_keep, file.row_count + 1))
         pb.deleteRows(file, rows_to_delete=remove_rows)
 
-    file.filename = "file_dimension_" + str(target_dimension) + ".csv"
+    file.filename = "file_size_" + str(target_dimension) + ".csv"
     file.xml.getroot().attrib["filename"] = file.filename
 
     return
