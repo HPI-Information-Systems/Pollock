@@ -143,7 +143,7 @@ For the complete list of benchmark files, expand the following table.
 
 </details>
 
-Due to the GitHub file policy, the files composing the benchmark are contained in a compressed file (files/polluted.zip).
+Due to the GitHub file policy, the files composing the benchmark are contained in a compressed file (files/polluted.tar.gz).
 The same files can be programmatically generated from the source file (files/source.csv), by running the command:
 
 `python3 pollute_main.py`
@@ -171,5 +171,5 @@ In the repository we include the result files of the benchmark on four different
  - A relational dbms, named 'db'
  - A data visualization and business intelligence tool, named 'bi'
 
-For each of these systems, the resulting files from loading polluted files of our benchmark can be found in the file 'sut/systems.zip'.
+For each of these systems, the resulting files from loading polluted files of our benchmark can be found in the file 'sut/systems.tar.gz'.
 Extracting these files, users can reproduce the experimental results reported in our benchmark paper.
