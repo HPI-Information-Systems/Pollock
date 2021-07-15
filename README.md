@@ -24,9 +24,9 @@ For the complete list of benchmark files, expand the following table.
 | |"source.tsv"| File name with the incorrect extension, suggesting plain-text data|
 | |"source.pdf"| File name with the incorrect extension, suggesting binary file |
 | |"source.loremipsumdolor"| File name with the incorrect extension, arbitrary|
-|File dimension| "file_dimension_0.csv" | Empty file, with a dimension of 0 bytes|
-| | "file_dimension_200.csv"| Very small file, with a dimension of 200 bytes|
-| | "file_dimension_1500000000.csv" | Very large file, with a dimension of 1.39GB |
+|File size| "file_size_0.csv" | Empty file, with a dimension of 0 bytes|
+| | "file_size_200.csv"| Very small file, with a dimension of 200 bytes|
+| | "file_size_1500000000.csv" | Very large file, with a dimension of 1.39GB |
 |File encoding | "file_encoding_latin_1.csv" | File encoded with latin-1 encoding.|
 | | "file_encoding_utf_16.csv" | File encoded with utf-16 encoding. |
 | | "file_encoding_utf_8.csv" | File encoded with utf-8 encoding|
