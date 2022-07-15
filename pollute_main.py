@@ -1,174 +1,79 @@
-from __future__ import print_function
-import builtins as __builtin__
-from datetime import datetime
-import time
-import os
 from copy import deepcopy
-import constants
-from CSVFile import CSVFile
-import polluters_stdlib as pl
-import polluters_base as pb
-import lxml.etree as etree
+import os
+import pollock.constants as constants
+from pollock.CSVFile import CSVFile
+import pollock.polluters_stdlib as pl
+import pollock.polluters_base as pb
+from sut.utils import print
 
-OUT_CSV_PATH = "./results/files/polluted_files_csv/"
-OUT_XML_PATH = "./results/files/polluted_files_xml/"
-
-# Uncomment to clean output directories before run
-# os.system('cd '+OUT_CSV_PATH+ ' && rm *.csv')
-# os.system('cd '+OUT_XML_PATH+ ' && rm *.xml')+
-
-def print(*args, **kwargs):
-    return __builtin__.print(f"\033[94m{datetime.fromtimestamp(time.time()+3600).strftime('%H:%M:%S')}:\033[0m", *args, **kwargs)
+OUT_CSV_PATH = "./results/polluted_files_csv/"
+OUT_XML_PATH = "./results/polluted_files_xml/"
 
 
-def execute_polluter(file : CSVFile, polluter, *args, **kwargs):
+os.system('cd '+OUT_CSV_PATH+ ' && rm *.csv')
+os.system('cd '+OUT_XML_PATH+ ' && rm *.xml')
+
+def execute_polluter(file: CSVFile, polluter, new_filename=None, *args, **kwargs):
     t = deepcopy(file)
-    print("Executing", polluter.__name__, "with arguments", args)
+    print("Executing", polluter.__name__, "with arguments", tuple(map(lambda x: str(x)[:300],[f"{k}:{v}" for k,v in kwargs.items()])))
+    # pl.addSynthethicRowID(t)
     polluter(t, *args, **kwargs)
+    if new_filename is not None:
+        t.filename = new_filename
+        t.xml.getroot().attrib["filename"] = new_filename
     t.write_csv(OUT_CSV_PATH)
     t.write_xml(OUT_XML_PATH)
 
 
-f = CSVFile("./files/source.csv", quote_all=True, autodetect=False)
+# f = CSVFile("./benchmark_files/source.csv")
+# f = qf
+f = CSVFile("./results/source.csv", quote_all=True, autodetect=False)
 
+# Returns the source file -1
+execute_polluter(f, pl.dummyPolluter, "source.csv")
+# execute_polluter(f, pl.addTable, 10, 6, False)
+# <editor-fold desc="File-level (13 files)">
 
-#Returns the source file
-execute_polluter(f,pl.dummyPolluter)
+# File payload polluters - 3
+execute_polluter(f, pl.changeDimension, target_dimension = 0, new_filename = "file_no_payload.csv")
+execute_polluter(f, pl.changeRowRecordDelimiter, row=-1, target_delimiter ="", new_filename = "file_no_trailing_newline.csv")
+execute_polluter(f, pl.changeRowRecordDelimiter, row=-1, target_delimiter="\r\n\r\n",new_filename="file_double_trailing_newline.csv")
 
-#File name polluters
-execute_polluter(f,pl.changeFilename, "source")
-execute_polluter(f,pl.changeFilename, "\u00A0")
-execute_polluter(f,pl.changeFilename, "\u00A0.csv")
-execute_polluter(f,pl.changeFilename, "$.csv")
-execute_polluter(f,pl.changeFilename, ".csv")
-execute_polluter(f,pl.changeFilename, "source.tsv")
-execute_polluter(f,pl.changeFilename, "source.pdf")
-execute_polluter(f,pl.changeFilename, "source.loremipsumdolor")
+# Header and preamble polluters - 7
+execute_polluter(f, pl.changeNumberRows, target_number_rows=f.row_count, remove_header=True, new_filename="file_no_header.csv")
+execute_polluter(f, pl.expandColumnHeader, extra_rows=1, new_filename="file_header_multirow_2.csv")  # 1 regular, on multiple rows
+execute_polluter(f, pl.expandColumnHeader, extra_rows=2, new_filename="file_header_multirow_3.csv")  # 1 regular, on multiple rows
+execute_polluter(f, pl.addPreamble, n_rows=1, delimiters=True, emptyrow=True, new_filename="file_preamble.csv")  # delimited, with empty
+execute_polluter(f, pl.addTable, new_filename = "file_multitable_less.csv", n_rows=83, n_cols=8, empty_boundary=False)
+execute_polluter(f, pl.addTable, new_filename = "file_multitable_same.csv", n_rows=83, n_cols=9, empty_boundary=False)
+execute_polluter(f, pl.addTable, new_filename = "file_multitable_more.csv", n_rows=83, n_cols=10, empty_boundary=False)
 
-#File dimension polluters
-execute_polluter(f,pl.changeDimension, 0)
-execute_polluter(f,pl.changeDimension, 200)
+#Data rows 2
+execute_polluter(f, pl.changeNumberRows, new_filename= "file_header_only.csv", target_number_rows=1)
+execute_polluter(f, pl.changeNumberRows, new_filename= "file_one_data_row.csv", target_number_rows=2)
 
-# File Encoding polluters
-execute_polluter(f, pl.changeEncoding, constants.Encoding.UTF_8)
-execute_polluter(f, pl.changeEncoding, constants.Encoding.LATIN_1)
-execute_polluter(f, pl.changeEncoding, constants.Encoding.UTF_16)
+#Add or remove one separator for each column
+for i in range(f.row_count):
+    for j in range(f.col_count):
+        execute_polluter(f, pl.addRowFieldDelimiter, new_filename=f"row_more_sep_row{i}_col{j}.csv", row=i, col=j)  # row 1, empty
+        if j >0:
+            execute_polluter(f, pl.deleteRowFieldDelimiter, new_filename=f"row_less_sep_row{i}_col{j}.csv", row=i, col=j)  # row 1, empty
+        execute_polluter(f, pl.addRowQuoteMark, new_filename=f"row_extra_quote{i}_col{j}.csv", row=i, col=j)  # row 1, empty
 
-#Number of columns
-execute_polluter(f, pl.changeNumberColumns, 1)
-execute_polluter(f, pl.changeNumberColumns, 1024)
-execute_polluter(f, pl.changeNumberColumns, 17000)
+    vals = [ord(x) for x in " "]
+    del_string = ''.join([f'_0x{v:X}' for v in vals])
+    target_filename = f"row_field_delimiter_{i}{del_string}.csv"
+    execute_polluter(f, pl.changeRowFieldDelimiter, new_filename=target_filename, row=i, target_delimiter=" ")
 
-#Number of rows
-execute_polluter(f, pl.changeNumberRows, 1)
-execute_polluter(f, pl.changeNumberRows, 99, True) #remove the header
-execute_polluter(f, pl.changeNumberRows, 70000)
+# Record Delimiter -2
+execute_polluter(f, pl.changeRecordDelimiter, target_delimiter="\n")
+execute_polluter(f, pl.changeRecordDelimiter, target_delimiter="\r")
 
-#Preamble
-execute_polluter(f,pl.addPreamble,3,True) #delimited
-execute_polluter(f,pl.addPreamble,3,False) #not delimited
-execute_polluter(f,pl.addPreamble,3,True, True) #delimited, with empty
-execute_polluter(f,pl.addPreamble,3,False, True) #not delimited with empty
+#Change delimiter
+execute_polluter(f, pl.changeFieldDelimiter, target_delimiter=";")
+execute_polluter(f, pl.changeFieldDelimiter, target_delimiter="\t")
+execute_polluter(f, pl.changeFieldDelimiter, target_delimiter=", ")  # comma space
+execute_polluter(f, pl.changeFieldDelimiter, target_delimiter=" ")
 
-#Footnote
-execute_polluter(f,pl.addFootnote,3,True) #delimited
-execute_polluter(f,pl.addFootnote,3,False) #not delimited
-execute_polluter(f,pl.addFootnote,3,True, True) #delimited, with empty
-execute_polluter(f,pl.addFootnote,3,False, True) #not delimited with empty
-
-#Record Delimiter
-execute_polluter(f,pl.changeRecordDelimiter,"\n")
-execute_polluter(f,pl.changeRecordDelimiter,"\r")
-
-#Field Delimiter
-execute_polluter(f,pl.changeFieldDelimiter,";")
-execute_polluter(f,pl.changeFieldDelimiter,"|")
-execute_polluter(f,pl.changeFieldDelimiter," ")
-execute_polluter(f,pl.changeFieldDelimiter,"\t")
-execute_polluter(f,pl.changeFieldDelimiter,"\t\t")
-execute_polluter(f,pl.changeFieldDelimiter,":")
-execute_polluter(f,pl.changeFieldDelimiter,", ") #comma space
-execute_polluter(f,pl.changeFieldDelimiter,"\u005C\u0074") #literally '\t'
-
-#Quotation Char
-execute_polluter(f,pl.changeQuotationChar, "\u0022")
-execute_polluter(f,pl.changeQuotationChar, "\u0027")
-execute_polluter(f,pl.changeQuotationChar, "\u0022\u0020") #quote-space
-
-#Row Level Number Fields
-execute_polluter(f,pl.changeRowNumberFields, 1,0) #row 1, empty
-execute_polluter(f,pl.changeRowNumberFields, 1,15) #row 1, 15 fields
-execute_polluter(f,pl.changeRowNumberFields, 1,5) #row 1, 5 fields
-
-execute_polluter(f,pl.changeRowNumberFields, 2,0) #row 2, empty
-execute_polluter(f,pl.changeRowNumberFields, 2,15) #row 2, 15 fields
-execute_polluter(f,pl.changeRowNumberFields, 2,5) #row 2, 5 fields
-
-execute_polluter(f,pl.changeRowNumberFields, 50,0) #row 3, empty
-execute_polluter(f,pl.changeRowNumberFields, 50,15) #row 3, 15 fields
-execute_polluter(f,pl.changeRowNumberFields, 50,5) #row 3, 5 fields
-
-execute_polluter(f,pl.changeRowNumberFields, -1,0) #row -1, empty
-execute_polluter(f,pl.changeRowNumberFields, -1,15) #row -1, 15 fields
-execute_polluter(f,pl.changeRowNumberFields, -1,5) #row -1, 5 fields
-
-#Row Level Record Delimiter
-execute_polluter(f,pl.changeRowRecordDelimiter, 1, "\n")
-execute_polluter(f,pl.changeRowRecordDelimiter, 2, "\n")
-execute_polluter(f,pl.changeRowRecordDelimiter, 50, "\n")
-execute_polluter(f,pl.changeRowRecordDelimiter, -1, "\n")
-
-#Row Level Field Delimiter
-execute_polluter(f,pl.changeRowFieldDelimiter, 1, ";")
-execute_polluter(f,pl.changeRowFieldDelimiter, 2, ";")
-execute_polluter(f,pl.changeRowFieldDelimiter, 50, ";")
-execute_polluter(f,pl.changeRowFieldDelimiter, -1, ";")
-
-#Row Level Quotation Mark
-execute_polluter(f,pl.changeRowQuotationMark, 1,  "\u0027")
-execute_polluter(f,pl.changeRowQuotationMark, 2,  "\u0027")
-execute_polluter(f,pl.changeRowQuotationMark, 50,  "\u0027")
-execute_polluter(f,pl.changeRowQuotationMark, -1, "\u0027")
-
-#Column level Change Header
-execute_polluter(f,pl.changeColumnHeader, 1, "HEADER", 2) # 1 regular, on multiple rows
-execute_polluter(f,pl.changeColumnHeader, 3, "HEADER", 2)
-execute_polluter(f,pl.changeColumnHeader,-1, "HEADER", 2)
-execute_polluter(f,pl.changeColumnHeader, 1, "") # 1 empty
-execute_polluter(f,pl.changeColumnHeader, 3, "")
-execute_polluter(f,pl.changeColumnHeader,-1, "")
-execute_polluter(f,pl.changeColumnHeader, 1, "HEAD/%R")
-execute_polluter(f,pl.changeColumnHeader, 3, "HEAD/%R")
-execute_polluter(f,pl.changeColumnHeader,-1, "HEAD/%R")
-execute_polluter(f,pl.changeColumnHeader, [1,2], "HEADER")
-execute_polluter(f,pl.changeColumnHeader, 1, "HEADER" * int(1e5)) # 1 large
-execute_polluter(f,pl.changeColumnHeader, 3, "HEADER" * int(1e5))
-execute_polluter(f,pl.changeColumnHeader,-1, "HEADER" * int(1e5))
-
-#Table level add multiple table
-execute_polluter(f,pl.addTable,10,6,False)
-execute_polluter(f,pl.addTable,10,12,False)
-execute_polluter(f,pl.addTable,10,6,True)
-execute_polluter(f,pl.addTable,10,12,True)
-
-#Table level change escape char
-execute_polluter(f,pl.changeEscapeCharacter, "\\")
-execute_polluter(f,pl.changeEscapeCharacter, '""')
-
-#Table level change row escape char
-execute_polluter(f,pl.changeRowEscapeChar, 1, "\\")
-execute_polluter(f,pl.changeRowEscapeChar, 2, '\\')
-execute_polluter(f,pl.changeRowEscapeChar, 50, '\\')
-execute_polluter(f,pl.changeRowEscapeChar, -1, '\\')
-
-for i in list(range(1,6))+[8]:
-    execute_polluter(f,pl.changeColumnFormat, i,2)
-    execute_polluter(f,pl.changeColumnFormat, i,50)
-    execute_polluter(f,pl.changeColumnFormat, i,-1)
-    #
-    execute_polluter(f,pl.changeColumnFormat, i,range(1,50))
-    execute_polluter(f,pl.changeColumnFormat, i,range(30,80))
-    execute_polluter(f,pl.changeColumnFormat, i,range(50,100))
-
-execute_polluter(f,pl.changeDimension, 1500000000)
-# execute_polluter(f, pl.changeNumberRows, 2000000000)
+#Change quote mark #TODO check escape quote
+execute_polluter(f, pl.changeQuotationChar, target_char="\u0027")

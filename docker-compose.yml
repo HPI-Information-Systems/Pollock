@@ -1,0 +1,188 @@
+version: "3"
+services:
+  mariadb-server:
+    image: mariadb
+    container_name: mariadb-server
+    environment:
+      - MYSQL_USER=benchmark
+      - MYSQL_PASSWORD=benchmark
+      - MYSQL_ROOT_PASSWORD=benchmark
+      - MYSQL_DATABASE=benchmark
+      - MYSQL_TCP_PORT=3307
+      - MYSQL_UNIX_PORT=3307
+    ports:
+      - "3307:3307"
+    volumes:
+      - mariadb-tmp:/tmp
+    networks:
+      mariadb-nw:
+  mariadb-client:
+    build:
+      context: .
+      dockerfile: ./sut/maria/Dockerfile
+    volumes:
+      - ./results/loading/mariadb:/results/loading/mariadb
+      - ./results/polluted_files_csv/:/results/polluted_files_csv/
+      - ./sut/maria/:/app/
+      - ./sut/utils.py:/app/utils.py
+      - mariadb-tmp:/tmp
+    depends_on:
+      - mariadb-server
+    networks:
+      mariadb-nw:
+  mysql-server:
+    image: mysql
+    container_name: mysql-server
+    environment:
+      - MYSQL_USER=benchmark
+      - MYSQL_PASSWORD=benchmark
+      - MYSQL_ROOT_PASSWORD=benchmark
+      - MYSQL_DATABASE=benchmark
+    command:
+      - '--local-infile=1'
+      - '--secure-file-priv=/tmp'
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-tmp:/tmp
+    networks:
+      mysql-nw:
+  mysql-client:
+    build:
+      context: .
+      dockerfile: ./sut/my/Dockerfile
+    volumes:
+      - ./results/loading/mysql:/results/loading/mysql
+      - ./results/polluted_files_csv/:/results/polluted_files_csv/
+      - mysql-tmp:/tmp
+      - ./sut/my/:/app/
+      - ./sut/utils.py:/app/utils.py
+    depends_on:
+      - mysql-server
+    networks:
+      mysql-nw:
+  postgres-server:
+    image: postgres
+    container_name: postgres-server
+    environment:
+      - POSTGRES_USER=benchmark
+      - POSTGRES_PASSWORD=benchmark
+      - POSTGRES_DB=benchmark
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-tmp:/tmp
+      - ./results/polluted_files_csv/:/results/polluted_files_csv/
+    networks:
+      postgres-nw:
+  postgres-client:
+    build:
+      context: .
+      dockerfile: ./sut/postgres/Dockerfile
+    volumes:
+      - ./results/loading/postgres:/results/loading/postgres
+      - ./results/polluted_files_csv/:/results/polluted_files_csv/
+      - postgres-tmp:/tmp
+      - ./sut/utils.py:/app/utils.py
+      - ./sut/postgres/:/app/
+    depends_on:
+      - postgres-server
+    networks:
+      postgres-nw:
+  sqlite-client:
+    build:
+      context: .
+      dockerfile: ./sut/sqlite/Dockerfile
+    volumes:
+      - ./results/loading/sqlite:/results/loading/sqlite
+      - ./results/polluted_files_csv/:/results/polluted_files_csv/
+      - ./sut/sqlite/:/app/
+      - ./sut/utils.py:/app/utils.py
+    networks:
+      sqlite-nw:
+  pandas-client:
+    build:
+      context: .
+      dockerfile: ./sut/pandas/Dockerfile
+    volumes:
+      - ./results/loading/pandas:/results/loading/pandas
+      - ./results/polluted_files_csv/:/results/polluted_files_csv/
+      - ./sut/pandas/:/app/
+      - ./sut/utils.py:/app/utils.py
+  opencsv-client:
+    build:
+      context: .
+      dockerfile: ./sut/opencsv/Dockerfile
+    volumes:
+      - ./results/loading/opencsv:/app/results/loading/opencsv/
+      - ./results/polluted_files_csv/:/app/results/polluted_files_csv/
+      - ./sut/opencsv/:/app/
+  pycsv-client:
+    build:
+      context: .
+      dockerfile: ./sut/pycsv/Dockerfile
+    volumes:
+      - ./results/loading/pycsv/:/app/results/loading/pycsv/
+      - ./results/polluted_files_csv/:/app/results/polluted_files_csv/
+      - ./sut/pycsv/:/app/
+      - ./sut/utils.py:/app/utils.py
+  rcsv-client:
+    build:
+      context: .
+      dockerfile: ./sut/rcsv/Dockerfile
+    volumes:
+      - ./results/loading/rcsv:/app/results/loading/rcsv
+      - ./results/polluted_files_csv/:/app/results/polluted_files_csv/
+      - ./sut/rcsv/:/app/
+  rhypoparsr-client:
+    build:
+      context: .
+      dockerfile: ./sut/rhypoparsr/Dockerfile
+    volumes:
+      - ./results/loading/rhypoparsr:/app/results/loading/rhypoparsr/
+      - ./results/polluted_files_csv/:/app/results/polluted_files_csv/
+      - ./sut/rhypoparsr/:/app/
+  clevercs-client:
+    build:
+      context: .
+      dockerfile: ./sut/clevercs/Dockerfile
+    volumes:
+      - ./results/loading/clevercs:/app/results/loading/clevercs
+      - ./results/polluted_files_csv/:/app/results/polluted_files_csv/
+      - ./sut/clevercs/:/app/
+      - ./sut/utils.py:/app/utils.py
+  libreoffice-client:
+    build:
+      context: .
+      dockerfile: ./sut/libreoffice/Dockerfile
+    volumes:
+      - ./results/loading/libreoffice:/app/results/loading/libreoffice
+      - ./results/polluted_files_csv/:/app/results/polluted_files_csv/
+      - ./sut/libreoffice/:/app/
+  univocity-client:
+    build:
+      context: .
+      dockerfile: ./sut/univocity/Dockerfile
+    volumes:
+      - ./results/loading/univocity:/app/results/loading/univocity
+      - ./results/polluted_files_csv/:/app/results/polluted_files_csv/
+      - ./sut/univocity/:/app/
+  csvcommons-client:
+    build:
+      context: .
+      dockerfile: ./sut/opencsv/Dockerfile
+    volumes:
+      - ./results/loading/csvcommons:/app/results/loading/csvcommons/
+      - ./results/polluted_files_csv/:/app/results/polluted_files_csv/
+      - ./sut/csvcommons/:/app/
+
+volumes:
+  mariadb-tmp:
+  mysql-tmp:
+  postgres-tmp:
+
+networks:
+  mariadb-nw:
+  mysql-nw:
+  postgres-nw:
+  sqlite-nw:
