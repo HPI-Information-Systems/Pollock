@@ -3,143 +3,48 @@ Pollock is a benchmark for data loading on character-delimited files, developed 
 
 ## Setup
 
-The code is written using Python 3.8.5.
-If using a local (or virtual) environment, install dependencies with
+The code is to generate pollutions and evaluate the results is written using Python 3.8.5.
+If using a local (or virtual) Python environment, install dependencies with
 `pip install -r requirements.txt`
 Alternatively, if using a conda distribution on Linux, use:
 `conda env create --file pollock.yml`
+
+The code for running the benchmark is written using Docker (and docker-compose).
+We recommend the use of a unix-based system to run our benchmark.
+If docker-compose is installed in the system, all systems under test can be benchmarked with:
 
 ## Benchmark files
 For the complete list of benchmark files, expand the following table.
 <details>
 <summary>Pollock files</summary>
 
-|Pollution level | File name | Pollution type|
-|-------------------|-----------|-----------|
-|Standard file | source.csv | Standard file|
-|File name| source | File name without extension|
-| |" "| File name is a single breaking space, without extension|
-| |" .csv" | File name is a single breaking space|
-| |".csv"  | File name with the only extension|
-| |"source.tsv"| File name with the incorrect extension, suggesting plain-text data|
-| |"source.pdf"| File name with the incorrect extension, suggesting binary file |
-| |"source.loremipsumdolor"| File name with the incorrect extension, arbitrary|
-|File size| "file_size_0.csv" | Empty file, with a size of 0 bytes|
-| | "file_size_200.csv"| Very small file, with a size of 200 bytes|
-| | "file_size_1500000000.csv" | Very large file, with a size of 1.39GB |
-|File encoding | "file_encoding_latin_1.csv" | File encoded with latin-1 encoding.|
-| | "file_encoding_utf_16.csv" | File encoded with utf-16 encoding. |
-| | "file_encoding_utf_8.csv" | File encoded with utf-8 encoding|
-|Number of tables | "table_multitable_rows_10_less_cols.csv"| File with two tables, the first with 10 rows and less columns than the second, with no empty line to separate them.|
-| |"table_multitable_rows_10_less_cols_separated.csv" |File with two tables, the first with 10 rows and less columns than the second, with an empty line to separate them. |
-| |"table_multitable_rows_10_more_cols.csv"| File with two tables, the second with 10 rows and more columns than the first, with no empty line to separate them. |
-| |"table_multitable_rows_10_more_cols_separated.csv" | File with two tables, the second with 10 rows and more columns than the first, with an empty line to separate them.  |
-|Number of columns |"table_num_columns_1.csv" | File with a single column|
-| |"table_num_columns_1024.csv"| File with 1024 columns|
-| |"table_num_columns_17000.csv" | File with 17000 columns|
-|Number of rows |"table_num_rows_1.csv"|File with a single row|
-| |"table_num_rows_70000.csv"|File with 70000 rows|
-| |"table_num_rows_99_no_header.csv" | File with 99 rows but no header|
-|Metadata rows |"table_preamble_3_delimited.csv" | File with three preamble rows, delimited, not separated from the table|
-| |"table_preamble_3_delimited_empty_row.csv" | File with three preamble rows, delimited, separated from the table with an empty row|
-| |"table_preamble_3_not_delimited.csv" | File with three preamble rows, not delimited, not separated from the table.|
-| |"table_preamble_3_not_delimited_empty_row.csv" | File with three preamble rows, not delimited separated from the table with an empty row|
-| |"table_footnote_3_delimited.csv" | File with three footnote rows, delimited, not separated from the table|
-| |"table_footnote_3_delimited_empty_row.csv" | File with three footnote rows, delimited, separated from the table with an empty row|
-| |"table_footnote_3_not_delimited.csv" | File with three footnote rows, not delimited, not separated from the table.|
-| |"table_footnote_3_not_delimited_empty_row.csv" | File with three footnote rows, not delimited separated from the table with an empty row|
-|Dialect | "table_record_delimiter_0xA.csv"| File where rows end with the LF character.|
-| |"table_record_delimiter_0xD.csv" | File where rows end with the CR character.|
-||table_field_delimiter_0x20.csv| File where fields are delimited with space|
-||table_field_delimiter_0x2C_0x20.csv| File where fields are delimited with comma and space|
-||table_field_delimiter_0x3A.csv| File where fields are delimited with colon|
-||table_field_delimiter_0x3B.csv| File where fields are delimited with semicolon|
-||table_field_delimiter_0x5C_0x74.csv| File where fields are delimited with the "\t" sequence|
-||table_field_delimiter_0x7C.csv| File where fields are delimited with the pipe symbol|
-||table_field_delimiter_0x9.csv| File where fields are delimited with tab|
-||table_field_delimiter_0x9_0x9.csv| File where fields are delimited with double tab|
-||table_quotation_char_0x22.csv| File where the quotation character is the double quote character|
-||table_quotation_char_0x22_0x20.csv| File where the quotation character is the sequence of double quote and space|
-||table_quotation_char_0x27.csv| File where the quotation character is the apostrophe|
-||table_escape_char_0x22_0x22.csv| File where the escape character is the sequence of two double quotes|
-||table_escape_char_0x5C.csv| File where the escape character is the backslash|
-|Row Structure|row_n_fields_1_empty.csv| File where the header row is empty|
-||row_n_fields_1_less.csv| File where the header row has less fields than the others|
-||row_n_fields_1_more.csv| File where the header row has more fields than the others|
-||row_n_fields_2_empty.csv| File where the first data row is empty|
-||row_n_fields_2_less.csv| File where the first data row has less fields than the others|
-||row_n_fields_2_more.csv| File where the first data row has more fields than the others|
-||row_n_fields_50_empty.csv| File where the 50th data row is empty|
-||row_n_fields_50_less.csv| File where the 50th data row has less fields than the others|
-||row_n_fields_50_more.csv| File where the 50th data row has more fields than the others|
-||row_n_fields_last()-0_empty.csv| File where the last data row is empty|
-||row_n_fields_last()-0_less.csv|File where the last data row has less fields than the others|
-||row_n_fields_last()-0_more.csv|File where the last data row has more fields than the others|
-|Row Dialect|row_record_delimiter_1_0xA.csv| File where only the header row ends with the LF character|
-||row_record_delimiter_2_0xA.csv|File where only the first data row ends with the LF character|
-||row_record_delimiter_50_0xA.csv| File where only the 50th row ends with the LF character|
-||row_record_delimiter_last()-0_0xA.csv| File where only the last row ends with the LF character|
-||row_field_delimiter_1_0x3B.csv| File where only the header row is delimited with semicolon|
-||row_field_delimiter_2_0x3B.csv| File where only the first data row is delimited with semicolon|
-||row_field_delimiter_50_0x3B.csv| File where only the 50th row is delimited with semicolon|
-||row_field_delimiter_last()-0_0x3B.csv| File where only the last row is delimited with semicolon|
-||row_quotation_mark_1_0x27.csv| File where only the header row is quoted with apostrophe|
-||row_quotation_mark_2_0x27.csv| File where only the first data row is quoted with apostrophe|
-||row_quotation_mark_50_0x27.csv| File where only the 50th row is quoted with apostrophe|
-||row_quotation_mark_last()-0_0x27.csv| File where only the last row is quoted with apostrophe|
-||row_escape_char_1_0x5C.csv| File where only the header row is escaped with backslash|
-||row_escape_char_2_0x5C.csv| File where only the first data row is escaped with backslash|
-||row_escape_char_50_0x5C.csv| File where only the 50th row is escaped with backslash|
-||row_escape_char_last()-0_0x5C.csv| File where only the last row is escaped with backslash|
-|Column Header|column_header_[1, 2]_regular_nonunique.csv| File where the first two columns have the same header|
-||column_header_1_empty_nonalnum.csv| File where the first column header is empty|
-||column_header_1_large.csv| File where the first column header is larger than 255 characters|
-||column_header_1_regular_multiple.csv| File where the first column header spans multiple rows|
-||column_header_1_regular_nonalnum.csv| File where the first column header contains the percentage symbol|
-||column_header_3_empty_nonalnum.csv|File where the 3rd column header is empty|
-||column_header_3_large.csv|File where the 3rd column header is larger than 255 characters|
-||column_header_3_regular_multiple.csv|File where the 3rd column header spans multiple rows|
-||column_header_3_regular_nonalnum.csv|File where the 3rd column header contains the percentage symbol|
-||column_header_last()-0_empty_nonalnum.csv|File where the last column header is empty|
-||column_header_last()-0_large.csv|File where the last column header is larger than 255 characters|
-||column_header_last()-0_regular_multiple.csv|File where the last column header spans multiple rows|
-||column_header_last()-0_regular_nonalnum.csv|File where the last column header contains the percentage symbol|
-|Column Format|column_heterogeneous_format_col1_row_-1.csv| File where the value in last row has a different format in the first column|
-||column_heterogeneous_format_col1_row_2.csv|File where the value in the first data row has a different format in the first column|
-||column_heterogeneous_format_col1_row_50.csv|File where the value in the 50th data row has a different format in the first column|
-||column_heterogeneous_format_col1_row_range(1, 50).csv|File where the first half of the rows in the first column has a different format in the first column|
-||column_heterogeneous_format_col1_row_range(30, 80).csv|File where half the rows in the middle of the file have a different format in the first column|
-||column_heterogeneous_format_col1_row_range(50, 100).csv| File where the second half of the rows have a different format in the first column|
-||column_heterogeneous_format_col2_row_-1.csv|File where the value in last row has a different format in the second column|
-||column_heterogeneous_format_col2_row_2.csv|File where the value in the first data row has a different format in the second column|
-||column_heterogeneous_format_col2_row_50.csv|File where the value in the 50th data row has a different format in the second column|
-||column_heterogeneous_format_col2_row_range(1, 50).csv|File where the first half of the rows in the first column has a different format in the second column|
-||column_heterogeneous_format_col2_row_range(30, 80).csv|File where half the rows in the middle of the file have a different format in the second column|
-||column_heterogeneous_format_col2_row_range(50, 100).csv|File where the second half of the rows have a different format in the second column|
-||column_heterogeneous_format_col3_row_-1.csv|File where the value in last row has a different format in the third column|
-||column_heterogeneous_format_col3_row_2.csv|File where the value in the first data row has a different format in the third column|
-||column_heterogeneous_format_col3_row_50.csv|File where the value in the 50th data row has a different format in the third column|
-||column_heterogeneous_format_col3_row_range(1, 50).csv|File where the first half of the rows in the first column has a different format in the third column|
-||column_heterogeneous_format_col3_row_range(30, 80).csv|File where half the rows in the middle of the file have a different format in the third column|
-||column_heterogeneous_format_col3_row_range(50, 100).csv|File where the second half of the rows have a different format in the third column|
-||column_heterogeneous_format_col4_row_-1.csv|File where the value in last row has a different format in the fourth column|
-||column_heterogeneous_format_col4_row_2.csv|File where the value in the first data row has a different format in the fourth column|
-||column_heterogeneous_format_col4_row_50.csv|File where the value in the 50th data row has a different format in the fourth column|
-||column_heterogeneous_format_col4_row_range(1, 50).csv|File where the first half of the rows in the first column has a different format in the fourth column|
-||column_heterogeneous_format_col4_row_range(30, 80).csv|File where half the rows in the middle of the file have a different format in the fourth column|
-||column_heterogeneous_format_col4_row_range(50, 100).csv|File where the second half of the rows have a different format in the fourth column|
-||column_heterogeneous_format_col5_row_-1.csv|File where the value in last row has a different format in the fifth column|
-||column_heterogeneous_format_col5_row_2.csv|File where the value in the first data row has a different format in the fifth column|
-||column_heterogeneous_format_col5_row_50.csv|File where the value in the 50th data row has a different format in the fifth column|
-||column_heterogeneous_format_col5_row_range(1, 50).csv|File where the first half of the rows in the first column has a different format in the fifth column|
-||column_heterogeneous_format_col5_row_range(30, 80).csv|File where half the rows in the middle of the file have a different format in the fifth column|
-||column_heterogeneous_format_col5_row_range(50, 100).csv|File where the second half of the rows have a different format in the fifth column|
-||column_heterogeneous_format_col8_row_-1.csv|File where the value in last row has a different format in the eighth column|
-||column_heterogeneous_format_col8_row_2.csv|File where the value in the first data row has a different format in the eighth column|
-||column_heterogeneous_format_col8_row_50.csv|File where the value in the 50th data row has a different format in the eighth column|
-||column_heterogeneous_format_col8_row_range(1, 50).csv|File where the first half of the rows in the first column has a different format in the eighth column|
-||column_heterogeneous_format_col8_row_range(30, 80).csv|File where half the rows in the middle of the file have a different format in the eighth column|
-||column_heterogeneous_format_col8_row_range(50, 100).csv|File where the second half of the rows have a different format in the eighth column|
+| Pollution level                                | File name                                                                                                                           | Pollution type|
+|------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| Standard file                                  | source.csv                                                                                                                          | Standard file|
+| File and table pollution (12 files)            | file_no_payload.csv                                                                                                                 |Empty file, with a size of 0 bytes|
+|                                                | file_no_trailing_newline.csv                                                                                                        | File terminated without a newline sequence|
+|                                                | file_double_trailing_newline.csv                                                                                                    | File terminated with a double newline sequence| 
+|                                                | file_no_header.csv                                                                                                                  |File where there is no header row|
+|                                                | file_header_multirow_2.csv                                                                                                          |File where there are two header rows.|
+|                                                | file_header_multirow_3.csv                                                                                                          | File where are three header rows.|
+|                                                | file_preamble.csv                                                                                                                   | File with a preamble rows delimited from the rest of the file with an empty row.|
+|                                                | file_multitable_less.csv                                                                                                            |File with two tables, the first with less columns than the second.|
+|                                                | file_multitable_more.csv                                                                                                            |File with two tables, the first with more columns than the second.|
+|                                                | file_multitable_same.csv                                                                                                            |File with two tables with the same number of columns.|
+|                                                | file_header_only.csv                                                                                                                |File with only header row.|
+|                                                | file_one_data_row.csv                                                                                                               |File with a single data row.|
+| Inconsistent number of delimiters (1428 files) | row_less_sep_rowX_colY.csv                                                                                                          |File where row X has a missing delimiter corresponding to column Y (672 files, one for each row/col combination except first column)|
+|                                                | row_more_sep_rowX_colY.csv                                                                                                          |File where row X has an extra delimiter corresponding to column Y (756 files, one for each row/col combination)|
+| Structural character change (847 files)        | file_field_delimiter_0x20.csv                                                                                                       |File where fields are delimited with space.|
+|                                                | file_field_delimiter_0x2C_0x20.csv             | File where fields are delimited with comma and space.                                                                               |
+|                                                | file_field_delimiter_0x3B.csv                  | File where fields are delimited with semicolon.                                                                                     |
+|                                                | file_field_delimiter_0x9.csv                   | File where fields are delimited with tab.                                                                                           |
+|                                                | file_quotation_char_0x27.csv                   | File where the quotation character is the apostrophe.                                                                               |
+|                                                | file_record_delimiter_0xA.csv                  | File where rows end with the LF character.                                                                                          |
+|                                                | file_record_delimiter_0xD.csv                  | File where rows end with the CR character.                                                                                          |
+|                                                | row_extra_quoteX_colY.csv                      | File where the cell in row X and column Y has an extra, unescaped quotation character (756 files, one for each row/col combination) |
+|                                                | row_field_delimiter_X_0x20.csv                 | File where only row X is delimited with the space character (84 files one for each row)                                             |
+
 
 </details>
 
@@ -153,23 +58,63 @@ The former contains the generated polluted files in the .csv format, while the l
 
 ## Running the benchmark
 
-To benchmark a specific system, load all the files in the "files/polluted_files_csv" folder and export them back in csv format in a new folder.
-Then, use the benchmark.py script with the following command:
+The structure of the project is the following:
 
-`python3 benchmark.py --sut sut_folder`
+- `pollock` is the main source folder for the Pollock benchmark: it contains the files necessary to generate the polluted versions of an input file (`polluters_base.py` and `polluters_stdlib.py`) as well as the files with the metrics to evaluate results of data loading.
+- `sut` is the source folder that contains the scripts used to benchmark given systems. These scripts can be in bash, python, or heterogeneous format, depending on the specific tool that is under test.
+- The two files `pollute_main.py` and `evaluate.py` are used to run the pollution of a source file and to evaluate all systems under test that have a folder in `results/loading`
+- `results` contains the results of the pollution (`polluted_files_csv`, `polluted_files_xml`) as well as those of the loading by each of the systems (`loading`). The folder will also contain `.csv` files that summarize the evaluation results - for each of the systems under test and for all of them together (`aggregate_results.csv`, `global_results.csv`)
+- `files` contains the sample csv files used to sample pollutions and generate the input file `source.csv`, along with their annotations.
+
+### Create source file pollutions: 
+First, to run the pollutions and recreate the content of `polluted_files_csv`, run:
+
+`python3 pollute_main.py`
+
+### Benchmarking SUT(s)
+To run the overall benchmark on all systems, use the command:
+`chmod +x benchmark.sh && benchmark.sh`
+
+To benchmark a specific system, you can use the Docker configurations in the file `docker-compose.yml`.
+For example, to benchmark the python csv module:
+
+`docker-compose up pycsv-client`
+
+To benchmark the RDBMS systems, make sure to first run the corresponding server first, for example:
+
+`docker-compose up postgres-server`
+and, once the server is up and running:
+`docker-compose up postgres-client`
 
 The script reports the overall success, completeness, and conciseness score and outputs the specific results for each of the benchmark files in a CSV file, whose path can be specified with the --result parameter.
 For the full list of parameters, run:
 
+`chmod +x benchmark.sh && ./benchmark.sh'`
+
+### Experimental results
+After running the benchmark for a given SUTs, the corresponding output files will be a corresponding folder in the `sut/loading/` directory.
+Alternatively, the resulting files can be found in the repository under the `sut/archives/` folder as `.zip` files.
+We also include archives for the `spreadweb`, `spreaddesktop`, and `dataviz` systems, for which due to their commercial nature, we do not share the scripts to obtain the output files.
+
+To run the evaluation without running the benchmark, extract each `.zip` file in the `sut/loading/` folder, and then run the evaluation script:
+`unzip sut/archives/pycsv.zip -qd sut/loading/ `
+`python3 evaluate.py `
+
+The script outputs the benchmark scores for each of the polluted files in a csv file under `results/measures/` for each of the systems.
+Moreover, all results are saved in the file `results/global_results.csv` and aggregated in the file `results/aggregate_results.csv`.
+
+To benchmark a specific system, run the `benchmark.py` script with the `--sut` argument followed by the name of the corresponding system folder, e.g.:
+
+`python3 evaluate.py --sut mysql`
+
+(This command updates the `global_results.csv` and `aggregate_results.csv` files).
+
+For the full list of parameters, run:
+
 `python3 benchmark.py --help`
 
-## Experimental results
-
-In the repository we include the result files of the benchmark on four different systems:
- - A spreadsheet system, named 'ss'
- - A data science programming framework, named 'ds'
- - A relational dbms, named 'db'
- - A data visualization and business intelligence tool, named 'bi'
-
-For each of these systems, the resulting files from loading polluted files of our benchmark can be found in the file 'sut/systems.tar.gz'.
-Extracting these files, users can reproduce the experimental results reported in our benchmark paper.
+In the repository we include the pollution output, and the result files of the benchmark on 16 different systems:
+ - 6 csv loading modules: `clevercsv`,`csvcommons`,`hypoparsr`,`opencsv`,`pandas`,`pycsv`,`rcsv`, `univocity`
+ - 4 rdbms: `mariadb`,`mysql`,`postgres`,`sqlite`
+ - 3 spreadsheet systems: `libreoffice`,`spreaddesktop`,`spreadweb`
+ - A data visualization tool, `dataviz`

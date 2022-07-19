@@ -5,15 +5,11 @@ from price_parser import Price
 
 warnings.simplefilter(action='ignore', category=UnknownTimezoneWarning)
 
-import datetime
 from backports.datetime_fromisoformat import MonkeyPatch
 
 MonkeyPatch.patch_fromisoformat()
 
-import re
-import numpy as np
 import dateutil.parser
-import dateparser
 
 
 class CellType():
@@ -34,7 +30,6 @@ class customDateParserInfo(dateutil.parser.parserinfo):
 def parse_cell(val, strip_comma=False):
     """ If stripping comma, strips comma to recognize integers, otherwise transforms them into full stops for floating points.
     """
-    # if cell_length else CellType.EMPTY
 
     if not val.split() or val.isspace():
         return CellType.EMPTY
@@ -67,7 +62,6 @@ def parse_cell(val, strip_comma=False):
     except ValueError:
         pass
     except TypeError:
-        # print("\tTypeError parsing cell as date:", val)
         pass
     price = Price.fromstring(val)
     if (price.currency is not None) and (price.amount is not None):
@@ -84,9 +78,6 @@ def normalize_cell(cell):
     else:
         val = "".join([v.text or "" for v in cell if v.tag == "value"])
 
-    # try:
-    #     typ = cell.attrib["type"]
-    # except KeyError:
     typ = parse_cell(val, False)
 
     if typ == CellType.BOOLEAN:

@@ -8,7 +8,6 @@ from . import polluters_base as pb
 from .CSVFile import CSVFile, create_cell
 from lxml.builder import E
 
-# STRING etree.tostring(root)
 def dummyPolluter(file: CSVFile):
     pass
 
@@ -18,15 +17,15 @@ def changeFilename(file: CSVFile, target_name):
     file.xml.getroot().attrib["filename"] = target_name
 
 
-# target_dimension is number of bytes, -1 leaves it intact
 def changeDimension(file: CSVFile, target_dimension=-1):
+    """ target_dimension is number of bytes, -1 leaves it intact
+    """
     content = []
     for i in range(file.row_count):
         content += ["".join([x for x in file.xml.xpath(f"//row[{i + 1}]//node()[not(node())]")])]
     textcontent = "".join(content)
     cur_size = len(textcontent)
 
-    # last_row_cells = content[-1].split(file.record_delimiter)[0].split(file.field_delimiter)
     last_row_cells = [x for x in file.xml.xpath("//row[last()]//cell")]
     last_row_content = ["".join(v.text) for c in last_row_cells for v in c if v.tag == "value"]
 
@@ -48,7 +47,6 @@ def changeDimension(file: CSVFile, target_dimension=-1):
     return
 
 
-# ToDo: Make in such a way that the file includes one encoding-specific char
 def changeEncoding(file: CSVFile, target_encoding: constants.Encoding):
     target = target_encoding.value if type(target_encoding) == constants.Encoding else target_encoding
     assert (target in constants.Encoding.supported_encodings.value)
@@ -76,10 +74,6 @@ def changeNumberColumns(file: CSVFile, target_number_cols: int):
         pb.addColumns(file, -1, col_names=["col" + str(i + 1) for i in rn], n_cols=len(rn), cell_content=content, role=roles)
         print("took", time.time() - t, "seconds")
 
-        # t = time.time()
-        # for i in range(file.col_count, target_number_cols):
-        # pb.addColumn(file,-1, col_name = "col"+str(i+1), cell_content= "PAD")
-        # print("took", time.time()-t,"seconds")
     file.filename = "file_num_columns_" + str(target_number_cols) + ".csv"
     file.xml.getroot().attrib["filename"] = file.filename
     return
@@ -88,8 +82,6 @@ def changeNumberColumns(file: CSVFile, target_number_cols: int):
 def changeNumberRows(file: CSVFile, target_number_rows: int, remove_header=False):
     last_row_cells = [x for x in file.xml.xpath("//row[last()]//cell")]
     last_row_content = ["".join(v.text) for c in last_row_cells for v in c if v.tag == "value"]
-
-    # last_row_cells = content[-1].split(file.record_delimiter)[0].split(file.field_delimiter)
 
     if remove_header:
         pb.deleteRows(file, [0])
@@ -177,7 +169,7 @@ def changeRecordDelimiter(file: CSVFile, target_delimiter="\r\n"):
     file.xml.getroot().attrib["filename"] = file.filename
 
 
-def changeFieldDelimiter(file: CSVFile, target_delimiter=";", fixed_width=False):
+def changeFieldDelimiter(file: CSVFile, target_delimiter=";"):
     file.field_delimiter = target_delimiter
     root = file.xml.getroot()
     query = root.xpath(f"//field_delimiter")
@@ -408,9 +400,6 @@ def changeColumnHeader(file: CSVFile, col: int =None, target_header=None, extra_
     if not target_header.isalnum():
         strtype += "_nonalnum"
 
-    # if invalid_characters in target_header:
-    #     strytype = "invalid"
-
     file.filename = f"column_header_{col}_{strtype}{'_multiple' if extra_rows > 0 else ''}{'_nonunique' if type(col) == list else ''}.csv"
     file.xml.getroot().attrib["filename"] = file.filename
 
@@ -507,18 +496,14 @@ def addTable(file: CSVFile, n_rows, n_cols, empty_boundary=True):
     random.seed(constants.RAND_SEED)
     root = file.xml.getroot()
     old_table = root.xpath("//table")[0]
-    new_table = etree.SubElement(root, "table")
 
     content = []
     for i in range(n_rows):
-        # content += ["".join([x for x in first_table.xpath(f"//row[{i+1}]//node()[not(node())]")])]
         content += [[x.text for x in old_table.xpath(f"//row[{i + 1}]//value")]]
 
     for i in range(n_rows):
         row_cells = content[i]
         pb.addRows(file, cell_content=row_cells, n_rows=1, position=file.row_count+1, table=1)
-
-    # Shuffle cols somewhere
 
     if n_cols == file.col_count:
         strtype = "same"
@@ -546,8 +531,6 @@ def addTable(file: CSVFile, n_rows, n_cols, empty_boundary=True):
 def changeColumnFormat(file: CSVFile, col=1, row=1):
     """Changes the syntactic values of a column, either in one cell or in multiple cells (expressable with an iterable)
     """
-    root = file.xml.getroot()
-    cells = []
     try:
         for r in row:
             pb.changeCellFormat(file, r, col)

@@ -1,4 +1,4 @@
-"""Code from https://github.com/thomst/timeparser/"""
+"""Code ported to Python 3 from https://github.com/thomst/timeparser/"""
 """
 Parse strings to objects of :mod:`datetime`.
 
