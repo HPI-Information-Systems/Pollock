@@ -3,11 +3,13 @@ channels:
   - defaults
 dependencies:
  - chardet == 4.0.0
- - dateparser == 1.0.0
+ - dateparser == 1.1.1
  - lxml == 4.6.1
- - multiset == 2.1.1
- - numpy == 1.19.2
- - pandas == 1.1.4
-  - pip:
+ - pip:
     - backports_datetime_fromisoformat == 1.0.0
     - python_dateutil == 2.8.1
+    - multiset == 3.0.1
+    - numpy == 1.19.5
+    - pandas == 1.2.2
+    - clevercsv==0.7.4
+    - price-parser==0.3.4

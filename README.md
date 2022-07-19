@@ -89,7 +89,7 @@ and, once the server is up and running:
 The script reports the overall success, completeness, and conciseness score and outputs the specific results for each of the benchmark files in a CSV file, whose path can be specified with the --result parameter.
 For the full list of parameters, run:
 
-`chmod +x benchmark.sh && ./benchmark.sh'`
+`chmod +x benchmark.sh && ./benchmark.sh`
 
 ### Experimental results
 After running the benchmark for a given SUTs, the corresponding output files will be a corresponding folder in the `sut/loading/` directory.

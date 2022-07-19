@@ -503,7 +503,7 @@ def addTable(file: CSVFile, n_rows, n_cols, empty_boundary=True):
 
     for i in range(n_rows):
         row_cells = content[i]
-        pb.addRows(file, cell_content=row_cells, n_rows=1, position=file.row_count+1, table=1)
+        pb.addRows(file, cell_content=row_cells, n_rows=1, position=file.row_count + 1, table=1)
 
     if n_cols == file.col_count:
         strtype = "same"
@@ -519,7 +519,7 @@ def addTable(file: CSVFile, n_rows, n_cols, empty_boundary=True):
         for i in range(1, n_rows):
             content += [file.xml.xpath(f"//table[1]//row[{i + 1}]/cell[last()]/value")[0].text]
 
-        pb.addColumns(file, position=file.col_count+1, n_cols=cols_add, col_names=col_names, cell_content=content, table=1)
+        pb.addColumns(file, position=file.col_count + 1, n_cols=cols_add, col_names=col_names, cell_content=content, table=1)
 
     if empty_boundary:
         pb.addRows(file, cell_content="", n_rows=1, position=0, table=1)
