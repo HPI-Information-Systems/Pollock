@@ -8,9 +8,9 @@ from sut.utils import print
 from pollock.CSVFile import CSVFile
 import argparse
 
-def evaluate_single_file(polluted_dir, result_dir, filename, sut="", verbose=False):
-    if type(filename) == list:
-        filename, sut, verbose = filename[0], filename[1], filename[2]
+def evaluate_single_file(polluted_dir, result_dir="", filename="", sut="", verbose=False):
+    if type(polluted_dir) == list: #Required for multiprocessing
+        polluted_dir, result_dir, filename, sut, verbose = polluted_dir[0], polluted_dir[1], polluted_dir[2], polluted_dir[3], polluted_dir[4]
     sut_dir = f"{result_dir}/loading/{sut}/"
 
     dict_measures = {"file": filename}
@@ -64,7 +64,6 @@ def evaluate_single_run(polluted_dir, result_dir, sut, verbose=False, njobs=-1):
                                      [sut] * len(filenames),
                                      [verbose] * len(filenames))]
         file_measures = pqdm(args, evaluate_single_file, n_jobs=njobs)
-
     results_df = pd.DataFrame(file_measures)
     result_file = f"{result_dir}/measures/{sut}_results.csv"
     results_df.to_csv(result_file, index=False)

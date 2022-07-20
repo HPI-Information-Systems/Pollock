@@ -97,7 +97,8 @@ Alternatively, the resulting files can be found in the repository under the `sut
 We also include archives for the `spreadweb`, `spreaddesktop`, and `dataviz` systems, for which due to their commercial nature, we do not share the scripts to obtain the output files.
 
 To run the evaluation without running the benchmark, extract each `.zip` file in the `sut/loading/` folder, and then run the evaluation script:
-`unzip sut/archives/pycsv.zip -qd sut/loading/ `
+
+`unzip -qd sut/loading/ sut/archives/pycsv.zip`
 `python3 evaluate.py `
 
 The script outputs the benchmark scores for each of the polluted files in a csv file under `results/measures/` for each of the systems.

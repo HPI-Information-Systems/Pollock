@@ -81,6 +81,7 @@ class CSVFile:
             with open(filename, newline='', encoding=encoding) as csvfile:
                 dialect = csv.Sniffer().sniff(csvfile.read())
                 csvfile.seek(0)
+                content = list(csv.reader(csvfile, dialect))
                 self.field_delimiter = dialect.delimiter
                 self.record_delimiter = dialect.lineterminator
                 self.quotation_char = dialect.quotechar
@@ -99,7 +100,7 @@ class CSVFile:
         self.quote_all = quote_all
 
         dialect = SimpleDialect(self.field_delimiter, self.quotation_char, "")
-        for idx, row in enumerate(parse_string(data, dialect, return_quoted=True)):
+        for idx,row in enumerate(parse_string(data, dialect, return_quoted=True)):
             r = etree.SubElement(table, "row")
             n_cells = len(row)
             for j, (cell, is_quoted) in enumerate(row):
@@ -111,13 +112,13 @@ class CSVFile:
 
                 if j < n_cells - 1:
                     delimiter = E.field_delimiter(self.field_delimiter)
-                    r.insert(len(r), delimiter)
+                    r.insert(len(r),delimiter)
 
             self.xmlrows += [r]
             if len(row) > self.col_count:
                 self.col_count = len(row)
             row_delimiter = E.record_delimiter(self.record_delimiter)
-            r.insert(len(r), row_delimiter)
+            r.insert(len(r),row_delimiter)
 
         self.xml = etree.ElementTree(root)
         self.row_count = idx + 1

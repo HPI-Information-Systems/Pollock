@@ -7,6 +7,7 @@ from lxml import etree
 from lxml.builder import E
 from .data_types import parse_cell, CellType, customDateParserInfo
 
+
 def addCells(file: CSVFile, row, position, n_cells=1, content="", role="", table=0):
     """
         Inserts a cell in a row in the given position (with the corresponding delimiter)
@@ -103,8 +104,6 @@ def addColumns(file: CSVFile, position, n_cols: int, col_names: list, cell_conte
             r.insert(row_pos, cell)
             r.insert(row_pos, delimiter) if row_pos > 0 else r.insert(row_pos + 1, delimiter)
 
-    print("".join(map(lambda x: x.text, root.xpath(f"//row[position()<5]//*[not(*)]"))))
-
 
 def changeCell(file: CSVFile, row: int, col: int, new_content, table=0):
     root = file.xml.getroot()
@@ -121,6 +120,7 @@ def changeCell(file: CSVFile, row: int, col: int, new_content, table=0):
     for c in query:
         [c.remove(child) for child in c]
         insert_value_cell(file, c, new_content)
+
 
 def deleteCells(file: CSVFile, row: int, col, table=0):
     """ Col can either be an int, a list or '*'

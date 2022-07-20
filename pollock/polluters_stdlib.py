@@ -492,10 +492,10 @@ def addTable(file: CSVFile, n_rows, n_cols, empty_boundary=True):
     """Adds a table after the first one with n_rows and n_cols.
        Additionally, can be specified if the two are separated by empty delimited rows or not.
     """
-
     random.seed(constants.RAND_SEED)
     root = file.xml.getroot()
     old_table = root.xpath("//table")[0]
+    new_table = etree.SubElement(root, "table")
 
     content = []
     for i in range(n_rows):
