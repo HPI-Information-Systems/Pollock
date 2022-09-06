@@ -13,7 +13,27 @@ The code for running the benchmark is written using Docker (and docker-compose).
 We recommend the use of a unix-based system to run our benchmark.
 If docker-compose is installed in the system, all systems under test can be benchmarked with:
 
+## Running the benchmark
+
+The structure of the project is the following:
+
+- `pollock` is the main source folder for the Pollock benchmark: it contains the files necessary to generate the polluted versions of an input file (`polluters_base.py` and `polluters_stdlib.py`) as well as the files with the metrics to evaluate results of data loading.
+- `sut` is the source folder that contains the scripts used to benchmark given systems. These scripts can be in bash, python, or heterogeneous format, depending on the specific tool that is under test.
+- The two files `pollute_main.py` and `evaluate.py` are used to run the pollution of a source file and to evaluate all systems under test that have a folder in `results/loading`
+- `results` contains the results of the pollution (`polluted_files_csv`, `polluted_files_xml`) as well as those of the loading by each of the systems (`loading`). The folder will also contain `.csv` files that summarize the evaluation results - for each of the systems under test and for all of them together (`aggregate_results.csv`, `global_results.csv`)
+- `files` contains the sample csv files used to sample the pollution space, along with their annotations.
+
+
 ## Benchmark files
+The files composing the benchmark are contained in the folder (results/polluted_files_csv/).
+The same files can be programmatically generated from the source file (results/source.csv), by running the command:
+
+`python3 pollute_main.py`
+
+The script produces the set of benchmark files in the two folders "results/polluted_files_csv/" and "results/polluted_files_xml/".
+The former contains the generated polluted files in the .csv format, while the latter their XML trees with metadata attributes.
+
+
 For the complete list of benchmark files, expand the following table.
 <details>
 <summary>Pollock files</summary>
@@ -47,24 +67,6 @@ For the complete list of benchmark files, expand the following table.
 
 
 </details>
-
-Due to the GitHub file policy, the files composing the benchmark are contained in a compressed file (files/polluted.tar.gz).
-The same files can be programmatically generated from the source file (files/source.csv), by running the command:
-
-`python3 pollute_main.py`
-
-The script produces the set of benchmark files in the two folders "files/polluted_files_csv/" and "files/polluted_files_xml/".
-The former contains the generated polluted files in the .csv format, while the latter their XML trees with metadata attributes.
-
-## Running the benchmark
-
-The structure of the project is the following:
-
-- `pollock` is the main source folder for the Pollock benchmark: it contains the files necessary to generate the polluted versions of an input file (`polluters_base.py` and `polluters_stdlib.py`) as well as the files with the metrics to evaluate results of data loading.
-- `sut` is the source folder that contains the scripts used to benchmark given systems. These scripts can be in bash, python, or heterogeneous format, depending on the specific tool that is under test.
-- The two files `pollute_main.py` and `evaluate.py` are used to run the pollution of a source file and to evaluate all systems under test that have a folder in `results/loading`
-- `results` contains the results of the pollution (`polluted_files_csv`, `polluted_files_xml`) as well as those of the loading by each of the systems (`loading`). The folder will also contain `.csv` files that summarize the evaluation results - for each of the systems under test and for all of them together (`aggregate_results.csv`, `global_results.csv`)
-- `files` contains the sample csv files used to sample pollutions and generate the input file `source.csv`, along with their annotations.
 
 ### Create source file pollutions: 
 First, to run the pollutions and recreate the content of `polluted_files_csv`, run:
