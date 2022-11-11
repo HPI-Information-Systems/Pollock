@@ -1,11 +1,10 @@
-import pdb
 import random
 import string
 import time
 from lxml import etree
 from . import constants
 from . import polluters_base as pb
-from .CSVFile import CSVFile, create_cell
+from .CSVFile import CSVFile
 from lxml.builder import E
 
 def dummyPolluter(file: CSVFile):
@@ -496,6 +495,7 @@ def addTable(file: CSVFile, n_rows, n_cols, empty_boundary=True):
     """Adds a table after the first one with n_rows and n_cols.
        Additionally, can be specified if the two are separated by empty delimited rows or not.
     """
+
     random.seed(constants.RAND_SEED)
     root = file.xml.getroot()
     old_table = root.xpath("//table")[0]

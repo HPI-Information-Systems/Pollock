@@ -7,4 +7,4 @@ COPY ./sut/opencsv/commons-lang3-3.12.0.jar ./
 COPY ./sut/opencsv/run-java.sh ./run-java.sh
 
 RUN chmod +x run-java.sh
-CMD ./run-java.sh
+CMD /bin/bash ./run-java.sh

@@ -13,9 +13,10 @@ The structure of the repository is the following:
 - The two files `pollute_main.py` and `evaluate.py` are used to run the pollution of a source file and to evaluate all systems under test that have a folder in `results/loading`
 
 
-## Preliminary steps: environment setup and file pollution
+## Running the benchmark
 
 The results of the Pollock benchmark can be obtained in three steps:
+
     1. Generating the polluted versions of the source files
     2. Loading the polluted files in each SUT.
     3. Calculating the Pollock scores with the output files for each SUT.
@@ -36,6 +37,8 @@ The following command will build the docker image to generate the polluted files
 After this step, the set of benchmark files are contained in the two folders "results/polluted_files_csv/" and "results/polluted_files_xml/".
 The former contains the generated polluted files in the .csv format, while the latter their XML trees with metadata attributes.
 The results of this steps can be found in the repository under `results/polluted_files_csv/` and `results/polluted_files_xml/`.
+The files in the repository uses Git Large File Storage (LFS), so to correctly load their contents use:
+```git lfs checkout```.
 
 ### Step 2: Loading polluted files in each SUT
 Once the folder `results/polluted_files_csv/` contains the polluted files, the next step is to load them in each of the systems under test. 

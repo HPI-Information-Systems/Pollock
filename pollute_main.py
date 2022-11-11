@@ -78,3 +78,5 @@ execute_polluter(f, pl.changeQuotationChar, target_char="\u0027")
 # Change escape character : 2 files
 execute_polluter(f, pl.changeEscapeCharacter, target_escape="\u005C") #backslash
 execute_polluter(f, pl.changeEscapeCharacter, target_escape="")
+
+print("Pollution process complete.")
