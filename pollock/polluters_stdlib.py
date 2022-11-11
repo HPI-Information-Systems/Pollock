@@ -189,9 +189,13 @@ def changeEscapeCharacter(file: CSVFile, target_escape="\\"):
     for e in query:
         e.text = target_escape
 
-    vals = [ord(x) for x in target_escape]
-    e_string = ''.join([f'_0x{v:X}' for v in vals])
-    file.filename = f"file_escape_char{e_string}.csv"
+    if target_escape != '':
+        vals = [ord(x) for x in target_escape]
+        e_string = ''.join([f'_0x{v:X}' for v in vals])
+        file.filename = f"file_escape_char{e_string}.csv"
+    else:
+        file.filename = f"file_escape_char_0x00.csv"
+
     file.xml.getroot().attrib["filename"] = file.filename
 
 

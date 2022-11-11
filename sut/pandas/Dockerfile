@@ -1,10 +1,10 @@
-FROM python:3.10.5-slim
+FROM python:3.10.5
 
 WORKDIR /app
-COPY ./sut/pandas/panda.py ./
-COPY ./sut/pandas/pandas-requirements.txt ./
+COPY ./sut/postgres/postgresql.py ./
+COPY ./sut/postgres/postgres-requirements.txt ./
 COPY ./sut/utils.py ./
 
-RUN pip install --no-cache-dir -r pandas-requirements.txt
+RUN pip install --no-cache-dir -r postgres-requirements.txt
 
-CMD ["python3", "panda.py"]
+CMD ["python3", "postgresql.py"]

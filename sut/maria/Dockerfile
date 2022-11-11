@@ -1,11 +1,3 @@
-#FROM mariadb
-#ENV MYSQL_USER=benchmark
-#ENV MYSQL_PASSWORD=benchmark
-#ENV MYSQL_ROOT_PASSWORD=benchmark
-#ENV MYSQL_DATABASE=benchmark
-#ENV MYSQL_TCP_PORT=3307
-#ENV MYSQL_UNIX_PORT=3307
-
 FROM python:3.10.5-slim
 
 WORKDIR /app
@@ -17,7 +9,7 @@ RUN  apt-get update \
   && apt-get install -y wget curl software-properties-common python3-pip\
   && rm -rf /var/lib/apt/lists/*
 RUN wget https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-RUN echo "d4e4635eeb79b0e96483bd70703209c63da55a236eadd7397f769ee434d92ca8  mariadb_repo_setup" | sha256sum -c
+RUN echo "733cf126b03f73050e242102592658913d10829a5bf056ab77e7f864b3f8de1f  mariadb_repo_setup" | sha256sum -c
 RUN chmod +x mariadb_repo_setup
 RUN ./mariadb_repo_setup
 RUN apt-get -y install libmariadb3 libmariadb-dev libmariadbclient-dev

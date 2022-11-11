@@ -1,7 +1,3 @@
-#Full repository files
-files/gov_uk/
-files/mendeley/
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -1,20 +1,10 @@
-attrs==21.4.0
 backports-datetime-fromisoformat==1.0.0
-bounded-pool-executor==0.0.3
-certifi @ file:///opt/conda/conda-bld/certifi_1655968806487/work/certifi
-chardet @ file:///tmp/build/80754af9/chardet_1607706746162/work
+chardet==4.0.0
 clevercsv==0.7.4
-dateparser @ file:///opt/conda/conda-bld/dateparser_1649167553677/work
-lxml @ file:///tmp/build/80754af9/lxml_1603216285000/work
+dateparser==1.1.1
+lxml==4.9.1
 multiset==3.0.1
-numpy==1.19.5
 pandas==1.2.2
 pqdm==0.2.0
 price-parser==0.3.4
-python-dateutil==2.8.1
-pytz @ file:///opt/conda/conda-bld/pytz_1654762638606/work
-regex @ file:///opt/conda/conda-bld/regex_1642021319040/work
-six @ file:///tmp/build/80754af9/six_1644875935023/work
-tqdm==4.64.0
-typing_extensions==4.3.0
-tzlocal @ file:///tmp/build/80754af9/tzlocal_1597435729670/work
+scipy==1.5.4

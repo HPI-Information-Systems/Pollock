@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 RUN apt-get update -y
 RUN apt-get install -y python3 python3-dev build-essential wget
 

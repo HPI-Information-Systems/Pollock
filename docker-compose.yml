@@ -1,7 +1,7 @@
 version: "3"
 services:
   mariadb-server:
-    image: mariadb
+    image: mariadb:10.9.3
     container_name: mariadb-server
     environment:
       - MYSQL_USER=benchmark
@@ -31,7 +31,7 @@ services:
     networks:
       mariadb-nw:
   mysql-server:
-    image: mysql
+    image: mysql:8.0.31
     container_name: mysql-server
     environment:
       - MYSQL_USER=benchmark
@@ -62,7 +62,7 @@ services:
     networks:
       mysql-nw:
   postgres-server:
-    image: postgres
+    image: postgres:15.0
     container_name: postgres-server
     environment:
       - POSTGRES_USER=benchmark
@@ -170,11 +170,28 @@ services:
   csvcommons-client:
     build:
       context: .
-      dockerfile: ./sut/opencsv/Dockerfile
+      dockerfile: ./sut/csvcommons/Dockerfile
     volumes:
       - ./results/loading/csvcommons:/app/results/loading/csvcommons/
       - ./results/polluted_files_csv/:/app/results/polluted_files_csv/
       - ./sut/csvcommons/:/app/
+  pollution:
+    image: pollock_pollution
+    command: ["python3", "/app/pollute_main.py"]
+    build:
+      context: .
+      dockerfile: Dockerfile-pollution
+    volumes:
+      - ./results/polluted_files_csv:/app/results/polluted_files_csv
+      - ./results/polluted_files_xml:/app/results/polluted_files_xml
+      - ./results/source.csv:/app/results/source.csv
+  evaluation:
+    image: pollock_pollution
+    command: ["python3", "/app/evaluate.py"]
+    volumes:
+      - ./results:/app/results
+    depends_on:
+      - pollution
 
 volumes:
   mariadb-tmp:
