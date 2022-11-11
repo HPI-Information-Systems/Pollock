@@ -1,2 +1,1 @@
-results/polluted_files_csv/*.csv filter=lfs diff=lfs merge=lfs -text
-results/polluted_files_xml/*.csv filter=lfs diff=lfs merge=lfs -text
+survey/csv/*.csv filter=lfs diff=lfs merge=lfs -text
