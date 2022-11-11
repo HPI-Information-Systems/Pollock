@@ -76,7 +76,7 @@ We also include archives for the `spreadweb`, `spreaddesktop`, and `dataviz` sys
 ### Step 3: Pollock scores calculation
 To run the evaluation step, use the command:
 
-    docker-compose up --build evaluation
+    docker-compose up evaluation
 
 The script outputs the benchmark scores for each of the polluted files in a csv file under `results/measures/` for each of the systems.
 Moreover, all results are saved in the file `results/global_results.csv` and aggregated in the file `results/aggregate_results.csv`.
