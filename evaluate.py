@@ -96,7 +96,7 @@ def main():
         if UPDATE_SYSTEM is not None and s != UPDATE_SYSTEM:
             pass
         else:
-            print("Evaluating", s, "...")
+            print("Evaluating", s, "...", flush=True)
             evaluate_single_run(POLLUTED_DIR, RESULT_DIR, s, njobs=N_JOBS, verbose=verbose)
         df = pd.read_csv(f"{RESULT_DIR}/measures/{s}_results.csv")
         d_aggregate = {"".join(key.split("_")[1:]): val for key, val in df.mean(axis=0, numeric_only=True).items()}
@@ -104,10 +104,20 @@ def main():
         aggregate += [d_aggregate]
         global_df = global_df.merge(df, how="outer", left_on="file", right_on="file")  # , suffixes=(None,"_"+s))
     aggregate_df = pd.DataFrame(aggregate).set_index("sut")
-    aggregate_df["overall"] = aggregate_df.sum(axis=1, numeric_only=True)
+    aggregate_df["simple"] = aggregate_df.sum(axis=1, numeric_only=True)
+
+    with open("pollock_weights.json", "r") as f:
+        weights = json.load(f)
+    global_df["weight"] = [weights.get(x, -1) for x in global_df.index]
+    global_df["normalized_weight"] = global_df["weight"] / sum(global_df["weight"])
+    for sut in systems:
+        partial_mean = global_df[[c for c in global_df.columns if sut in c]].sum(axis=1) * global_df["normalized_weight"]
+        weighted_score = sum(partial_mean)
+        aggregate_df.loc[sut, "weighted"] = weighted_score
+
     global_df.to_csv(RESULT_DIR + "/global_results.csv", index=False)
     aggregate_df.to_csv(RESULT_DIR + "/aggregate_results.csv")
-
+    print(aggregate_df[["simple","weighted"]], flush=True)
 
 if __name__ == "__main__":
     main()

@@ -185,7 +185,7 @@ services:
       - ./results/polluted_files_csv:/app/results/polluted_files_csv
       - ./results/polluted_files_xml:/app/results/polluted_files_xml
       - ./results/source.csv:/app/results/source.csv
-  evaluation:
+  evaluate:
     image: pollock_pollution
     command: ["python3", "/app/evaluate.py"]
     volumes:
