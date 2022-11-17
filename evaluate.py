@@ -7,6 +7,7 @@ import pollock.metrics as metrics
 from sut.utils import print
 from pollock.CSVFile import CSVFile
 import argparse
+import json
 
 def evaluate_single_file(polluted_dir, result_dir="", filename="", sut="", verbose=False):
     if type(polluted_dir) == list: #Required for multiprocessing
@@ -117,7 +118,7 @@ def main():
 
     global_df.to_csv(RESULT_DIR + "/global_results.csv", index=False)
     aggregate_df.to_csv(RESULT_DIR + "/aggregate_results.csv")
-    print(aggregate_df[["simple","weighted"]], flush=True)
+    print("\n",aggregate_df[["simple","weighted"]], flush=True)
 
 if __name__ == "__main__":
     main()

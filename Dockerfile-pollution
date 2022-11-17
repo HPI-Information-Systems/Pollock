@@ -4,6 +4,7 @@ WORKDIR /app
 COPY ./pollute_main.py ./
 COPY ./evaluate.py ./
 COPY ./requirements.txt ./
+COPY ./pollock_weights.json ./
 COPY ./pollock ./pollock
 COPY ./sut/utils.py ./sut/utils.py
 
