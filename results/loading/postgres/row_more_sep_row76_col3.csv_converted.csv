@@ -1,0 +1,3 @@
+Application Error
+extra data after last expected column
+CONTEXT:  COPY table1, line 77: "15/07/2018,16:45,20,,RI-7676,$7.49,Kids' Hydration Pack,"Designed after the most popular adult hydra..."

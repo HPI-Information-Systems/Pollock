@@ -1,0 +1,3 @@
+Application Error
+extra data after last expected column
+CONTEXT:  COPY table1, line 26: "17/03/2018,,06:00,1,RI-9121,$9.81,Women's No-Show Socks,"These ankle socks provide all-day comfort a..."

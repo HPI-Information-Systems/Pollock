@@ -1,0 +1,3 @@
+Application Error
+extra data after last expected column
+CONTEXT:  COPY table1, line 45: "19/04/2018,12:30,9,YY-7121,$67.64,Backpacking Stove Kit,"Our lightest, most compact 2-person cookset..."

@@ -1,0 +1,3 @@
+Application Error
+extra data after last expected column
+CONTEXT:  COPY table1, line 58: "22/05/2018,21:00,,19,ZN-4103,$68.74,Baseball Hat,"This sun-blocking baseball hat features a rear fla..."

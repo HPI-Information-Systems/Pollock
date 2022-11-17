@@ -1,0 +1,44 @@
+Application Error
+com.univocity.parsers.common.TextParsingException: java.lang.ArrayIndexOutOfBoundsException - Index 512 out of bounds for length 512
+Parser Configuration: CsvParserSettings:
+	Auto configuration enabled=true
+	Auto-closing enabled=true
+	Autodetect column delimiter=false
+	Autodetect quotes=false
+	Column reordering enabled=true
+	Delimiters for detection=null
+	Empty value=null
+	Escape unquoted values=false
+	Header extraction enabled=null
+	Headers=null
+	Ignore leading whitespaces=true
+	Ignore leading whitespaces in quotes=false
+	Ignore trailing whitespaces=true
+	Ignore trailing whitespaces in quotes=false
+	Input buffer size=1048576
+	Input reading on separate thread=true
+	Keep escape sequences=false
+	Keep quotes=false
+	Length of content displayed on error=-1
+	Line separator detection enabled=false
+	Maximum number of characters per column=4096
+	Maximum number of columns=512
+	Normalize escaped line separators=true
+	Null value=null
+	Number of records to read=all
+	Processor=none
+	Restricting data in exceptions=false
+	RowProcessor error handler=null
+	Selected fields=none
+	Skip bits as whitespace=true
+	Skip empty lines=true
+	Unescaped quote handling=nullFormat configuration:
+	CsvFormat:
+		Comment character=#
+		Field delimiter=,
+		Line separator (normalized)=\n
+		Line separator sequence=\n
+		Quote character="
+		Quote escape character="
+		Quote escape escape character=null
+Internal state when error was thrown: line=0, column=513, record=0, charIndex=16604

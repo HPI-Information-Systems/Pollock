@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 26: "17/03/2018,06:00,1,RI-9121,$9.81Women's No-Show Socks,"These ankle socks provide all-day comfort and..."

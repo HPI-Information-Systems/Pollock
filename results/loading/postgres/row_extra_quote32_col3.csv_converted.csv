@@ -1,0 +1,3 @@
+Application Error
+unterminated CSV quoted field
+CONTEXT:  COPY table1, line 85: "25/03/2018,08:00,0,"BH-1061,$62.55,"Base Layer, Pants","Our exclusive wool performance fabric makes ..."

@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 74: "30/06/2018,10:15,2,GN-1306,$78.95,National Park Patch,"Were proud to offer the National Park collect..."

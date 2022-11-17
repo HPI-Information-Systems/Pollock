@@ -1,0 +1,4 @@
+Application Error
+null value in column "date" of relation "table1" violates not-null constraint
+DETAIL:  Failing row contains (null, null, null, null, null, null, null, null, null).
+CONTEXT:  COPY table1, line 2: ",,,,,,,,"

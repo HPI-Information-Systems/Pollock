@@ -1,0 +1,3 @@
+Application Error
+com.opencsv.exceptions.CsvMalformedLineException: Unterminated quoted field at end of CSV line. Beginning of lost text: [ warmest boots ever. Handcrafted right here.,https://www.example.com/product/GN_2043.html,
+]

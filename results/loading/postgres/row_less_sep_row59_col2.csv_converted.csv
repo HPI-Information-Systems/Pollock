@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 60: "24/05/2018,21:301,GN-5567,$26.87,Men's Reversible Jacket,"Designed to be the ultimate reversible jac..."

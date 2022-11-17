@@ -1,0 +1,3 @@
+Application Error
+unterminated CSV quoted field
+CONTEXT:  COPY table1, line 85: "26/05/2018,22:00,2,YY-4147,$11.06,"Women's Sandals,"You wont find a sandal with better control or su..."

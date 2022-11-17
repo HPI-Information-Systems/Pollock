@@ -1,0 +1,3 @@
+Application Error
+unterminated CSV quoted field
+CONTEXT:  COPY table1, line 85: "29/06/2018,"10:00,1,ZN-7072,$88.21,Kids' High Handles Boots,"Parents and little ones alike swear by ..."

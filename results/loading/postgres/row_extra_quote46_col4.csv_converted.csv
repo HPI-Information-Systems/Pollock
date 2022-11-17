@@ -1,0 +1,3 @@
+Application Error
+unterminated CSV quoted field
+CONTEXT:  COPY table1, line 85: "21/04/2018,13:00,8,YY-8239,"$72,Men's Boots,"Here, when we call something good we mean it: just one ..."

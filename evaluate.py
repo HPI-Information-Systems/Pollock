@@ -1,5 +1,6 @@
 from __future__ import print_function
 import os
+import time
 from pqdm.processes import pqdm
 import pandas as pd
 from lxml import etree
@@ -55,7 +56,7 @@ def evaluate_single_file(polluted_dir, result_dir="", filename="", sut="", verbo
 
 def evaluate_single_run(polluted_dir, result_dir, sut, verbose=False, njobs=-1):
     filenames = [pf[:-4] for pf in os.listdir(polluted_dir) if (pf.endswith("xml"))]
-
+    print("Length of filenames:", len(filenames), flush=True)
     if os.cpu_count() < njobs or njobs == -1:
         file_measures = list(map(lambda f: evaluate_single_file(polluted_dir, result_dir, f, sut, verbose=verbose), filenames))
     else:
@@ -88,7 +89,6 @@ def main():
     N_JOBS = int(args.njobs)
 
     verbose = bool(args.verbose)
-
     systems = [s for s in next(os.walk(f"{RESULT_DIR}/loading"))[1] if not ((s == "archives") or ("old" in s))]
     files = [f[:-4] for f in os.listdir(POLLUTED_DIR) if f[-3:] == "xml"]
     aggregate = []
@@ -97,7 +97,7 @@ def main():
         if UPDATE_SYSTEM is not None and s != UPDATE_SYSTEM:
             pass
         else:
-            print("Evaluating", s, "...", flush=True)
+            print("\nEvaluating", s, "...", flush=True)
             evaluate_single_run(POLLUTED_DIR, RESULT_DIR, s, njobs=N_JOBS, verbose=verbose)
         df = pd.read_csv(f"{RESULT_DIR}/measures/{s}_results.csv")
         d_aggregate = {"".join(key.split("_")[1:]): val for key, val in df.mean(axis=0, numeric_only=True).items()}
@@ -109,7 +109,7 @@ def main():
 
     with open("pollock_weights.json", "r") as f:
         weights = json.load(f)
-    global_df["weight"] = [weights.get(x, -1) for x in global_df.index]
+    global_df["weight"] = [weights.get(x, -1) for x in global_df["file"].tolist()]
     global_df["normalized_weight"] = global_df["weight"] / sum(global_df["weight"])
     for sut in systems:
         partial_mean = global_df[[c for c in global_df.columns if sut in c]].sum(axis=1) * global_df["normalized_weight"]

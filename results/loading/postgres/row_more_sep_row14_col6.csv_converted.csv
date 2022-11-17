@@ -1,0 +1,3 @@
+Application Error
+extra data after last expected column
+CONTEXT:  COPY table1, line 15: "22/02/2018,03:15,3,HK-3372,$6.45,Tropic Cap,,"Made with the same tropical fabric as our bestselling ..."

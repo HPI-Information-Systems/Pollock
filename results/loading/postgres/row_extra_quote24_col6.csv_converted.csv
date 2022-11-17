@@ -1,0 +1,3 @@
+Application Error
+unterminated CSV quoted field
+CONTEXT:  COPY table1, line 85: "16/03/2018,05:45,1,RI-9156,$53.62,Girls' Waterproof 3-in-1 Jacket,""This 3-in-1 girls' jacket offers..."

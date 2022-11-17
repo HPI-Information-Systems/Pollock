@@ -1,0 +1,3 @@
+Application Error
+value too long for type character varying(255)
+CONTEXT:  COPY table1, line 51, column date: "29/04/2018 15:00 30 AN-5829 $2.86 Women's Booties Inspired by the legendary comfort of our slippers,..."

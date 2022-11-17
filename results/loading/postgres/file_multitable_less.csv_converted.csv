@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 85: "DATE,TIME,Qty,PRODUCTID,Price,ProductType,ProductDescription,URL"

@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 33: "25/03/2018,08:00,0BH-1061,$62.55,"Base Layer, Pants","Our exclusive wool performance fabric makes th..."

@@ -1,0 +1,3 @@
+Application Error
+extra data after last expected column
+CONTEXT:  COPY table1, line 63: "27/05/2018,22:15,0,WH-3118,,$31.06,Men's Ear Warmer,"Designed to resist wind and water, these click-..."

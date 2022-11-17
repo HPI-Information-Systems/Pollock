@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 53: "15/05/2018,19:15,18,HK-8027,$26.62,Camp Stove Bundle with Coffee Press"This unique bundle includes t..."

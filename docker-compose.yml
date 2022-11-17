@@ -186,12 +186,16 @@ services:
       - ./results/polluted_files_xml:/app/results/polluted_files_xml
       - ./results/source.csv:/app/results/source.csv
   evaluate:
-    image: pollock_pollution
+    image: pollock_evaluate
+    build:
+      context: .
+      dockerfile: Dockerfile-pollution
     command: ["python3", "/app/evaluate.py"]
     volumes:
-      - ./results:/app/results
-    depends_on:
-      - pollution
+      - ./results/polluted_files_xml/:/app/results/polluted_files_xml/:ro
+      - ./results/loading/:/app/results/loading/
+      - ./results/:/app/results/
+      - ./evaluate.py:/app/evaluate.py
 
 volumes:
   mariadb-tmp:

@@ -1,0 +1,3 @@
+Application Error
+unterminated CSV quoted field
+CONTEXT:  COPY table1, line 85: "26/02/2018,04:15,2,"ZN-4777,$34.14,"Kids' Sweater Fleece, Hooded","With its fleece warmth, sweatshir..."

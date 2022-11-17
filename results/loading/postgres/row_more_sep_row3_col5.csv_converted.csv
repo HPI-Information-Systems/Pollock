@@ -1,0 +1,3 @@
+Application Error
+extra data after last expected column
+CONTEXT:  COPY table1, line 4: "30/01/2018,00:30,1,RI-8070,$80.08,,Men's Ventilated Trail Shoes,"Great grip and super extra breathab..."

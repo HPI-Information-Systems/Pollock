@@ -1,0 +1,3 @@
+Application Error
+value too long for type character varying(255)
+CONTEXT:  COPY table1, line 42, column date: "16/04/2018 11:45 15 RI-3655 $45.12 Kids' Sneaker Designed with FAST fun in mind, these super cool ki..."

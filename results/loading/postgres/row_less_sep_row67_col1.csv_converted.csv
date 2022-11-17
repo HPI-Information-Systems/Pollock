@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 68: "22/06/201823:30,1,YY-2632,$27.84,Women's Capris,"These great cargo capris pants for women are design..."

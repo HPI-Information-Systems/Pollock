@@ -1,0 +1,3 @@
+Application Error
+unterminated CSV quoted field
+CONTEXT:  COPY table1, line 85: "17/02/2018,02:00,0,YY-5315,$45.39,"Men's Silk Underwear, Crewneck","For strong, lightweight comfort ..."
