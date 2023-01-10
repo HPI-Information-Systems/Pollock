@@ -1,0 +1,15 @@
+{
+    "source": "www.govdata.de",
+    "country": "Germany",
+    "num_datasets": 63470,
+    "csv": 23285,
+    "pdf": 12461,
+    "": 10686,
+    "html": 9437,
+    "wms": 6517,
+    "karte": 5868,
+    "webanwendung": 5867,
+    "zip": 5196,
+    "xlsx": 5168,
+    "json": 3145
+}

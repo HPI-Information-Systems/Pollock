@@ -1,0 +1,17 @@
+USA,catalog.data.gov
+Canada,https://search.open.canada.ca
+Mexico,https://datos.gob.mx
+Brazil,https://dados.gov.br
+Argentina,https://datos.gob.ar
+Chile,https://datos.gob.cl
+Colombia,https://datos.gob.cl
+UK,https://data.gov.uk
+Germany,https://www.govdata.de
+Spain,https://datos.gob.es
+Pakistan,https://opendata.com.pk
+Japan,https://www.data.go.jp
+Australia,https://data.gov.au
+New Zealand,https://catalogue.data.govt.nz
+Morocco,https://data.gov.ma
+Ghana,https://data.gov.gh
+Somalia,https://www.data.gov.so

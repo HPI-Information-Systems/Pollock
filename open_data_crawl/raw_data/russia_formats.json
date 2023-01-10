@@ -1,0 +1,13 @@
+{
+    "source": "data.gov.ru",
+    "country": "Russia",
+    "num_datasets": 26921,
+    "CSV": 17359,
+    "XML": 7143,
+    "JSON": 2363,
+    "ZIP": 92,
+    "XLSX": 72,
+    "XLS": 64,
+    "GZ": 35,
+    "RDF": 4
+}

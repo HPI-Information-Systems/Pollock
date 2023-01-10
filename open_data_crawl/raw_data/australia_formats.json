@@ -1,0 +1,15 @@
+{
+    "source": "https://data.gov.au",
+    "country": "Australia",
+    "num_datasets": 106952,
+    "html": 37827,
+    "pdf": 28601,
+    "wms": 14484,
+    "csv": 11119,
+    "esri mapserver": 8493,
+    "x-netcdf": 8219,
+    "zip": 8055,
+    "xlsx": 6712,
+    "shp": 5312,
+    "tiff": 4157
+}
