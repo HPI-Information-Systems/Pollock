@@ -1,0 +1,3 @@
+Application Error
+unterminated CSV quoted field
+CONTEXT:  COPY table1, line 85: "28/01/2018,"00:00,2,MG-8769,$74.69,Men's Waterproof Hiking Boots,"These waterproof hiking boots for ..."

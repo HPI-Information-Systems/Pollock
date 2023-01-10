@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 37: "29/03/2018,09:00,3,AN-9272$57.75,Women's Essential Running Vest,"This lightweight fitness vest allow..."

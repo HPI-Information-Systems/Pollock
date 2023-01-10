@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 39: "31/03/2018,09:30,0,AN-9388,$64.02,"Linen Shirt, Slightly Fitted Short-Sleeve Stripe""Lightweight and..."

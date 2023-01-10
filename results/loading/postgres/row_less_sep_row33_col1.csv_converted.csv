@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 34: "26/03/201808:15,2,ON-7017,$0.9,"Quarter-Zip Hoodie, Camo","This camo quarter-zip hoodie is an extrem..."

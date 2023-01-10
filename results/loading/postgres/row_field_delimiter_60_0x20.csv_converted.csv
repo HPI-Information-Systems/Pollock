@@ -1,0 +1,3 @@
+Application Error
+value too long for type character varying(255)
+CONTEXT:  COPY table1, line 61, column date: "25/05/2018 21:45 0 GN-3028 $12.98 Swimwear, Print With flattering coverage, amazing stay-put shape a..."

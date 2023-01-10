@@ -1,0 +1,4 @@
+Application Error
+duplicate key value violates unique constraint "table1_pkey"
+DETAIL:  Key (date, "time", productid)=(DATE, TIME, PRODUCTID) already exists.
+CONTEXT:  COPY table1, line 3

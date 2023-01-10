@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 44: "18/04/2018,12:15,9CC-9916,$75.06,Men's Biking Shorts,"Designed specifically for mountain biking, the..."

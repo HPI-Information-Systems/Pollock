@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 49: "25/04/2018,14:00,16,BH-4482,$53.95Portable Game Center,"This portable game center will provide hours..."

@@ -1,0 +1,3 @@
+Application Error
+unterminated CSV quoted field
+CONTEXT:  COPY table1, line 85: "24/02/2018,"03:45,1,AN-5096,$33.83,"Organic Cotton Oxford Shirt, Plaid","Introducing our most easygo..."

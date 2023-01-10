@@ -1,0 +1,3 @@
+Application Error
+extra data after last expected column
+CONTEXT:  COPY table1, line 32: "24/03/2018,07:45,0,BH-4480,$51.42,,"Heated Insoles","This pair of water-resistant, remote-controlled..."

@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 46: "20/04/2018,12:45,15,YY-8954,$64.19"Travel Lock, Combination Cable","This luggage lock helps keep you..."

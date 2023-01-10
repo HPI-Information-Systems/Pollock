@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 38: "30/03/2018,09:15,0,AN-1646$78.74,"Rolling Duffle, Extra-Large","We kept the heritage-inspired design..."

@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 16: "23/02/2018,03:30,1,HK-5716,$46.01,Women's 3-in-1 Jacket"Our women's 3-in-1 jacket offers three times..."

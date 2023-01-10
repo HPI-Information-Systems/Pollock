@@ -1,0 +1,3 @@
+Application Error
+value too long for type character varying(255)
+CONTEXT:  COPY table1, line 39, column date: "31/03/2018 09:30 0 AN-9388 $64.02 Linen Shirt, Slightly Fitted Short-Sleeve Stripe Lightweight and b..."

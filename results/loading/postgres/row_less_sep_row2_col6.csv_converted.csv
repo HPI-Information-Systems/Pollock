@@ -1,0 +1,3 @@
+Application Error
+value too long for type character varying(255)
+CONTEXT:  COPY table1, line 3, column producttype: "Light-Up Running JacketThe next level of weather protection. This light-up jacket resists the elemen..."

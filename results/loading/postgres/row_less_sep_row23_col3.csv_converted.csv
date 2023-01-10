@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 24: "15/03/2018,05:30,1YY-4017,$69.52,Leather Sofa,"Our American-made leather sofa exhibits quality craft..."

@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 23: "14/03/2018,05:151,YY-2600,$90.99,"Kids' Mountain Bike, 24""","An easy-to-ride mountain bike that not..."

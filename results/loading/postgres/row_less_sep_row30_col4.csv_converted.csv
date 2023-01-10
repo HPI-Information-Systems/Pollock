@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 31: "22/03/2018,07:15,3,BH-1732$65.46,"Waterproof Boots, Tall","Industry-leading insulation and innovativ..."

@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 66: "31/05/2018,15:303,HK-9973,$39.49,Women's Ventilated Hiking Shoes,"This lightweight, ventilated versi..."

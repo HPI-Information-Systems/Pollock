@@ -1,0 +1,3 @@
+Application Error
+missing data for column "time"
+CONTEXT:  COPY table1, line 85: ""

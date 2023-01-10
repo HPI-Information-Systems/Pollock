@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 57: "21/05/2018,20:45,21,ZN-5503,$88.45,Coffee Table,"Spend more time relaxing outside with our low-maint..."

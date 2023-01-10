@@ -1,0 +1,3 @@
+Application Error
+missing data for column "time"
+CONTEXT:  COPY table1, line 71: "26/06/2018 00:30 0 BH-1861 $82.12 Women's Socks "These ankle socks provide all-day comfort and no-sh..."

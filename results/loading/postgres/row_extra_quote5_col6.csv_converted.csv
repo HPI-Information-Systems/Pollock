@@ -1,0 +1,3 @@
+Application Error
+unterminated CSV quoted field
+CONTEXT:  COPY table1, line 85: "13/02/2018,01:00,9,CC-9259,$48.00,"Throw Pillow, Wooden Paddles",""Add a pop of paddling fun to your..."

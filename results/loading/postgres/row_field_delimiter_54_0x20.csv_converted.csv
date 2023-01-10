@@ -1,0 +1,3 @@
+Application Error
+value too long for type character varying(255)
+CONTEXT:  COPY table1, line 55, column date: "19/05/2018 20:15 33 AN-5746 $83.75 Flannel Tunic, Plaid Our most rugged flannel shirt is also one of..."

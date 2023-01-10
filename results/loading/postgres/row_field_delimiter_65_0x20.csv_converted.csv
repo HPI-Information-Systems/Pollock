@@ -1,0 +1,3 @@
+Application Error
+value too long for type character varying(255)
+CONTEXT:  COPY table1, line 66, column date: "31/05/2018 15:30 3 HK-9973 $39.49 Women's Ventilated Hiking Shoes This lightweight, ventilated versi..."

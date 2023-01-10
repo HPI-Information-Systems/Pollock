@@ -1,0 +1,3 @@
+Application Error
+extra data after last expected column
+CONTEXT:  COPY table1, line 27: "18/03/2018,06:15,1,,RI-7338,$43.53,Kids' Hat,"Let your kids show their spirit for adventure with our..."

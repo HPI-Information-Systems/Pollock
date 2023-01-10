@@ -1,5 +1,28 @@
 # Pollock
 Pollock is a benchmark for data loading on character-delimited files, developed at the Information Systems Group of the Hasso Plattner Institute.
+The highlights of our experiments are these results, obtained on 16 different systems under test:
+<div align="center">
+
+| System under test                                | Pollock score (simple) | Pollock score (weighted)|
+| :----|:----|:----|
+|CleverCSV 0.7.4       |9.05  |9.49|
+|CSVCommons 1.9.0     |6.63  |9.29|
+|Hypoparsr 0.1.0     |3.73  |4.41|
+|OpenCSV 5.6        |6.62  |7.80|
+|Pandas  1.4.3     |9.88  |9.75|
+|Python native csv 3.10.5          |9.71  |9.47|
+|R native csv 4.2.1          |7.78  |6.76|
+|UniVocity 2.9.1      |9.35  |7.97|
+|Mariadb 10.9.3        |8.81  |7.44|
+|MySQL 8.0.31          |8.88  |7.45|
+|PostgreSQL 15.0       |0.14  |7.33|
+|SQLite 3.39.0 |9.94  |9.73|
+|LibreOffice Calc 7.3.6    |9.75  |7.52|
+|SpreadDesktop  |9.79  |9.29|
+|SpreadWeb      |9.65  |9.29|
+|Dataviz|4.93|5.51|
+
+</div>
 
 ## Repository structure
 

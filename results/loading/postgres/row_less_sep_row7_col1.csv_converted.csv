@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 8: "15/02/201801:30,2,RI-6052,$89.34,Organic Textured Cotton Towel,"All the softness and absorbency you'..."

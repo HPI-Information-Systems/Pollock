@@ -1,0 +1,3 @@
+Application Error
+missing data for column "comments"
+CONTEXT:  COPY table1, line 59: "23/05/2018,21:15,2GN-1741,$48.05,"Beach Chair, Print","With four reclining positions and backpack st..."
