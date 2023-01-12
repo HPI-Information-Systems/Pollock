@@ -159,6 +159,7 @@ services:
       - ./results/loading/libreoffice:/app/results/loading/libreoffice
       - ./results/polluted_files_csv/:/app/results/polluted_files_csv/
       - ./sut/libreoffice/:/app/
+      - ./sut/utils.py:/app/utils.py
   univocity-client:
     build:
       context: .

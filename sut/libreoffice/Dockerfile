@@ -1,9 +1,10 @@
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 
 WORKDIR /app
-COPY ./sut/libreoffice/libreoffice.sh ./
+COPY ./sut/libreoffice/libreoffice.py ./
+COPY ./sut/utils.py ./
 
 RUN apt-get update -y
-RUN apt-get install -y libreoffice
+RUN apt-get install -y libreoffice=1:7.3.7-0ubuntu0.22.04.1
 
-CMD ["bash", "libreoffice.sh"]
+CMD ["python3", "libreoffice.py"]
