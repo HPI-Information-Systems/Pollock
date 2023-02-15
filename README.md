@@ -34,7 +34,7 @@ The structure of the repository is the following:
 - `polluted_files`: contains the generated polluted files for the Pollock benchmark.
 - `pollock` is the main source folder for the Pollock benchmark: it contains the files necessary to generate the polluted versions of an input file (`polluters_base.py` and `polluters_stdlib.py`) as well as the files with the metrics to evaluate results of data loading.
 - `sut` is the source folder that contains the scripts used to benchmark given systems. These scripts can be in bash, python, or heterogeneous format, depending on the specific tool that is under test.
-- `results` contains the results of loading both the polluted files and the survey files for each of the systems evaluated. The folder will also contain `.csv` files that summarize the evaluation results - for each of the systems under test and for all of them together (`aggregate_results_$dataset.csv`, `global_results_$datasert.csv`).
+- `results` contains the results of loading both the polluted files and the survey files for each of the systems evaluated. The folder will also contain `.csv` files that summarize the evaluation results - for each of the systems under test and for all of them together (`aggregate_results_{dataset}.csv`, `global_results_{dataset}.csv`).
 - The file `docker-compose.yml` contains a list of the docker images that are used to run the benchmark. The images are built from the `Dockerfile` files in the `sut` folder.
 - The two files `pollute_main.py` and `evaluate.py` are used to run the pollution of a source file and to evaluate all systems under test that have a folder in `results/loading`
 
