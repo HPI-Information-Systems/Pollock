@@ -1,0 +1,44 @@
+Application Error
+com.univocity.parsers.common.TextParsingException: Length of parsed input (4097) exceeds the maximum number of characters defined in your parser settings (4096). 
+Parser Configuration: CsvParserSettings:
+	Auto configuration enabled=true
+	Auto-closing enabled=true
+	Autodetect column delimiter=false
+	Autodetect quotes=false
+	Column reordering enabled=true
+	Delimiters for detection=null
+	Empty value=null
+	Escape unquoted values=false
+	Header extraction enabled=null
+	Headers=null
+	Ignore leading whitespaces=true
+	Ignore leading whitespaces in quotes=false
+	Ignore trailing whitespaces=true
+	Ignore trailing whitespaces in quotes=false
+	Input buffer size=1048576
+	Input reading on separate thread=true
+	Keep escape sequences=false
+	Keep quotes=false
+	Length of content displayed on error=-1
+	Line separator detection enabled=false
+	Maximum number of characters per column=4096
+	Maximum number of columns=512
+	Normalize escaped line separators=true
+	Null value=null
+	Number of records to read=all
+	Processor=none
+	Restricting data in exceptions=false
+	RowProcessor error handler=null
+	Selected fields=none
+	Skip bits as whitespace=true
+	Skip empty lines=true
+	Unescaped quote handling=nullFormat configuration:
+	CsvFormat:
+		Comment character=#
+		Field delimiter=,
+		Line separator (normalized)=\n
+		Line separator sequence=\n
+		Quote character="
+		Quote escape character="
+		Quote escape escape character=null
+Internal state when error was thrown: line=205, column=3, record=205, charIndex=348676, headers=[Id, Title, Author, Abstract, DOI, Kw, qry-heter, qry-n, qry-ieee-1, qry-ieee-2, qry-ieee-3], content parsed=Summary form only given. Service-oriented computing (SOC) is considered as a new computing paradigm after the object-oriented computing paradigm. It utilizes services as fundamental elements for applications/solutions. Services are autonomous platform-independent computational elements that can be described, published, discovered, orchestrated and programmed using XML for the purpose of developing massively distributed interoperable applications. Web services technology is part of the SOC paradigm and can be considered as an implementation of the SOC model. Web services are featured with application, platform and provider independence. They provide an appropriate approach for building open large-scale application environments. In such environments, services are not treated as isolated and one-time affairs but rather as elements of an interactive, dynamic and collaborative architecture. Service collaboration within or across environments is modelled in terms of supported transactions or processes that are subject to norms or protocols specified for certain business domains. Services are thereby orchestrated vertically within one environment, or horizontally across multiple environments. As a result, an individual environment streamlines services in terms of internal transactions while restrains its function scope to be highly specific to the targeted user group. Multiple environments collaborate in order to extend their business chains. Web services have been supported by major IT vendors through their commercial platforms such as Microsoft's .NET and SUN's J2EE. Web services have had quick evolution and broad acceptance. However, there are still a number of issues that limit the wide applications of Web services in industry. Current Web services technologies lack semantic description, generic service model, dynamic composition, and flexible cooperation strategies. Software agents have been proved to handle sophisticated interaction patterns. Agent-orientation is an appropriate design paradigm to enable automatic and dynamic collaborations, especially for e-Business systems with complex and distributed transactions. In services realization, software agents are very essential for the provision of a focused and cohesive set of active capabilities. Therefore, we envision a combination of agent and Web services technologies and strongly believe that we are on the right track towards an evolution of current SOC paradigm. Software agents can be one of the essential evolvements of Web services in that they are functional entities, instead of simple interaction delegations or communication proxies. The idea is to exploit agents' capabilities of proactive interactions to enhance Web services' behaviours. With such a computing paradigm, software components, each representing both a service and an agent, cooperatively or competitively interact to provide unified services in a specified environment, such as brokering, pricing and negotiation in an e-marketplace, as well as cross-enterprise environments, such as integration and cooperation in a virtual enterprise. We envision a Web service-based environment as a collection of economically motivated agent-based Web services. Software agents are implemented as services with different functionalities and roles. In fact, the dynamic agent-based behaviour model plus the Web service-based interoperable protocols can generate a flexible, reconfigurable and coordinated approach to perform business process management both across enterprises and within an enterprise. We have developed an agent-based service-oriented system architecture for manufacturing enterprise collaboration. In this system, each enterprise provides a number of Web services registered in a UDDI repository. The Web services are implemented by the AWS (agent-based Web services) technology with a built-in agent core. So, enterprises are equipped with negotiation ability with upper mediating agents. Moreover, upper mediating agents are also implemented as a network of AWSs on the Internet. The unification of software agents and 

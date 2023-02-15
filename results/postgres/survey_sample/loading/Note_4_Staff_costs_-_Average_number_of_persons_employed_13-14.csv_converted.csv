@@ -1,0 +1,4 @@
+Application Error
+zero-length delimited identifier at or near """"
+LINE 1: ...verage number of persons employed" varchar(65535),"" varchar...
+                                                             ^

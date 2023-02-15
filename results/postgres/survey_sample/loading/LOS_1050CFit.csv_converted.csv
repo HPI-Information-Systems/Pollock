@@ -1,0 +1,3 @@
+Application Error
+extra data after last expected column
+CONTEXT:  COPY table1, line 2: "897.508789,-74.29730219,897.508789,247.3668272,"

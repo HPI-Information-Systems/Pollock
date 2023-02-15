@@ -10,23 +10,21 @@ from lxml.builder import E
 def dummyPolluter(file: CSVFile):
     pass
 
-
 def changeFilename(file: CSVFile, target_name):
     file.filename = target_name
     file.xml.getroot().attrib["filename"] = target_name
 
 
 def changeDimension(file: CSVFile, target_dimension=-1):
-    """ target_dimension is number of bytes, -1 leaves it intact
-    """
     content = []
     for i in range(file.row_count):
-        content += ["".join([x for x in file.xml.xpath(f"//row[{i + 1}]//node()[not(node())]")])]
+        texts = [x.text or "" for x in file.xml.xpath(f"//row[{i + 1}]//*[not(*)]")]
+        content.append("".join(texts))
     textcontent = "".join(content)
     cur_size = len(textcontent)
 
     last_row_cells = [x for x in file.xml.xpath("//row[last()]//cell")]
-    last_row_content = ["".join(v.text) for c in last_row_cells for v in c if v.tag == "value"]
+    last_row_content = ["".join(v.text or "") for c in last_row_cells for v in c if v.tag == "value"]
 
     size_last_row = len("".join(content[-1]))
     n_rows = int((target_dimension - cur_size) / size_last_row)
@@ -80,7 +78,7 @@ def changeNumberColumns(file: CSVFile, target_number_cols: int):
 
 def changeNumberRows(file: CSVFile, target_number_rows: int, remove_header=False):
     last_row_cells = [x for x in file.xml.xpath("//row[last()]//cell")]
-    last_row_content = ["".join(v.text) for c in last_row_cells for v in c if v.tag == "value"]
+    last_row_content = ["".join(v.text or "") for c in last_row_cells for v in c if v.tag == "value"]
 
     if remove_header:
         pb.deleteRows(file, [0])
@@ -101,7 +99,7 @@ def changeNumberRows(file: CSVFile, target_number_rows: int, remove_header=False
 
 def expandColumnHeader(file: CSVFile, extra_rows=1):
     header = [x for x in file.xml.xpath(f"//row[{1}]//value//node()[not(node())]")]
-    pb.addRows(file, cell_content=header, n_rows=extra_rows, position=0, role="header") #TODO role header or metadata
+    pb.addRows(file, cell_content=header, n_rows=extra_rows, position=0, role="header")
 
     file.filename = "file_multirow_header_" + str(extra_rows) + ".csv"
     file.xml.getroot().attrib["filename"] = file.filename
@@ -116,16 +114,16 @@ def addPreamble(file: CSVFile, n_rows=1, delimiters=False, emptyrow=False, cell_
     """
     if emptyrow:
         if not delimiters:
-            pb.addRows(file, n_rows=1, position=0, col_count=file.col_count, role="metadata")
+            pb.addRows(file, n_rows=1, position=0, col_count=file.col_count, role="preamble")
         if delimiters:
-            pb.addRows(file, n_rows=1, position=0, cell_content = [""]*file.col_count,col_count=file.col_count, role="metadata")
+            pb.addRows(file, n_rows=1, position=0, cell_content=[""] * file.col_count, col_count=file.col_count, role="preamble")
 
     if delimiters:
         cell_content = [cell_content] + [''] * (file.col_count - 1) if type(cell_content) == str else cell_content
-        pb.addRows(file, n_rows=n_rows, cell_content=cell_content, position=0, col_count=file.col_count, role="metadata")
+        pb.addRows(file, n_rows=n_rows, cell_content=cell_content, position=0, col_count=file.col_count, role="preamble")
 
     else:
-        pb.addRows(file, n_rows=n_rows, cell_content=cell_content, position=0, col_count=1, role="metadata")
+        pb.addRows(file, n_rows=n_rows, cell_content=cell_content, position=0, col_count=1, role="preamble")
 
     file.filename = f"file_preamble_{n_rows}_{'not_' if not delimiters else ''}delimited{'_empty_row' if emptyrow else ''}.csv"
     file.xml.getroot().attrib["filename"] = file.filename
@@ -141,14 +139,14 @@ def addFootnote(file: CSVFile, n_rows=1, delimiters=False, emptyrow=False, cell_
     :param cell_content: the content of the preamble cell(s). Either list or single value
     """
     if emptyrow:
-        pb.addRows(file, n_rows=1, position=-1, col_count=file.col_count, role="metadata")
+        pb.addRows(file, n_rows=1, position=-1, col_count=file.col_count, role="footnote")
 
     if delimiters:
         cell_content = [cell_content] + [''] * (file.col_count - 1) if type(cell_content) == str else cell_content
-        pb.addRows(file, n_rows=n_rows, cell_content=cell_content, position=-1, col_count=file.col_count, role="metadata")
+        pb.addRows(file, n_rows=n_rows, cell_content=cell_content, position=-1, col_count=file.col_count, role="footnote")
 
     else:
-        pb.addRows(file, n_rows=n_rows, cell_content=cell_content, position=-1, col_count=1, role="metadata")
+        pb.addRows(file, n_rows=n_rows, cell_content=cell_content, position=-1, col_count=1, role="footnote")
 
     file.filename = f"file_footnote_{n_rows}_{'not_' if not delimiters else ''}delimited{'_empty_row' if emptyrow else ''}.csv"
     file.xml.getroot().attrib["filename"] = file.filename
@@ -208,22 +206,23 @@ def changeQuotationChar(file: CSVFile, target_char="\u0022"):
         else:
             qc.text = target_char[::-1]  # reverse it for multi-line
 
-    index = [i for i,x in enumerate(root) if x.tag=="escape_char"]
+    index = [i for i, x in enumerate(root) if x.tag == "escape_char"]
     for i in index:
-        del root[i] #TODO
+        del root[i]  # TODO
 
     vals = [ord(x) for x in target_char]
     quote_string = ''.join([f'_0x{v:X}' for v in vals])
     file.filename = f"file_quotation_char{quote_string}.csv"
     file.xml.getroot().attrib["filename"] = file.filename
 
+
 def addSynthethicRowID(file: CSVFile):
     root = file.xml.getroot()
     n_rows = len(root.xpath("//row"))
     pb.addCells(file, row=1, position=0, content="row_id", n_cells=1, role="row_id_header")
 
-    for row in range(2,n_rows+1):
-        pb.addCells(file, row=row, position=0, content=str(row-1), n_cells=1, role="row_id")
+    for row in range(2, n_rows + 1):
+        pb.addCells(file, row=row, position=0, content=str(row - 1), n_cells=1, role="row_id")
 
 
 def changeRowNumberFields(file: CSVFile, row=1, target_n_cells=1):
@@ -247,51 +246,55 @@ def changeRowNumberFields(file: CSVFile, row=1, target_n_cells=1):
     file.filename = f"row_n_fields_{row}_{strtype}.csv"
     file.xml.getroot().attrib["filename"] = file.filename
 
-def addRowFieldDelimiter(file:CSVFile, row, col, n_separators=1):
+
+def addRowFieldDelimiter(file: CSVFile, row, col, n_separators=1):
     if type(row) == int and row < 0:
         row = "last()-" + str(row + 1)
 
     root = file.xml.getroot()
-    row_xml = root.xpath(f"//row[{row+1}]")[0]
+    row_xml = root.xpath(f"//row[{row + 1}]")[0]
     delimiter = E.field_delimiter(file.field_delimiter)
     if col == 0:
         index = 0
     else:
-        index = [i for i,x in enumerate(row_xml) if x.tag=="field_delimiter"][col-1]
+        index = [i for i, x in enumerate(row_xml) if x.tag == "field_delimiter"][col - 1]
     row_xml.insert(index, delimiter)
 
     file.filename = f"row_add_separator_{row}_{col}.csv"
     file.xml.getroot().attrib["filename"] = file.filename
 
-def deleteRowFieldDelimiter(file:CSVFile, row, col):
+
+def deleteRowFieldDelimiter(file: CSVFile, row, col):
     if type(row) == int and row < 0:
         row = "last()-" + str(row + 1)
     root = file.xml.getroot()
 
-    row_xml = root.xpath(f"//row[{row+1}]")[0]
+    row_xml = root.xpath(f"//row[{row + 1}]")[0]
     if col == 0:
         pass
     else:
-        index = [i for i,x in enumerate(row_xml) if x.tag=="field_delimiter"][col-1]
+        index = [i for i, x in enumerate(row_xml) if x.tag == "field_delimiter"][col - 1]
         del row_xml[index]
 
-    file.filename = f"row_n_separator_{file.col_count-1}.csv"
+    file.filename = f"row_n_separator_{file.col_count - 1}.csv"
     file.xml.getroot().attrib["filename"] = file.filename
 
-def addRowQuoteMark(file:CSVFile, row, col):
+
+def addRowQuoteMark(file: CSVFile, row, col):
     if type(row) == int and row < 0:
         row = "last()-" + str(row + 1)
     root = file.xml.getroot()
-    row_xml = root.xpath(f"//row[{row+1}]")[0]
-    index = [i for i,x in enumerate(row_xml) if x.tag=="cell"][col]
+    row_xml = root.xpath(f"//row[{row + 1}]")[0]
+    index = [i for i, x in enumerate(row_xml) if x.tag == "cell"][col]
     for c in row_xml[index]:
         if c.tag == "value":
-            old = c.text
+            old = c.text or ""
             c.text = file.quotation_char + old
             break
 
-    file.filename = f"row_n_separator_{file.col_count-1}.csv"
+    file.filename = f"row_n_separator_{file.col_count - 1}.csv"
     file.xml.getroot().attrib["filename"] = file.filename
+
 
 def changeRowRecordDelimiter(file: CSVFile, row=1, target_delimiter="\r\n"):
     if type(row) == int and row < 0:
@@ -314,7 +317,7 @@ def changeRowFieldDelimiter(file: CSVFile, row=1, target_delimiter=";"):
         row = "last()-" + str(row + 1)
 
     root = file.xml.getroot()
-    query = root.xpath(f"//row[{row+1}]/field_delimiter")
+    query = root.xpath(f"//row[{row + 1}]/field_delimiter")
     for r in query:
         r.text = target_delimiter
 
@@ -341,32 +344,7 @@ def changeRowQuotationMark(file: CSVFile, row=1, target_quotation="'"):
     file.filename = f"row_quotation_mark_{row}{quote_string}.csv"
     file.xml.getroot().attrib["filename"] = file.filename
 
-
-def changeRowEscapeChar(file: CSVFile, row=1, target_escape="\\"):
-    """
-        If the row content does not include an escape character, add it anyway to every cell
-    """
-    if type(row) == int and row < 0:
-        row = "last()-" + str(row + 1)
-
-    root = file.xml.getroot()
-    for cell in root.xpath(f"//row[{row}]/cell"):
-        content = "".join([v.text for v in cell if v.tag == "value"])
-        content += file.quotation_char
-        [cell.remove(child) for child in cell]
-        insert_value_cell(file, cell, content)
-
-    query = root.xpath(f"//row[{row}]//escape_char")
-    for r in query:
-        r.text = target_escape
-
-    vals = [ord(x) for x in target_escape]
-    esc_string = ''.join([f'_0x{v:X}' for v in vals])
-    file.filename = f"row_escape_char_{row}{esc_string}.csv"
-    file.xml.getroot().attrib["filename"] = file.filename
-
-
-def changeColumnHeader(file: CSVFile, col: int =None, target_header=None, extra_rows=0):
+def changeColumnHeader(file: CSVFile, col: int = None, target_header=None, extra_rows=0):
     """
         If col is none, apply to all of them-
         If >0, extra rows expands the header on X many rows
@@ -407,90 +385,6 @@ def changeColumnHeader(file: CSVFile, col: int =None, target_header=None, extra_
     file.xml.getroot().attrib["filename"] = file.filename
 
 
-def deprecated_addPreambleRow(file: CSVFile, n_rows, empty_end, value_distribution):
-    if empty_end:
-        pb.addRows(file, n_rows=0, col_count=0, position=0, role="spurious")
-
-    if value_distribution == constants.Distribution.FIRST:
-        for n in range(n_rows):
-            pb.addRows(file, n_rows=1, col_count=file.col_count, position=0, role="spurious")
-            pb.addCharacter(file, row=1, col=1, content="PREAMBLE")
-
-    elif value_distribution == constants.Distribution.RANDOM:
-        random.seed(constants.RAND_SEED)
-        ncells = random.randint(1, file.col_count)
-        rand_list = sorted(set([random.randint(1, file.col_count) for _ in range(ncells)]))
-        for n in range(n_rows):
-            pb.addRows(file, n_rows=1, col_count=file.col_count, position=0, role="spurious")
-            [pb.addCharacter(file, row=1, col=x, content="PREAMBLE") for x in rand_list]
-
-    elif value_distribution == constants.Distribution.NO_DELIM:
-        for n in range(n_rows):
-            pb.addRows(file, n_rows=1, col_count=1, position=0, cell_content="PREAMBLE", role="spurious")
-
-    elif value_distribution == constants.Distribution.ALL_CELLS:
-        for n in range(n_rows):
-            pb.addRows(file, n_rows=1, col_count=None, position=0, cell_content="PREAMBLE", role="spurious")
-
-
-def deprecated_addFootnoteRow(file: CSVFile, n_rows, empty_start, value_distribution):
-    if empty_start:
-        pb.addRows(file, n_rows=1, col_count=0, position=-1, role="spurious")
-
-    if value_distribution == constants.Distribution.FIRST:
-        for n in range(n_rows):
-            pb.addRows(file, n_rows=1, col_count=file.col_count, position=-1, role="spurious")
-            pb.addCharacter(file, row="last()", col=1, content="FOOTNOTE")
-
-    elif value_distribution == constants.Distribution.RANDOM:
-        random.seed(constants.RAND_SEED)
-        ncells = random.randint(1, file.col_count)
-        rand_list = sorted(set([random.randint(1, file.col_count) for _ in range(ncells)]))
-        for n in range(n_rows):
-            pb.addRows(file, n_rows=1, col_count=file.col_count, position=-1, role="spurious")
-            [pb.addCharacter(file, row="last()", col=x, content="FOOTNOTE") for x in rand_list]
-
-    elif value_distribution == constants.Distribution.NO_DELIM:
-        for n in range(n_rows):
-            pb.addRows(file, n_rows=1, col_count=1, position=-1, cell_content="FOOTNOTE", role="spurious")
-
-    elif value_distribution == constants.Distribution.ALL_CELLS:
-        for n in range(n_rows):
-            pb.addRows(file, n_rows=1, col_count=None, position=-1, cell_content="FOOTNOTE", role="spurious")
-
-
-def deprecated_addIncosistentRow(file: CSVFile, n_cells, position=constants.Position.RANDOM, include_characters=""):
-    """In the code it's made sure is not the first or last row, to avoid overlapping with preamble/footnote
-        Pass a string with the characters desired to include, default are alphanumeric.
-    """
-    random.seed(constants.RAND_SEED)
-
-    if position == constants.Position.RANDOM:
-        pos = random.randint(1, file.row_count - 1)
-    else:
-        pos = int(position)
-
-    if n_cells == constants.NumberCells.ONE:
-        ncells = 1
-
-    elif n_cells == constants.NumberCells.RANDOM:
-        ncells = random.randint(1, file.col_count - 1)
-
-    elif n_cells == constants.NumberCells.OVERFLOW:
-        ncells = file.col_count + 1
-
-    alphabet = list(set(string.ascii_letters + string.digits))
-    content = []
-    for x in range(ncells):
-        strlength = random.randint(0, 32)
-        strchar = [''.join(random.choice(alphabet) for _ in range(strlength))][0] + include_characters
-        strchar = list(strchar)
-        random.shuffle(strchar)
-        content += ["".join(strchar)]
-
-    pb.addRows(file, n_rows=1, col_count=ncells, position=pos, cell_content=content, role="data")
-
-
 def addTable(file: CSVFile, n_rows, n_cols, empty_boundary=True):
     """Adds a table after the first one with n_rows and n_cols.
        Additionally, can be specified if the two are separated by empty delimited rows or not.
@@ -529,17 +423,4 @@ def addTable(file: CSVFile, n_rows, n_cols, empty_boundary=True):
         pb.addRows(file, cell_content="", n_rows=1, position=0, table=1)
 
     file.filename = f"file_multitable_rows_{n_rows}_{strtype}_cols{'_separated' if empty_boundary else ''}.csv"
-    file.xml.getroot().attrib["filename"] = file.filename
-
-
-def changeColumnFormat(file: CSVFile, col=1, row=1):
-    """Changes the syntactic values of a column, either in one cell or in multiple cells (expressable with an iterable)
-    """
-    try:
-        for r in row:
-            pb.changeCellFormat(file, r, col)
-    except TypeError:
-        pb.changeCellFormat(file, row, col)
-
-    file.filename = f"column_heterogeneous_format_col{col}_row_{row}.csv"
     file.xml.getroot().attrib["filename"] = file.filename

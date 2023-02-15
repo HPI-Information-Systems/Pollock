@@ -1,0 +1,3 @@
+Application Error
+missing data for column "Gene Symbol"
+CONTEXT:  COPY table1, line 2: ""C=186; O=67; E=21.62; R=3.1; PValue=0e+00; FDR=0e+00""

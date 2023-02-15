@@ -1,0 +1,407 @@
+﻿Contract Number,Date,Department family,Description,Entity,Expenditure Type,Expense area,Expense type,Project Code,Supplier,Supplier Postcode,Supplier Type,Transaction number,Amount
+,03/09/2018,HMRC,Marketing Promotion,HMRC,,Corporate Communications,Marketing Promotion,,CARAT,NW1 3BF,,5100038997,184904.05
+,03/09/2018,HMRC,Customs Declaration Service - Risk Scrum,HMRC,,Customs Transformation,Contin Labor Build,,EQUAL EXPERTS UK LTD,WC1H 9BB,,5100039016,301300
+,03/09/2018,HMRC,Customs Declaration Service - Data Scrum,HMRC,,Customs Transformation,Contin Labor Build,,EQUAL EXPERTS UK LTD,WC1H 9BB,,5100039017,270787.5
+,03/09/2018,HMRC,Counsel Fees,HMRC,,Solicitors Office,Counsel Fee VAT Irre,,AKASH NAWBATT,EC4Y 9BS,,5100039021,39348
+,03/09/2018,HMRC,Legal Service Sol's,HMRC,,Solicitors Office,Legal Service Sol's,,THE SCOTLAND OFFICE,EH3 7HW,,5100039035,71240.17
+,03/09/2018,HMRC,WAN Maintenance & Support,HMRC,,Information Management Services,WAN maint or supp,,VODAFONE,RG12 1XL,,5100039077,287750.67
+,03/09/2018,HMRC,Contingency Labour Run,HMRC,,Information Management Services,Contract Besp SW Dev,,PEOPLE SOURCE CONSULTING,BS1 6BA,,5100039099,1268425
+,03/09/2018,HMRC,Court Fees,HMRC,,Debt Management,Court Fees,,THE INSOLVENCY SERVICE,B4 6FD,,5100039120,286630
+,04/09/2018,HMRC,September 18 Additional Compensation Payments,HMRC,,Information Management Services,Officer ESC (O),,HR  PENSION COMPENSATION,PO20  1EL,,1900238170,27684.23
+,04/09/2018,HMRC,Monthly Output Management bulk charges,HMRC,,Operational Excellence & Output Mgmt,Mail and Fulfilment,,COMMUNISIS UK LTD,NE12 8EW,,5100039161,44857.32
+,04/09/2018,HMRC,Customs Declaration Management Service Exit,HMRC,,Customs Transformation,Contingnt Labr IT,,SPECIALIST COMPUTER CTR,B11 2LE,,5100039164,200000
+,04/09/2018,HMRC,Monthly Output Management bulk charges,HMRC,,Operational Excellence & Output Mgmt,Mail and Fulfilment,,COMMUNISIS UK LTD,NE12 8EW,,5100039180,146752.11
+,04/09/2018,HMRC,Testing support to enable HMRC to migrate live services to Azure Cloud,HMRC,,CDIO Transformation Programmes,IMS Management Consu,,Sol-Tec Ltd,RG1 8EQ,,5100039186,36300
+,04/09/2018,HMRC,Professional services - Property Services for building surveys / site searches,HMRC,,Estates,Legal Serv's Agencys,,GVA GRIMLEY LLP (RENT),B11 3EA,,5100039207,27600
+,04/09/2018,HMRC,Professional Services to provide expert support on the design of London Stratford Regional Centre,HMRC,,CFO Transformation Programmes,Govt dept services,,AECOM LTD,AL1 3ER,,5100039212,31561.2
+,04/09/2018,HMRC,Copying Services,HMRC,,Solicitors Office,Dept forms Non Stock,,COMMUNISIS UK LTD,NE12 8EW,,5100039225,32055.05
+,04/09/2018,HMRC,Professional Services to provide expert support on the design of Newcastle Benton Park View future workspace options.,HMRC,,CFO Transformation Programmes,Maj AW non-struc VAT,,NEWCASTLE ESTATE PARTNERSHIP,BS1 4DJ,,5100039228,24687.5
+,04/09/2018,HMRC,Customs Declaration Service - IT Support,HMRC,,Customs Transformation,P04 Rate IT Serv Res,,BLOOM PROCUREMENT SERVICES LTD,NE1 3DY,,5100039230,430330.95
+,04/09/2018,HMRC,Government Gateway Core Services,HMRC,,Information Management Services,Proprietry sys maint,,ATOS IT SERVICES UK LTD,WV10 6UH,,5100039236,223232.62
+,04/09/2018,HMRC,Quarterly Rent for Southampton Compass House (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,LAMBERT SMITH HAMPTON GROUP LTD,W1D 1NN,,5100039250,2615.04
+,04/09/2018,HMRC,Quarterly Landlord's Service Charge for Southampton Compass House (29/09/18 - 24/12/18),HMRC,,Estates,Landlord Charges,,LAMBERT SMITH HAMPTON GROUP LTD,W1D 1NN,,5100039250,3055.26
+,04/09/2018,HMRC,Quarterly Rent for Southampton Compass House (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,LAMBERT SMITH HAMPTON GROUP LTD,W1D 1NN,,5100039250,106344.96
+,04/09/2018,HMRC,Quarterly Landlord's Service Charge for Southampton Compass House (29/09/18 - 24/12/18),HMRC,,Estates,Landlord Charges,,LAMBERT SMITH HAMPTON GROUP LTD,W1D 1NN,,5100039250,124246.99
+,04/09/2018,HMRC,Rent (OGD) for Glasgow Scottish Crime Campus (01/04/18 - 30/06/18),HMRC,,Estates,OGD costs,,THE SCOTTISH POLICE AUTHORITY,G40 4EH,,5100039253,8851
+,04/09/2018,HMRC,Rent (OGD) for Glasgow Scottish Crime Campus (01/04/18 - 30/06/18),HMRC,,Estates,OGD costs,,THE SCOTTISH POLICE AUTHORITY,G40 4EH,,5100039253,125255
+,04/09/2018,HMRC,Quarterly Rent for Edinburgh Elgin House (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,SAVILLS - KAMES PROPERTY INCOME,M2 4AW,,5100039256,11986.32
+,04/09/2018,HMRC,Quarterly Rent for Edinburgh Elgin House (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,SAVILLS - KAMES PROPERTY INCOME,M2 4AW,,5100039256,243041.82
+,04/09/2018,HMRC,Quarterly Landlord's Service Charge for Cardiff Brunel House (29/09/18 - 24/12/18),HMRC,,Estates,Landlord Charges,,SAVILLS COMMERCIAL LTD,M2 4AW,,5100039257,3929.53
+,04/09/2018,HMRC,Quarterly Rent for Cardiff Brunel House (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,SAVILLS COMMERCIAL LTD,M2 4AW,,5100039257,5305.86
+,04/09/2018,HMRC,Quarterly Landlord's Service Charge for Cardiff Brunel House (29/09/18 - 24/12/18),HMRC,,Estates,Landlord Charges,,SAVILLS COMMERCIAL LTD,M2 4AW,,5100039257,102274.07
+,04/09/2018,HMRC,Quarterly Rent for Cardiff Brunel House (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,SAVILLS COMMERCIAL LTD,M2 4AW,,5100039257,191207.34
+,04/09/2018,HMRC,Project/Programme Delivery,HMRC,,Border Coordination,Consultancy  PPM,,PA CONSULTING GROUP,SW1E 5DN,,5100039264,193108.7
+,04/09/2018,HMRC,Project/Programme Delivery,HMRC,,Border Coordination,Consultancy  PPM,,PA CONSULTING GROUP,SW1E 5DN,,5100039265,216702.75
+,04/09/2018,HMRC,Consultancy - Techni,HMRC,,MTDB Transformation Programmes,Consultancy - Techni,,BAE SYSTEMS APPLIED INTELLIGENCE,GU2 7YP,,5100039287,46899.38
+,04/09/2018,HMRC,Professional Services to provide expert support on the design of Leeds EU Exit site,HMRC,,Estates,Govt dept services,,HERMES WELLINGTON PLACE GP LTD,OX14 4RY,,5100039293,217592.4
+,05/09/2018,HMRC,Marketing Promotion,HMRC,,Corporate Communications,Marketing Promotion,,CARAT,NW1 3BF,,5100039311,91999.79
+,05/09/2018,HMRC,Legal Expert Witness,HMRC,,Solicitors Office,Legal Expert Witness,,Redshaw Advisers,SE10 8RY,,5100039331,35430
+,05/09/2018,HMRC,Quarterly Rent for Salford Trinity Bridge House (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,COLLIERS INT PROPERTY  CONSULT LTD,W1U 7GA,,5100039333,54054
+,05/09/2018,HMRC,Quarterly Rent for Salford Trinity Bridge House (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,COLLIERS INT PROPERTY  CONSULT LTD,W1U 7GA,,5100039333,764946
+,05/09/2018,HMRC,Project/Programme Delivery,HMRC,,Border Coordination,Consultancy  PPM,,PA CONSULTING GROUP,SW1E 5DN,,5100039353,33185
+,05/09/2018,HMRC,Project/Programme Delivery,HMRC,,Border Coordination,Consultancy  PPM,,PA CONSULTING GROUP,SW1E 5DN,,5100039354,209746.1
+,05/09/2018,HMRC,Project/Programme Delivery,HMRC,,Border Coordination,Consultancy  PPM,,PA CONSULTING GROUP,SW1E 5DN,,5100039356,163537.85
+,05/09/2018,HMRC,Project/Programme Delivery,HMRC,,Border Coordination,Consultancy  PPM,,PA CONSULTING GROUP,SW1E 5DN,,5100039373,74115
+,05/09/2018,HMRC,Government Gateway Core Services,HMRC,,Information Management Services,Proprietry sys maint,,ATOS IT SERVICES UK LTD,WV10 6UH,,5100039414,173885.88
+,05/09/2018,HMRC,Government Gateway Development Services,HMRC,,Information Management Services,Proprietry sys maint,,ATOS IT SERVICES UK LTD,WV10 6UH,,5100039417,216729.45
+,05/09/2018,HMRC,Network Voice Services,HMRC,,Information Management Services,Network Voice Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100039423,517245.26
+,05/09/2018,HMRC,Clerical training,HMRC,,Information Management Services,Clerical training,,CAPITA BUSINESS SERVICES LTD,DL1 9HN,,5100039469,26522.56
+,05/09/2018,HMRC,Quarterly Rent for Peterlee Emerald Court (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,FI REAL ESTATE MANAGEMENT LTD,PR6 9AF,,5100039470,4539.16
+,05/09/2018,HMRC,Quarterly Rent for Peterlee Emerald Court (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,FI REAL ESTATE MANAGEMENT LTD,PR6 9AF,,5100039470,133010.85
+,05/09/2018,HMRC,Customs Declaration Services Tariff Help Desk,HMRC,,Customs Transformation,P04 Rate IT Serv Res,,SOFTCAT LTD,SL7 1LW,,5100039497,67500
+,05/09/2018,HMRC,Customs Declaration Service Tariff CRs 124125.127,HMRC,,Customs Transformation,P04 Rate IT Serv Res,,SOFTCAT LTD,SL7 1LW,,5100039497,161844
+,06/09/2018,HMRC,Prof membership,HMRC,,HR,Prof membership,,BUSINESS IN THE COMMUNITY,N1 7RQ,,5100037592,25200
+,06/09/2018,HMRC,Hosting charges,HMRC,,Information Management Services,Maintenance fees,,UKCLOUD LTD,SN13 0RP,,5100039507,41400.59
+,06/09/2018,HMRC,Quarterly Rent for Coleshill Roman Park (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,A & J MUCKLOW (INVESTMENTS) LTD,B63 3JS,,5100039513,43133.1
+,06/09/2018,HMRC,Monthly Rent for London Jubilee House (01/09/18 - 30/09/18),HMRC,,Estates,Rent,,KNIGHT FRANK LLP,W1U 8AN,,5100039516,112807.9
+,06/09/2018,HMRC,Gov Bank Serv Charge,HMRC,,Corporate Finance,Gov Bank Serv Charge,,BARCLAYS BANK PLC T/A BARCLAYCARD,E14 5HP,,5100039527,38760.15
+,06/09/2018,HMRC,Gov Bank Serv Charge,HMRC,,Corporate Finance,Gov Bank Serv Charge,,BARCLAYS BANK PLC T/A BARCLAYCARD,E14 5HP,,5100039528,58556.7
+,06/09/2018,HMRC,Gov Bank Serv Charge,HMRC,,Corporate Finance,Gov Bank Serv Charge,,BARCLAYS BANK PLC T/A BARCLAYCARD,E14 5HP,,5100039533,174585.73
+,06/09/2018,HMRC,Gov Bank Serv Charge,HMRC,,Corporate Finance,Gov Bank Serv Charge,,BARCLAYS BANK PLC T/A BARCLAYCARD,E14 5HP,,5100039535,242395.93
+,06/09/2018,HMRC,Gov Bank Serv Charge,HMRC,,Corporate Finance,Gov Bank Serv Charge,,BARCLAYS BANK PLC T/A BARCLAYCARD,E14 5HP,,5100039537,184897.35
+,06/09/2018,HMRC,Gov Bank Serv Charge,HMRC,,Corporate Finance,Gov Bank Serv Charge,,BARCLAYS BANK PLC T/A BARCLAYCARD,E14 5HP,,5100039538,184680.75
+,06/09/2018,HMRC,Customs Declaration Service - Inventory Linking,HMRC,,Customs Transformation,Contract Besp SW Dev,,SPECIALIST COMPUTER CTR,B11 2LE,,5100039666,204546.69
+,06/09/2018,HMRC,Customs Declaration Service - Call Off costs,HMRC,,Customs Transformation,Contract Besp SW Dev,,SPECIALIST COMPUTER CTR,B11 2LE,,5100039669,419632.12
+,06/09/2018,HMRC,System Maintenance fees,HMRC,,Information Management Services,Maintenance fees,,KCOM GROUP PLC,HU1 3RE,,5100039694,27548.15
+,06/09/2018,HMRC,Contractor user research,HMRC,,Digital,Contin Labor Build,,CX PARTNERS LTD,BS1 5UE,,5100039712,21045
+,06/09/2018,HMRC,Telephone Support,HMRC,,Operational Excellence & Output Mgmt,Telephone Support,,KCOM GROUP PLC,HU1 3RE,,5100040137,175454.25
+,07/09/2018,HMRC,MMG SMS and voicemail costs,HMRC,,Information Management Services,Gov Gateway RFC,,MMGRP LTD,EC1V 4PW,,5100040253,147556.77
+,07/09/2018,HMRC,Disposal Seized Gds,HMRC,,Individuals & Small Business Compliance,Disposal Seized Gds,,SHRED STATION LTD,NR13 6LH,,5100040274,43440
+,07/09/2018,HMRC,Monthly Royal Mail charges,HMRC,,Operational Excellence & Output Mgmt,Nat Pst Del Ser(VAT),,UK MAIL,SL1 4LZ,,5100040278,50552.82
+,07/09/2018,HMRC,Monthly Royal Mail charges,HMRC,,Operational Excellence & Output Mgmt,Nat Pst Del Ser(VAT),,ROYAL MAIL,PE4 5BR,,5100040282,239247.77
+,07/09/2018,HMRC,Monthly Royal Mail charges,HMRC,,Operational Excellence & Output Mgmt,Nat Pst Del Ser(VAT),,G3 WORLDWIDE (UK) LTD,UB2 5LF,,5100040294,78251.29
+,07/09/2018,HMRC,Haulage Seized Goods,HMRC,,Fraud Investigation Service,Haulage Seized Goods,,ENVA NORTHERN IRELAND LTD,BT30 6LJ,,5100040337,124800
+,07/09/2018,HMRC,Samplng & Analytical,HMRC,,Fraud Investigation Service,Samplng & Analytical,,EUROFINS FORENSIC SERVICES LTD,WV9 5GB,,5100040374,139549.5
+,07/09/2018,HMRC,Research Services,HMRC,,Centre for Data Exploitation,Research (VAT rec),,KANTAR UK LTD,W5 1UA,,5100040452,33874
+,10/09/2018,HMRC,Confidential Waste costs (August 2018),HMRC,,Estates,Document destruction,,DATA SOLUTIONS 2016 LTD,RH1 5DY,,5100040471,21713.25
+,10/09/2018,HMRC,Confidential Waste costs (August 2018),HMRC,,Estates,Document destruction,,DATA SOLUTIONS 2016 LTD,RH1 5DY,,5100040471,24485.16
+,10/09/2018,HMRC,Consultancy - Techni,HMRC,,MTDB Transformation Programmes,Consultancy - Techni,,BAE SYSTEMS APPLIED INTELLIGENCE,GU2 7YP,,5100040478,64786.9
+,10/09/2018,HMRC,Courier Services,HMRC,,Estates,Next Day Del. Closed,,TNT UK LTD,BL0 9AR,,5100040527,199969.82
+,10/09/2018,HMRC,Valuation Services,HMRC,,Risk & Intelligence,Valuation Services,,VALUATION OFFICE AGENCY,W1D 5BU,,5100040634,629681.33
+,10/09/2018,HMRC,Soft Licen Integral,HMRC,,Information Management Services,Soft Licen Integral,,IBM UNITED KINGDOM LTD,PO6 3AU,,5100040669,327234.76
+,11/09/2018,HMRC,Desktop Managed Service - Switch Refresh,HMRC,,Information Management Services,Desktop Managed Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100036546,101923.52
+,11/09/2018,HMRC,Government Gateway Hosting Services,HMRC,,Information Management Services,Proprietry sys maint,,ATOS IT SERVICES UK LTD,WV10 6UH,,5100040732,164266.11
+,11/09/2018,HMRC,System Support (Banking data services),HMRC,,Government Banking Service,System Support,,HSBC BANK PLC,E14 5HQ,,5100040982,59844
+,11/09/2018,HMRC,Monthly Output Management bulk charges,HMRC,,Operational Excellence & Output Mgmt,Mail and Fulfilment,,COMMUNISIS UK LTD,NE12 8EW,,5100040999,84432.88
+,11/09/2018,HMRC,Facilities Management - Soft FM costs for Lincoln Lawress Hall (July 2018),HMRC,,Estates,Maintenance (build),,COMPASS GROUP (UK) LTD,B45 9PZ,,5100041007,48749.89
+,11/09/2018,HMRC,Business Rates for London Jubilee House Grd - 5th Floors (01/04/18 - 31/03/19),HMRC,,Estates,Business Rates,,LONDON BOROUGH OF NEWHAM,E16 2QU,,5100041068,469395
+,11/09/2018,HMRC,Business Rates for Liverpool Graeme House Car Parking and 3rd-6th Floors (29/09/18 - 24/12/18),HMRC,,Estates,Business Rates,,LIVERPOOL CITY COUNCIL,L69 2DQ,,5100041080,20884.58
+,11/09/2018,HMRC,Business Rates for Liverpool Graeme House Car Parking and 3rd-6th Floors (29/09/18 - 24/12/18),HMRC,,Estates,Business Rates,,LIVERPOOL CITY COUNCIL,L69 2DQ,,5100041080,42402.03
+,11/09/2018,HMRC,Contractor software development,HMRC,,Digital,Contin Labor Build,,AMBERLIGHT PARTNERS LTD,WC1N 1NN,,5100041096,36707.5
+,11/09/2018,HMRC,Contractor software development,HMRC,,Digital,Contin Labor Build,,ATELIER7,RH7 6EP,,5100041097,109126.98
+,11/09/2018,HMRC,Professional Services relating to Legal advice,HMRC,,Estates,Legal Service Sol's,,GOWLING WLG (UK) LLP,SE1 2AU,,5100041099,11019.31
+,11/09/2018,HMRC,Professional Services relating to Legal advice,HMRC,,Estates,Legal Service Sol's,,GOWLING WLG (UK) LLP,SE1 2AU,,5100041099,55120.59
+,11/09/2018,HMRC,Hardware maintenance,HMRC,,Information Management Services,Hardware maintenance,,UKCLOUD LTD,SN13 0RP,,5100041131,73075.32
+,11/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100041132,334135.11
+,11/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100041135,6500
+,11/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100041135,19393.98
+,11/09/2018,HMRC,Desktop Managed Service - Switch Refresh,HMRC,,Information Management Services,Desktop Managed Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100041136,129165
+,11/09/2018,HMRC,Court Fees,HMRC,,Debt Management,Court Fees,,THE INSOLVENCY SERVICE,B4 6FD,,5100041215,202340
+,11/09/2018,HMRC,Quarterly Rent for Blackpool Ryscar House (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,REAL ESTATE INCOME TRUST LIMITED,LE10 1QU,,5100041218,83025
+,11/09/2018,HMRC,Quarterly Rent Correction for Bootle Litherland House (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,LEGAT OWEN,CH1 1RQ,,5100041219,-11443.58
+,11/09/2018,HMRC,Quarterly Landlord's Service Charge Correction for Bootle Litherland House (29/09/18 - 24/12/18),HMRC,,Estates,Landlord Charges,,LEGAT OWEN,CH1 1RQ,,5100041219,-6197.33
+,11/09/2018,HMRC,Quarterly Rent Correction for Bootle Litherland House (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,LEGAT OWEN,CH1 1RQ,,5100041219,-353.93
+,11/09/2018,HMRC,Quarterly Landlord's Service Charge Correction for Bootle Litherland House (29/09/18 - 24/12/18),HMRC,,Estates,Landlord Charges,,LEGAT OWEN,CH1 1RQ,,5100041219,-126.48
+,11/09/2018,HMRC,Quarterly Landlord's Service Charge for Bootle Litherland House (29/09/18 - 24/12/18),HMRC,,Estates,Landlord Charges,,LEGAT OWEN,CH1 1RQ,,5100041219,758.86
+,11/09/2018,HMRC,Quarterly Rent for Bootle Litherland House (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,LEGAT OWEN,CH1 1RQ,,5100041219,2123.56
+,11/09/2018,HMRC,Quarterly Landlord's Service Charge for Bootle Litherland House (29/09/18 - 24/12/18),HMRC,,Estates,Landlord Charges,,LEGAT OWEN,CH1 1RQ,,5100041219,37184.01
+,11/09/2018,HMRC,Quarterly Rent for Bootle Litherland House (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,LEGAT OWEN,CH1 1RQ,,5100041219,68661.45
+,11/09/2018,HMRC,Quarterly Rent for Leeds Windsor House (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,WESTMORELAND INVESTMENTS LTD,LE4 8PH,,5100041220,871.5
+,11/09/2018,HMRC,Quarterly Rent for Leeds Windsor House (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,WESTMORELAND INVESTMENTS LTD,LE4 8PH,,5100041220,123628.5
+,11/09/2018,HMRC,Quarterly Landlord's Service Charge for Brierley Hill Waterfront Business Park (29/09/18 - 24/12/18),HMRC,,Estates,Landlord Charges,,INTU,SW1H 0BU,,5100041221,150.04
+,11/09/2018,HMRC,Quarterly Rent for Brierley Hill Waterfront Business Park (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,INTU,SW1H 0BU,,5100041221,4161.78
+,11/09/2018,HMRC,Quarterly Landlord's Service Charge for Brierley Hill Waterfront Business Park (29/09/18 - 24/12/18),HMRC,,Estates,Landlord Charges,,INTU,SW1H 0BU,,5100041221,4851.26
+,11/09/2018,HMRC,Quarterly Rent for Brierley Hill Waterfront Business Park (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,INTU,SW1H 0BU,,5100041221,114746.22
+,11/09/2018,HMRC,Computer Equipment a,HMRC,,Information Management Services,Computer Equipment a,,RCDTS LTD,SW1A 2BQ,,5100041223,1083437.21
+,11/09/2018,HMRC,RCDTS (Rec VAT),HMRC,,Information Management Services,RCDTS (Rec VAT),,RCDTS LTD,SW1A 2BQ,,5100041223,7312040.14
+,11/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100041224,102918.62
+,11/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100041226,186550.7
+,11/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100041227,23523.57
+,11/09/2018,HMRC,Govt dept services,HMRC,,Change Portfolio,Govt dept services,,NATIONAL SAVINGS & INVESTMENTS,SW1V 2QX,,5100041229,602484.59
+,12/09/2018,HMRC,Perpetual software licence and support and maintenance,HMRC,,Information Management Services,Soft Licen Off shelf,,SOFTCAT LTD,SL7 1LW,,5100041420,1568894.33
+,12/09/2018,HMRC,Credit Reference Agency charges used in compliance activities for the detection and prevention of fraud,HMRC,,Benefits & Credits Delivery,Data Purchases,,INTEGRATED DEBT SERVICES LTD T/AS,LS1 4AP,,5100041452,70099.15
+,12/09/2018,HMRC,Govt dept services,HMRC,,CS Transformation Programmes,Govt dept services,,NATIONAL SAVINGS & INVESTMENTS,SW1V 2QX,,5100041471,1207160.83
+,12/09/2018,HMRC,Customs Declaration IT Services - Bakare,HMRC,,Customs Transformation,Contin Labor Build,,CAPITA BUSINESS SERVICES LTD,DL1 9HN,,5100041478,25799.5
+,12/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100041481,41316.18
+,12/09/2018,HMRC,Samplng & Analytical,HMRC,,Fraud Investigation Service,Samplng & Analytical,,IMA LTD,LS20 8BH,,5100041502,37632
+,12/09/2018,HMRC,OHS,HMRC,,HR,OHS,,RIGHT CORECARE LTD T/AS WORKPLACE,IP33 1UZ,,5100041507,25110
+,12/09/2018,HMRC,Employee education,HMRC,,HR,Employee education,,CSL - KPMG LLP,E14 5GL,,5100041510,201105.62
+,12/09/2018,HMRC,Costs for officers stationed abroad,HMRC,,Risk & Intelligence,GovDept Serv(VAT Ex),,FOREIGN AND COMMONWEALTH OFFICE,MK10 1PX,,5100041529,50072.52
+,12/09/2018,HMRC,OHS,HMRC,,HR,OHS,,RIGHT CORECARE LTD T/AS WORKPLACE,IP33 1UZ,,5100041536,25235
+,12/09/2018,HMRC,Monthly Rent for London Jubilee House (01/10/18 - 31/10/18),HMRC,,Estates,Rent,,KNIGHT FRANK LLP,W1U 8AN,,5100041543,112807.9
+,12/09/2018,HMRC,Security printing,HMRC,,Customs & Indirect Tax Policy,Security printing,,COMMUNISIS UK LTD,NE12 8EW,,5100041552,51738.95
+,12/09/2018,HMRC,Clustering - Funded by NCSP Programme approved by Cabinet Office,HMRC,,CSIR,Contin Labor Run,,FINYX CONSULTING LTD,YO10 5DG,,5100041559,162018.84
+,13/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100041935,121228.03
+,13/09/2018,HMRC,Quarterly Rent for Sunderland Waterside House (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,BERKLEY ESTATES LONDON LTD,W1U 1QY,,5100041946,2814
+,13/09/2018,HMRC,Quarterly Rent for Sunderland Waterside House (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,BERKLEY ESTATES LONDON LTD,W1U 1QY,,5100041946,97686
+,13/09/2018,HMRC,Quarterly Landlord's Service Charge for Croydon Ruskin Square (29/09/18 - 24/12/18),HMRC,,Estates,Landlord Charges,,JONES LANG LASALLE LTD,NR3 1YF,,5100041958,993.17
+,13/09/2018,HMRC,Quarterly Rent for Croydon Ruskin Square Main Car Park (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,JONES LANG LASALLE LTD,NR3 1YF,,5100041958,19950
+,13/09/2018,HMRC,Quarterly Landlord's Service Charge for Croydon Ruskin Square (29/09/18 - 24/12/18),HMRC,,Estates,Landlord Charges,,JONES LANG LASALLE LTD,NR3 1YF,,5100041958,26594.83
+,13/09/2018,HMRC,Quarterly Rent for Croydon Ruskin Square Office (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,JONES LANG LASALLE LTD,NR3 1YF,,5100041958,1853939.22
+,13/09/2018,HMRC,Quarterly Rent for Croydon Ruskin Square Additional Car Parking (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,JONES LANG LASALLE LTD,NR3 1YF,,5100041962,35175
+,13/09/2018,HMRC,Contractor software development,HMRC,,Digital,Contin Labor Build,,MERCATOR IT SOLUTIONS LTD,TN6 2TT,,5100042023,148070
+,13/09/2018,HMRC,Facilities Management - Soft FM costs for the Newcastle Estate (August 2018),HMRC,,Estates,Non PFI serv VAT,,SERVEST GROUP LTD,IP28 6LG,,5100042149,38314.97
+,13/09/2018,HMRC,Facilities Management - Soft FM costs for the Newcastle Estate (August 2018),HMRC,,Estates,Non PFI serv VAT,,SERVEST GROUP LTD,IP28 6LG,,5100042149,387406.94
+,13/09/2018,HMRC,EDM Scanning and Data Input Aug-18,HMRC,,Information Management Services,Data input or prep,,EDM GROUP LTD,EC4N 1SP,,5100042150,35041.75
+,13/09/2018,HMRC,Rent,HMRC,,Individuals & Small Business Compliance,Rent,,DAC Beachcroft LLP,BS1 9HS,,5100042224,30161.2
+,14/09/2018,HMRC,Purchase of furniture for Birmingham City Centre House (July 2018),HMRC,,Estates,Chairs,,WAGSTAFF BROS LTD,EC1V 4JR,,5100041009,57105.33
+,14/09/2018,HMRC,Debt Collection Services,HMRC,,Debt Management,Debt coll serv (DEL),,INTEGRATED DEBT SERVICES LTD T/AS,LS1 4AP,,5100042217,2074216.57
+,14/09/2018,HMRC,Debt Collection Services,HMRC,,Debt Management,Debt coll serv (DEL),,INTEGRATED DEBT SERVICES LTD T/AS,LS1 4AP,,5100042218,515361.23
+,14/09/2018,HMRC,Debt Collection Services,HMRC,,Debt Management,Debt coll serv (DEL),,INTEGRATED DEBT SERVICES LTD T/AS,LS1 4AP,,5100042221,26181.63
+,14/09/2018,HMRC,Contractor Bespoke Software Development,HMRC,,Information Management Services,Contract Besp SW Dev,,MERCATOR IT SOLUTIONS LTD,TN6 2TT,,5100042236,58973.75
+,14/09/2018,HMRC,Contractor software development,HMRC,,Digital,Contin Labor Build,,MERCATOR IT SOLUTIONS LTD,TN6 2TT,,5100042237,193865
+,14/09/2018,HMRC,Contractor software development,HMRC,,Digital,Contin Labor Build,,MERCATOR IT SOLUTIONS LTD,TN6 2TT,,5100042238,140987.5
+,14/09/2018,HMRC,Quarterly Rent for Leeds Munroe Court (24/10/18 - 24/12/18),HMRC,,Estates,Rent,,MUNROE K,WC2E 9DH,,5100042252,2429.35
+,14/09/2018,HMRC,Quarterly Landlord's Service Charge for Leeds Munroe Court (24/10/18 - 24/12/18),HMRC,,Estates,Landlord Charges,,MUNROE K,WC2E 9DH,,5100042252,33214.75
+,14/09/2018,HMRC,Quarterly Rent for Leeds Munroe Court (24/10/18 - 24/12/18),HMRC,,Estates,Rent,,MUNROE K,WC2E 9DH,,5100042252,107995.95
+,14/09/2018,HMRC,Hardware maintenance,HMRC,,Information Management Services,Hardware maintenance,,FUJITSU SERVICES LTD,W1U 3BW,,5100042305,463806.28
+,14/09/2018,HMRC,High Court Costs,HMRC,,Debt Management,Crown Sol's Off NI,,CROWN SOLICITORS OFFICE,BT1 3JY,,5100042348,-8674.2
+,14/09/2018,HMRC,High Court Costs,HMRC,,Debt Management,Crown Sol's Off NI,,CROWN SOLICITORS OFFICE,BT1 3JY,,5100042348,52045.2
+,14/09/2018,HMRC,Monthly oil payment covering various buildings (September 2018),HMRC,,Estates,Oil,,MAPELEY STEPS CONTRACTOR LTD,WD17 1HN,,5100042450,3589.02
+,14/09/2018,HMRC,Monthly water payment covering various buildings (September 2018),HMRC,,Estates,Water,,MAPELEY STEPS CONTRACTOR LTD,WD17 1HN,,5100042450,13595.17
+,14/09/2018,HMRC,Monthly gas payment covering various buildings (September 2018),HMRC,,Estates,Gas,,MAPELEY STEPS CONTRACTOR LTD,WD17 1HN,,5100042450,18446.28
+,14/09/2018,HMRC,Monthly oil payment covering various buildings (September 2018),HMRC,,Estates,Oil,,MAPELEY STEPS CONTRACTOR LTD,WD17 1HN,,5100042450,26319.43
+,14/09/2018,HMRC,Monthly water payment covering various buildings (September 2018),HMRC,,Estates,Water,,MAPELEY STEPS CONTRACTOR LTD,WD17 1HN,,5100042450,99697.91
+,14/09/2018,HMRC,Monthly gas payment covering various buildings (September 2018),HMRC,,Estates,Gas,,MAPELEY STEPS CONTRACTOR LTD,WD17 1HN,,5100042450,135272.69
+,14/09/2018,HMRC,Monthly electricity payment covering various buildings (September 2018),HMRC,,Estates,Electricity,,MAPELEY STEPS CONTRACTOR LTD,WD17 1HN,,5100042450,176934.88
+,14/09/2018,HMRC,Monthly electricity payment covering various buildings (September 2018),HMRC,,Estates,Electricity,,MAPELEY STEPS CONTRACTOR LTD,WD17 1HN,,5100042450,1297522.44
+,17/09/2018,HMRC,Amazon Web Services Hosting Jul-18,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900251987,198.65
+,17/09/2018,HMRC,Amazon Web Services T&R Hosting Jul-18,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900251987,208.63
+,17/09/2018,HMRC,System Maintenance,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900251987,532.67
+,17/09/2018,HMRC,System Maintenance,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900251987,1231.01
+,17/09/2018,HMRC,Amazon Web services cloud hosting charges,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900251987,2514.57
+,17/09/2018,HMRC,System Maintenance fees,HMRC,,CDIO Transformation Programmes,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900251987,3805.15
+,17/09/2018,HMRC,Amazon Web services cloud hosting charges,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900251987,10221.43
+,17/09/2018,HMRC,System Maintenance,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900251987,11179.68
+,17/09/2018,HMRC,System Maintenance for Cloud Hosting services,HMRC,,Digital,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900251987,16091.29
+,17/09/2018,HMRC,Amazon Web Services CM Hosting Jul-18,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900251987,16204.77
+,17/09/2018,HMRC,System Maintenance for Cloud Hosting services,HMRC,,Digital,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900251987,17260.26
+,17/09/2018,HMRC,System Maintenance,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900251987,82238.79
+,17/09/2018,HMRC,Amazon Web Services - Jul-18  - Cloud DG,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900251987,109931.77
+,17/09/2018,HMRC,Amazon Web Services Hosting Jul-18,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900251987,278925.34
+,17/09/2018,HMRC,Cloud Hosting charges,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900251987,406140.13
+,17/09/2018,HMRC,System Maintenance,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900251987,928137.26
+,17/09/2018,HMRC,Archive Services Correction on June 2018 payment,HMRC,,Estates,Storage (non enfmnt),,IRON MOUNTAIN (UK) LTD,EH54 7DF,,5100039239,-101125.39
+,17/09/2018,HMRC,Archive Services Correction on June 2018 payment,HMRC,,Estates,Storage (non enfmnt),,IRON MOUNTAIN (UK) LTD,EH54 7DF,,5100039239,-86143.85
+,17/09/2018,HMRC,Archive Services (July 2018),HMRC,,Estates,Storage (non enfmnt),,IRON MOUNTAIN (UK) LTD,EH54 7DF,,5100039330,35819.54
+,17/09/2018,HMRC,Archive Services (July 2018),HMRC,,Estates,Storage (non enfmnt),,IRON MOUNTAIN (UK) LTD,EH54 7DF,,5100039330,42049.02
+,17/09/2018,HMRC,Shared Technical Services Charges,HMRC,,Information Management Services,Data output prod,,CAPGEMINI,TF3 3BD,,5100042045,785.72
+,17/09/2018,HMRC,Soft Licen Off shelf,HMRC,,Information Management Services,Soft Licen Off shelf,,CAPGEMINI,TF3 3BD,,5100042045,802.97
+,17/09/2018,HMRC,Sys Software Maint,HMRC,,Information Management Services,Sys Software Maint,,CAPGEMINI,TF3 3BD,,5100042045,2348.82
+,17/09/2018,HMRC,Sys Software Maint,HMRC,,Information Management Services,Sys Software Maint,,CAPGEMINI,TF3 3BD,,5100042045,9721.05
+,17/09/2018,HMRC,Capgemini CM ASU Application Support Aug-18,HMRC,,Information Management Services,Sys Software Maint,,CAPGEMINI,TF3 3BD,,5100042045,10941.42
+,17/09/2018,HMRC,Shared Technical Services Charges,HMRC,,Information Management Services,Data output prod,,CAPGEMINI,TF3 3BD,,5100042045,13054.76
+,17/09/2018,HMRC,TCPP Disaster recovery,HMRC,,Information Management Services,Sys Software Maint,,CAPGEMINI,TF3 3BD,,5100042045,24898.73
+,17/09/2018,HMRC,CAP ASU Service Management charge,HMRC,,Information Management Services,Sys Software Maint,,CAPGEMINI,TF3 3BD,,5100042045,30481.72
+,17/09/2018,HMRC,Sys Software Maint,HMRC,,Information Management Services,Sys Software Maint,,CAPGEMINI,TF3 3BD,,5100042045,43014.79
+,17/09/2018,HMRC,Capgemini Support Charges Aug-18,HMRC,,Information Management Services,Sys Software Maint,,CAPGEMINI,TF3 3BD,,5100042045,106418.4
+,17/09/2018,HMRC,System Maintenance fees,HMRC,,Information Management Services,Sys Software Maint,,CAPGEMINI,TF3 3BD,,5100042045,125811.1
+,17/09/2018,HMRC,Capgemini Service Management Charges Aug-18,HMRC,,Information Management Services,Sys Software Maint,,CAPGEMINI,TF3 3BD,,5100042045,165276.63
+,17/09/2018,HMRC,Capgemini S12 Charges Aug-18,HMRC,,Information Management Services,Database analysis,,CAPGEMINI,TF3 3BD,,5100042045,222805.9
+,17/09/2018,HMRC,Sys Software Maint,HMRC,,Information Management Services,Sys Software Maint,,CAPGEMINI,TF3 3BD,,5100042045,325119.01
+,17/09/2018,HMRC,CAP Service Management charges,HMRC,,Information Management Services,Sys Software Maint,,CAPGEMINI,TF3 3BD,,5100042045,455854.98
+,17/09/2018,HMRC,Capgemini ASU Application Support Aug-18,HMRC,,Information Management Services,Sys Software Maint,,CAPGEMINI,TF3 3BD,,5100042045,790674.22
+,17/09/2018,HMRC,Capgemini ASU Application Support Aug-18,HMRC,,Information Management Services,Sys Software Maint,,CAPGEMINI,TF3 3BD,,5100042045,921391.45
+,17/09/2018,HMRC,These are Application Support and Maintenance costs,HMRC,,Information Management Services,Sys Software Maint,,CAPGEMINI,TF3 3BD,,5100042045,1464869.58
+,17/09/2018,HMRC,Fujitsu Aug-18 FAST-DB hosting charges,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,721.2
+,17/09/2018,HMRC,Cloud Hosting charges,HMRC,,Information Management Services,Maintenance fees,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,1925.8
+,17/09/2018,HMRC,Data Storage Service,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,2469.78
+,17/09/2018,HMRC,Fujitsu T&R FAST P Cloud Services  Aug-18,HMRC,,Information Management Services,Maintenance fees,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,2766.9
+,17/09/2018,HMRC,Fujitsu T&R S04 Data Ops Aug-18,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,4515.72
+,17/09/2018,HMRC,Fujitsu Aug-18 invoice for FAST-P hosting charges - Cloud DG,HMRC,,Information Management Services,Maintenance fees,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,5174.18
+,17/09/2018,HMRC,Data Storage Service,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,5924.25
+,17/09/2018,HMRC,Maintenance fees,HMRC,,Information Management Services,Maintenance fees,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,12160.9
+,17/09/2018,HMRC,Fujitsu Aug-18 Solaris 10 Extended Support,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,15395.03
+,17/09/2018,HMRC,Contact Centre Telephony,HMRC,,Information Management Services,Telephone Support,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,29712.92
+,17/09/2018,HMRC,Data Storage Service,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,34951.82
+,17/09/2018,HMRC,Disaster recovery,HMRC,,Information Management Services,Disaster recovery,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,35402.67
+,17/09/2018,HMRC,Maintenance fees,HMRC,,Information Management Services,Maintenance fees,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,35432.4
+,17/09/2018,HMRC,Data Storage Service,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,39348.56
+,17/09/2018,HMRC,Fujitsu Aug-18 FAST-A&S hosting charges,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,39401.99
+,17/09/2018,HMRC,Data Storage Service,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,53603.71
+,17/09/2018,HMRC,Fujitsu CM FAST A&S Cloud Services Aug-18,HMRC,,Information Management Services,Maintenance fees,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,65848
+,17/09/2018,HMRC,Data Storage Service,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,82331.78
+,17/09/2018,HMRC,Data Storage Service,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,101725.28
+,17/09/2018,HMRC,Fujitsu Aug-18 invoice for S04 Data Centre charges,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,111800.98
+,17/09/2018,HMRC,Fujitsu FAST DB hosting charges,HMRC,,Information Management Services,Maintenance fees,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,125219.69
+,17/09/2018,HMRC,Fujitsu CM FAST P Cloud Services Aug-18,HMRC,,Information Management Services,Maintenance fees,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,133714.98
+,17/09/2018,HMRC,Fujitsu Aug-18 invoice for FAST-P hosting charges,HMRC,,Information Management Services,Maintenance fees,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,133882.52
+,17/09/2018,HMRC,Fujitsu Aug-18 invoice for FAST-P hosting charges,HMRC,,Information Management Services,Maintenance fees,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,135116.06
+,17/09/2018,HMRC,System Maintenance fees,HMRC,,Information Management Services,Maintenance fees,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,135826.38
+,17/09/2018,HMRC,Maintenance fees,HMRC,,Information Management Services,Maintenance fees,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,142412.11
+,17/09/2018,HMRC,Fujitsu CM S26 Tower and FEAST Aug-18,HMRC,,Information Management Services,Maintenance fees,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,147330.93
+,17/09/2018,HMRC,Fujitsu CM FAST DB Cloud Services Aug-18,HMRC,,Information Management Services,Maintenance fees,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,150995.12
+,17/09/2018,HMRC,Fujitsu Aug-18 FAST-DB hosting charges,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,162448.53
+,17/09/2018,HMRC,Sys Software Maint,HMRC,,Information Management Services,Sys Software Maint,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,171485.54
+,17/09/2018,HMRC,Fujitsu CM S04 Data Ops Aug-18,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,180031.23
+,17/09/2018,HMRC,Fujitsu FAST P hosting charges,HMRC,,Information Management Services,Maintenance fees,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,191065.61
+,17/09/2018,HMRC,Fujitsu FAST A & S Hosting charges,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,205072.93
+,17/09/2018,HMRC,Maintenance fees,HMRC,,Information Management Services,Maintenance fees,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,258441.5
+,17/09/2018,HMRC,Fujitsu Aug-18 invoice for Oracle Baseline Shelved Value charges - Cloud DG,HMRC,,Information Management Services,Maintenance fees,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,307592.9
+,17/09/2018,HMRC,Data Storage Service,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,408343.2
+,17/09/2018,HMRC,Fujitsu Aug-18 FAST-A&S hosting charges,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,418579.33
+,17/09/2018,HMRC,Fujitsu Aug-18 invoice for S04 Data Centre charges,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,439898.43
+,17/09/2018,HMRC,Management Agreement,HMRC,,Information Management Services,Management Agreement,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,501362.07
+,17/09/2018,HMRC,Data Storage Service,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,516555.14
+,17/09/2018,HMRC,Data Storage Service,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,564611.97
+,17/09/2018,HMRC,Fujitsu FAST DA Aug-18,HMRC,,Information Management Services,Maintenance fees,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,757366.29
+,17/09/2018,HMRC,Fujitsu Aug-18 invoice for S04 Data Centre charges - Cloud DG,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,1040429.64
+,17/09/2018,HMRC,Fujitsu FAST S04 Hosting charges,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,1397029.04
+,17/09/2018,HMRC,Data Storage Service,HMRC,,Information Management Services,Data storage service,,FUJITSU SERVICES LTD,W1U 3BW,,5100042065,1409211.82
+,17/09/2018,HMRC,Contractor Bespoke Software Development,HMRC,,Information Management Services,Contract Besp SW Dev,,EQUAL EXPERTS UK LTD,WC1H 9BB,,5100042474,164756.25
+,17/09/2018,HMRC,Contractor Bespoke Software Development,HMRC,,Information Management Services,Contract Besp SW Dev,,EQUAL EXPERTS UK LTD,WC1H 9BB,,5100042474,212968.75
+,17/09/2018,HMRC,Contractor Bespoke Software Development,HMRC,,Information Management Services,Contract Besp SW Dev,,EQUAL EXPERTS UK LTD,WC1H 9BB,,5100042474,434062.5
+,17/09/2018,HMRC,Project/Programme Delivery,HMRC,,Border Coordination,Consultancy  PPM,,PA CONSULTING GROUP,SW1E 5DN,,5100042475,93213.75
+,17/09/2018,HMRC,Project/Programme Delivery,HMRC,,Border Coordination,Consultancy  PPM,,PA CONSULTING GROUP,SW1E 5DN,,5100042477,96715
+,17/09/2018,HMRC,Project/Programme Delivery,HMRC,,Border Coordination,Consultancy  PPM,,PA CONSULTING GROUP,SW1E 5DN,,5100042478,114645
+,17/09/2018,HMRC,Phones - LL Rental,HMRC,,CS Transformation Programmes,Phones - LL Rental,,KCOM GROUP PLC,HU1 3RE,,5100042479,95377.87
+,17/09/2018,HMRC,Contractor Bespoke Software Development,HMRC,,Information Management Services,Contract Besp SW Dev,,ESYNERGY SOLUTIONS LTD,EC3M 3JY,,5100042492,25625
+,17/09/2018,HMRC,Contractor Bespoke Software Development,HMRC,,Information Management Services,Contract Besp SW Dev,,ESYNERGY SOLUTIONS LTD,EC3M 3JY,,5100042492,152550
+,17/09/2018,HMRC,This is the Accenture Service Management charge,HMRC,,Information Management Services,Sys Software Maint,,ACCENTURE (UK) LTD,EC3M 3BD,,5100042496,511677.85
+,17/09/2018,HMRC,Haulage Storage & Disposal,HMRC,,Fraud Investigation Service,Disposal Seized Gds,,SHRED STATION LTD,NR13 6LH,,5100042504,138740.59
+,17/09/2018,HMRC,Archive Services Destruction Costs April- July 2018 (Permanent Withdrawals Project),HMRC,,Estates,Storage (non enfmnt),,IRON MOUNTAIN (UK) LTD,EH54 7DF,,5100042506,68030.4
+,17/09/2018,HMRC,Archive Services Destruction Costs April- July 2018 (Permanent Withdrawals Project),HMRC,,Estates,Storage (non enfmnt),,IRON MOUNTAIN (UK) LTD,EH54 7DF,,5100042506,79861.77
+,17/09/2018,HMRC,Monthly Royal Mail charges,HMRC,,Operational Excellence & Output Mgmt,Nat Pst Del Ser(VAT),,ROYAL MAIL WHOLESALE,EC4Y 0HQ,,5100042527,2783416.56
+,17/09/2018,HMRC,Govt bank service,HMRC,,Corporate Finance,Govt bank service,,EXELA TECHNOLOGIES LTD,TW20 9AB,,5100042537,41364.77
+,17/09/2018,HMRC,Expenditure relates to the provision of services by the Commercial Delivery Team - 'BuyingTeam Ltd trading as Proxima' during the month of August 2018.,HMRC,,Commercial Directorate,Temp clerical/admin,,BUYINGTEAM LTD t/a Proxima,EC2V 6DN,,5100042539,27500
+,17/09/2018,HMRC,Vehicle Fleet Services,HMRC,,Fraud Investigation Service,Diesel fuel,,ALLSTAR BUSINESS SOLUTIONS LTD,SN5 6PS,,5100042547,47846.57
+,17/09/2018,HMRC,Costs for officers stationed abroad,HMRC,,Risk & Intelligence,GovDept Serv(VAT Ex),,FOREIGN AND COMMONWEALTH OFFICE,MK10 1PX,,5100042583,35067
+,17/09/2018,HMRC,Data output prod,HMRC,,Information Management Services,Data output prod,,CAPGEMINI,TF3 3BD,,5100043114,17265919.8
+,17/09/2018,HMRC,Data output prod,HMRC,,Information Management Services,Data output prod,,FUJITSU SERVICES LTD,W1U 3BW,,5100043137,353843.58
+,17/09/2018,HMRC,Data output prod,HMRC,,Information Management Services,Data output prod,,ACCENTURE (UK) LTD,EC3M 3BD,,5100043156,3223888.49
+,18/09/2018,HMRC,Contractor - Security Programme WE: 02092018,HMRC,,CSIR,Contracted Services,,ALEXANDER MANN SOLUTIONS LTD,EC2N 3AQ,,1900262618,2726.98
+,18/09/2018,HMRC,Contractor -  Security Programme WE: 26082018,HMRC,,CSIR,Contracted Services,,ALEXANDER MANN SOLUTIONS LTD,EC2N 3AQ,,1900262618,4090.46
+,18/09/2018,HMRC,Contractor - Security Programme WE: 09092018,HMRC,,CSIR,Contracted Services,,ALEXANDER MANN SOLUTIONS LTD,EC2N 3AQ,,1900262618,6817.44
+,18/09/2018,HMRC,Contractor - Security Programme WE: 12082018,HMRC,,CSIR,Contracted Services,,ALEXANDER MANN SOLUTIONS LTD,EC2N 3AQ,,1900262618,6817.44
+,18/09/2018,HMRC,Contractor - Security Programme WE: 19082018,HMRC,,CSIR,Contracted Services,,ALEXANDER MANN SOLUTIONS LTD,EC2N 3AQ,,1900262618,6817.44
+,18/09/2018,HMRC,EDM Scanning and Data Input Aug-18,HMRC,,Information Management Services,Data input or prep,,EDM GROUP LTD,EC4N 1SP,,5100042626,117620.5
+,18/09/2018,HMRC,IT Contractor - Output Project,HMRC,,Information Management Services,IT Contractors CDIO,,FINYX CONSULTING LTD,YO10 5DG,,5100042637,30529.2
+,18/09/2018,HMRC,Samplng & Analytical,HMRC,,Fraud Investigation Service,Samplng & Analytical,,ADLER AND ALLAN LTD,HG1 1HQ,,5100042655,58277.58
+,18/09/2018,HMRC,EDM Scanning and Data Input Aug-18,HMRC,,Information Management Services,Data input or prep,,EDM GROUP LTD,EC4N 1SP,,5100042668,130600.7
+,18/09/2018,HMRC,Gov Bank Serv Charge,HMRC,,Corporate Finance,Gov Bank Serv Charge,,POST OFFICE LTD,PE4 5PG,,5100043105,296195.08
+,18/09/2018,HMRC,Contingent Labr-Mang,HMRC,,Information Management Services,Contingent Labr-Mang,,CAPITA BUSINESS SERVICES LTD,DL1 9HN,,5100043122,32036.49
+,18/09/2018,HMRC,Quarterly Rent for Bradford The Interchange (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,CUSHMAN & WAKEFIELD LLP,G2 2ND,,5100043128,5753.15
+,18/09/2018,HMRC,Quarterly Rent for Bradford The Interchange (29/09/18 - 24/12/18),HMRC,,Estates,Rent,,CUSHMAN & WAKEFIELD LLP,G2 2ND,,5100043128,207326.35
+,18/09/2018,HMRC,Haulage Seized Goods,HMRC,,Individuals & Small Business Compliance,Haulage Seized Goods,,KUEHNE & NAGEL LTD,UB11 1FG,,5100043133,409733
+,18/09/2018,HMRC,OHS,HMRC,,HR,OHS,,DURADIMOND HEALTHCARE LTD,TN22 1QL,,5100043182,157811.92
+,18/09/2018,HMRC,Govt dept services,HMRC,,CS Transformation Programmes,Govt dept services,,NATIONAL SAVINGS & INVESTMENTS,SW1V 2QX,,5100043222,2490759.21
+,19/09/2018,HMRC,IT Delivery Charges,HMRC,,Information Management Services,IT Delivery Charges,,EOL IT SERVICES LTD,CM9 4LQ,,5100042607,52458.14
+,19/09/2018,HMRC,Facilities Management - Soft FM costs for the Croydon Ruskin Square (August 2018),HMRC,,Estates,Soft FM Services,,COMPASS GROUP (UK) LTD,B45 9PZ,,5100043224,86280.32
+,19/09/2018,HMRC,Research Services,HMRC,,Centre for Data Exploitation,Research (VAT rec),,NATIONAL CENTRE FOR SOCIAL RESEARCH,EC1V 0AX,,5100043270,31945
+,19/09/2018,HMRC,System Maintenance fees,HMRC,,Information Management Services,Maintenance fees,,KCOM GROUP PLC,HU1 3RE,,5100043284,94252
+,19/09/2018,HMRC,Computer Equipment a,HMRC,,Information Management Services,Computer Equipment a,,RCDTS LTD,SW1A 2BQ,,5100043331,4737205.59
+,19/09/2018,HMRC,Costs for officers stationed abroad,HMRC,,Risk & Intelligence,GovDept Serv(VAT Ex),,FOREIGN AND COMMONWEALTH OFFICE,MK10 1PX,,5100043369,28143.8
+,19/09/2018,HMRC,Purchase of furniture for London 100 Parliament Street (August 2018),HMRC,,CFO Transformation Programmes,Chairs,,SENATOR INTERNATIONAL LTD,BB5 5YE,,5100043429,50397.78
+,19/09/2018,HMRC,Research Services,HMRC,,Centre for Data Exploitation,Research (VAT rec),,KANTAR UK LTD,W5 1UA,,5100043436,64304
+,20/09/2018,HMRC,Samplng & Analytical,HMRC,,Fraud Investigation Service,Samplng & Analytical,,IMA LTD,LS20 8BH,,5100043515,41468
+,20/09/2018,HMRC,Facilities Management - Hard FM costs at Salford Trinity Bridge House (August 2018),HMRC,,Estates,Hard FM Services,,G4S INTEGRATED SERVICES (UK) LTD,S81 7QF,,5100043527,37537.08
+,20/09/2018,HMRC,Facilities Management - Hard FM costs at Salford Trinity Bridge House (August 2018),HMRC,,Estates,Hard FM Services,,G4S INTEGRATED SERVICES (UK) LTD,S81 7QF,,5100043527,45878.65
+,20/09/2018,HMRC,Facilities Management - Hard FM costs at Glasgow Cotton House Glasgow (August 2018),HMRC,,Estates,Hard FM Services,,G4S INTEGRATED SERVICES (UK) LTD,S81 7QF,,5100043542,3470.31
+,20/09/2018,HMRC,Facilities Management - Hard FM costs at Glasgow Cotton House Glasgow (August 2018),HMRC,,Estates,Hard FM Services,,G4S INTEGRATED SERVICES (UK) LTD,S81 7QF,,5100043542,23224.37
+,20/09/2018,HMRC,Facilities Management - Hard FM costs for Edinburgh Elgin House (August 2018),HMRC,,Estates,Hard FM Services,,G4S INTEGRATED SERVICES (UK) LTD,S81 7QF,,5100043544,8415.17
+,20/09/2018,HMRC,Facilities Management - Hard FM costs for Edinburgh Elgin House (August 2018),HMRC,,Estates,Hard FM Services,,G4S INTEGRATED SERVICES (UK) LTD,S81 7QF,,5100043544,14328.54
+,20/09/2018,HMRC,BCS SFIA Plus Role Model System,HMRC,,Information Management Services,Soft Licen Off shelf,,CAPITA BUSINESS SERVICES LTD,DL1 9HN,,5100043623,100837.8
+,20/09/2018,HMRC,Translation,HMRC,,Fraud Investigation Service,Translation services,,K INTERNATIONAL PLC,MK5 8PL,,5100043670,26792.8
+,20/09/2018,HMRC,WAN Maintenance & Support,HMRC,,Information Management Services,WAN maint or supp,,HIGHSPEED OFFICE LTD,E1 8HQ,,5100043671,592192.75
+,20/09/2018,HMRC,Monthly Output Management bulk charges,HMRC,,Operational Excellence & Output Mgmt,Mail and Fulfilment,,COMMUNISIS UK LTD,NE12 8EW,,5100043692,28769.53
+,21/09/2018,HMRC,Contractor software development,HMRC,,Digital,Contin Labor Build,,ORANGE BUS LTD,NE136DS,,5100043724,77907.5
+,21/09/2018,HMRC,Contractor software development,HMRC,,Digital,Contin Labor Build,,ORANGE BUS LTD,NE136DS,,5100043726,49400.68
+,21/09/2018,HMRC,Contractor software development,HMRC,,Digital,Contin Labor Build,,ORANGE BUS LTD,NE136DS,,5100043726,67999.32
+,21/09/2018,HMRC,Monthly Royal Mail charges,HMRC,,Operational Excellence & Output Mgmt,Nat Pst Del Ser(VAT),,DEPARTMENT FOR WORK & PENSIONS,FY5 3TA,,5100043727,57067.65
+,21/09/2018,HMRC,Monthly Royal Mail charges,HMRC,,Operational Excellence & Output Mgmt,Nat Pst Del Ser(VAT),,DEPARTMENT FOR WORK & PENSIONS,FY5 3TA,,5100043728,21338.42
+,21/09/2018,HMRC,Contractor software development,HMRC,,Digital,Contin Labor Build,,ORANGE BUS LTD,NE136DS,,5100043735,87860
+,21/09/2018,HMRC,Monthly Royal Mail charges,HMRC,,Operational Excellence & Output Mgmt,Nat Pst Del Ser(VAT),,DEPARTMENT FOR WORK & PENSIONS,FY5 3TA,,5100043750,58034.7
+,21/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100043752,6500
+,21/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100043752,19393.98
+,21/09/2018,HMRC,Forensic Services,HMRC,,Fraud Investigation Service,Forensic Services,,DISKLABS LTD,B77 4AS,,5100043759,25971.99
+,21/09/2018,HMRC,Monthly Royal Mail charges,HMRC,,Operational Excellence & Output Mgmt,Nat Pst Del Ser(VAT),,DEPARTMENT FOR WORK & PENSIONS,FY5 3TA,,5100043768,39219.01
+,21/09/2018,HMRC,Monthly Royal Mail charges,HMRC,,Operational Excellence & Output Mgmt,Nat Pst Del Ser(VAT),,DEPARTMENT FOR WORK & PENSIONS,FY5 3TA,,5100043771,104385.43
+,21/09/2018,HMRC,Contractor software development,HMRC,,Digital,Contin Labor Build,,OPENCAST SOFTWARE EUROPE LTD,NE6 2HL,,5100043774,159340.8
+,21/09/2018,HMRC,Research Services,HMRC,,Centre for Data Exploitation,Research (VAT rec),,IFF RESEARCH LTD,N1 6DD,,5100043805,29000
+,21/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100043830,120762.31
+,21/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100043831,23523.57
+,24/09/2018,HMRC,Media Monitoring,HMRC,,Corporate Communications,Media Monitoring,,NLA MEDIA ACCESS LTD,TN1 1HJ,,5100044351,81644.2
+,24/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,HP Inc,RG12 IHN,,5100044378,28896.48
+,24/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,HP Inc,RG12 IHN,,5100044379,76416.67
+,24/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,HP Inc,RG12 IHN,,5100044383,92436.47
+,24/09/2018,HMRC,Customs Declaration Service - Specialist Support,HMRC,,Customs Transformation,Contract Besp SW Dev,,TECKNUOVO LTD,N1 7GU,,5100044397,150000
+,24/09/2018,HMRC,Subscription Software Licence,HMRC,,Information Management Services,Soft Licen Off shelf,,SOFTWARE BOX LTD,YO61 1ET,,5100044413,699538.52
+,24/09/2018,HMRC,Research Services,HMRC,,Centre for Data Exploitation,Research (VAT rec),,IFF RESEARCH LTD,N1 6DD,,5100044415,58955
+,24/09/2018,HMRC,Monthly Output Management bulk charges,HMRC,,Operational Excellence & Output Mgmt,Mail and Fulfilment,,COMMUNISIS UK LTD,NE12 8EW,,5100044484,39949.33
+,24/09/2018,HMRC,Monthly Output Management bulk charges,HMRC,,Operational Excellence & Output Mgmt,Mail and Fulfilment,,COMMUNISIS UK LTD,NE12 8EW,,5100044487,671350.46
+,24/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,HP Inc,RG12 IHN,,5100044501,25995.95
+,24/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,HP Inc,RG12 IHN,,5100044502,59022.35
+,24/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,HP Inc,RG12 IHN,,5100044503,90569.75
+,24/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,HP Inc,RG12 IHN,,5100044504,66191.82
+,24/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,HP Inc,RG12 IHN,,5100044506,51991.9
+,24/09/2018,HMRC,Purchase of furniture for London 100 Parliament Street (July 2018),HMRC,,CFO Transformation Programmes,Desks,,TRIUMPH FURNITURE LTD,CF48  1YH,,5100044509,2422.39
+,24/09/2018,HMRC,Purchase of furniture for London 100 Parliament Street (September 2018),HMRC,,CFO Transformation Programmes,Desks,,TRIUMPH FURNITURE LTD,CF48  1YH,,5100044509,73191.93
+,25/09/2018,HMRC,Professional Fees and Subscriptions,HMRC,,Customs & Indirect Tax Policy,Professional Fees and Subscriptions,,WORLD CUSTOMS ORGANISATION,.,,1900273622,523561.13
+,25/09/2018,HMRC,Amazon Web Services Hosting Aug-18,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900273631,195.01
+,25/09/2018,HMRC,Amazon Web Services T&R Hosting Aug-18,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900273631,256.44
+,25/09/2018,HMRC,System Maintenance,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900273631,539.01
+,25/09/2018,HMRC,System Maintenance,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900273631,1175.24
+,25/09/2018,HMRC,Amazon Web services cloud hosting charges,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900273631,2199.95
+,25/09/2018,HMRC,System Maintenance fees,HMRC,,CDIO Transformation Programmes,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900273631,4099.7
+,25/09/2018,HMRC,Amazon Web services cloud hosting charges,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900273631,10247.59
+,25/09/2018,HMRC,System Maintenance,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900273631,10644.88
+,25/09/2018,HMRC,Amazon Web Services CM Hosting Aug-18,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900273631,15547.29
+,25/09/2018,HMRC,System Maintenance for Cloud Hosting services,HMRC,,Digital,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900273631,19232.79
+,25/09/2018,HMRC,System Maintenance for Cloud Hosting services,HMRC,,Digital,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900273631,33930.66
+,25/09/2018,HMRC,System Maintenance,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900273631,84331.17
+,25/09/2018,HMRC,Amazon Web Services - Aug-18  - Cloud DG,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900273631,99834.97
+,25/09/2018,HMRC,Amazon Web Services Hosting Aug-18,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900273631,160059.78
+,25/09/2018,HMRC,System Maintenance,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900273631,276279.84
+,25/09/2018,HMRC,Cloud Hosting charges,HMRC,,Information Management Services,System Maintenance,,AMAZON WEB SERVICES,98109-5210,,1900273631,343529.58
+,25/09/2018,HMRC,Desktop Managed Service - Surface Pro Rollout,HMRC,,Information Management Services,Desktop Managed Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100044518,82610
+,25/09/2018,HMRC,Desktop Managed Service - Surface Pro Rollout,HMRC,,Information Management Services,Desktop Managed Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100044519,408030
+,25/09/2018,HMRC,Desktop Managed Service - Switch Refresh,HMRC,,Information Management Services,Desktop Managed Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100044520,135246
+,25/09/2018,HMRC,Desktop Managed Service - Surface Pro Rollout,HMRC,,Information Management Services,Desktop Managed Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100044521,67320
+,25/09/2018,HMRC,Government Gateway Core Services,HMRC,,Information Management Services,Proprietry sys maint,,ATOS IT SERVICES UK LTD,WV10 6UH,,5100044527,173885.88
+,25/09/2018,HMRC,Facilities Management - Hard FM costs at London Jubilee House (August 2018),HMRC,,Estates,Hard FM Services,,ENGIE BUILDINGS LTD,NE12 8EX,,5100044571,39403.64
+,25/09/2018,HMRC,Government Gateway Development Services,HMRC,,Information Management Services,Proprietry sys maint,,ATOS IT SERVICES UK LTD,WV10 6UH,,5100044582,216729.45
+,25/09/2018,HMRC,Government Gateway Hosting Services,HMRC,,Information Management Services,Proprietry sys maint,,ATOS IT SERVICES UK LTD,WV10 6UH,,5100044587,164266.11
+,25/09/2018,HMRC,Contingency Labour Run,HMRC,,Information Management Services,Contract Besp SW Dev,,PEOPLE SOURCE CONSULTING,BS1 6BA,,5100044607,1310987.5
+,25/09/2018,HMRC,Desktop Managed Serv,HMRC,,Information Management Services,Desktop Managed Serv,,HP Inc,RG12 IHN,,5100044612,105831.39
+,25/09/2018,HMRC,Government Gateway Core Services,HMRC,,Information Management Services,Proprietry sys maint,,ATOS IT SERVICES UK LTD,WV10 6UH,,5100044625,223232.62
+,25/09/2018,HMRC,Employee education,HMRC,,HR,Employee education,,CSL - KPMG LLP,E14 5GL,,5100044636,58145.43
+,25/09/2018,HMRC,Marketing Promotion,HMRC,,CS Transformation Programmes,Marketing Promotion,,ADAMANDEVE DDB,W2 6AA,,5100044637,26664
+,25/09/2018,HMRC,Courier Services,HMRC,,Estates,Next Day Del. Closed,,TNT UK LTD,BL0 9AR,,5100044639,270809.49
+,25/09/2018,HMRC,Monthly charge for fully serviced accommodation at London 100 Parliament Street (September 2018),HMRC,,Estates,100 PS Service Charg,,EXCHEQUER PARTNERSHIP No2 PLC,M1 4HB,,5100044665,88215.37
+,25/09/2018,HMRC,Monthly charge for fully serviced accommodation at London 100 Parliament Street (September 2018),HMRC,,Estates,100 PS Service Charg,,EXCHEQUER PARTNERSHIP No2 PLC,M1 4HB,,5100044665,2117168.77
+,25/09/2018,HMRC,Charges for accommodation provided under the Newcastle Private Finance Initiative contract (August 2018),HMRC,,Estates,Oth PFI unitary chrg,,NEWCASTLE ESTATE PARTNERSHIP,BS1 4DJ,,5100044666,1709694.22
+,25/09/2018,HMRC,Charges for accommodation provided under the Newcastle Private Finance Initiative contract (August 2018),HMRC,,Estates,Oth PFI unitary chrg,,NEWCASTLE ESTATE PARTNERSHIP,BS1 4DJ,,5100044666,1709694.23
+,25/09/2018,HMRC,Monthly charge for fully serviced accommodation across the UK under the Mapeley STEPS Private Finance Initiative contract (September 2018),HMRC,,Estates,STEPS FUP,,MAPELEY STEPS CONTRACTOR LTD,WD17 1HN,,5100044669,3134593.37
+,25/09/2018,HMRC,Monthly charge for fully serviced accommodation across the UK under the Mapeley STEPS Private Finance Initiative contract (September 2018),HMRC,,Estates,STEPS FUP,,MAPELEY STEPS CONTRACTOR LTD,WD17 1HN,,5100044669,9926212.32
+,25/09/2018,HMRC,Monthly charge Correction for Newton Abbot Sherborne House and CFO Rayleigh (September 2018),HMRC,,Estates,STEPS FUP,,MAPELEY STEPS CONTRACTOR LTD,WD17 1HN,,5100044670,8988.14
+,25/09/2018,HMRC,Monthly charge Correction for Newton Abbot Sherborne House and CFO Rayleigh (September 2018),HMRC,,Estates,STEPS FUP,,MAPELEY STEPS CONTRACTOR LTD,WD17 1HN,,5100044670,28462.46
+,26/09/2018,HMRC,Ombudsman services,HMRC,,HR,Ombudsman services,,ACCENTURE (UK) LTD,EC3M 3BD,,5100044596,66100
+,26/09/2018,HMRC,Ombudsman services,HMRC,,HR,Ombudsman services,,ACCENTURE (UK) LTD,EC3M 3BD,,5100044599,58391
+,26/09/2018,HMRC,Research Services,HMRC,,Centre for Data Exploitation,Research (VAT rec),,IFF RESEARCH LTD,N1 6DD,,5100044685,25868
+,26/09/2018,HMRC,Research Services,HMRC,,Centre for Data Exploitation,Research (VAT rec),,IFF RESEARCH LTD,N1 6DD,,5100044691,34500
+,26/09/2018,HMRC,EDM Change work,HMRC,,Information Management Services,Data input or prep,,EDM GROUP LTD,EC4N 1SP,,5100044694,1579.5
+,26/09/2018,HMRC,EDM Change work,HMRC,,Information Management Services,Consultancy  IT,,EDM GROUP LTD,EC4N 1SP,,5100044694,22273.5
+,26/09/2018,HMRC,Government Gateway Print and PIN Services,HMRC,,Information Management Services,Proprietry sys maint,,ATOS IT SERVICES UK LTD,WV10 6UH,,5100044707,67773.4
+,26/09/2018,HMRC,These are recharges to DWP for Hosting the Child Benefit system,HMRC,,Information Management Services,Proprietry sys maint,,Department for Work and Pensions,FY5 3TA,,5100044711,62210.72
+,26/09/2018,HMRC,Government Gateway Changes,HMRC,,Information Management Services,Proprietry sys maint,,ATOS IT SERVICES UK LTD,WV10 6UH,,5100044792,51013.2
+,26/09/2018,HMRC,Employee education,HMRC,,Fraud Investigation Service,Employee education,,CSL - KORN FERRY HAY GROUP,SW1Y 6QB,,5100044794,28915
+,26/09/2018,HMRC,Customs Declaration Management Service Support,HMRC,,Customs Transformation,Maintenance fees,,SPECIALIST COMPUTER CTR,B11 2LE,,5100044797,46282
+,26/09/2018,HMRC,OHS,HMRC,,HR,OHS,,HEALTH MANAGEMENT LTD,BN8 5NN,,5100044827,22384.03
+,26/09/2018,HMRC,Marketing Promotion,HMRC,,Corporate Communications,Marketing Promotion,,CARAT,NW1 3BF,,5100044839,17408.88
+,26/09/2018,HMRC,Marketing Promotion,HMRC,,Corporate Communications,Marketing Promotion,,CARAT,NW1 3BF,,5100044839,87125.32
+,26/09/2018,HMRC,Network Voice Serv,HMRC,,Information Management Services,Network Voice Serv,,VODAFONE LTD,RG14 5FF,,5100044841,-659.17
+,26/09/2018,HMRC,Network Voice Serv,HMRC,,Information Management Services,Network Voice Serv,,VODAFONE LTD,RG14 5FF,,5100044841,85111.07
+,26/09/2018,HMRC,Data Purchases,HMRC,,Benefits & Credits Delivery,Data Purchases,,IFF RESEARCH LTD,N1 6DD,,5100044876,25845.6
+,27/09/2018,HMRC,Desktop Managed Service - W10 1703 Deployment,HMRC,,Information Management Services,Desktop Managed Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100044773,93206.53
+,27/09/2018,HMRC,Desktop Managed Service - Anti Virus Ph3 Rollout,HMRC,,Information Management Services,Desktop Managed Serv,,FUJITSU SERVICES LTD,W1U 3BW,,5100044774,28826.53
+,27/09/2018,HMRC,Court Fees,HMRC,,Debt Management,Court Fees,,THE INSOLVENCY SERVICE,B4 6FD,,5100044880,170445
+,27/09/2018,HMRC,Telephone Support,HMRC,,Operational Excellence & Output Mgmt,Telephone Support,,KCOM GROUP PLC,HU1 3RE,,5100044939,157436.02
+,27/09/2018,HMRC,Marketing Promotion,HMRC,,Corporate Communications,Marketing Promotion,,GfK UK Ltd,E14 5LQ,,5100044959,23940
+,27/09/2018,HMRC,Expenditure relates to the provision of services by the Commercial Delivery Team - 'BuyingTeam Ltd trading as Proxima' during the month of August 2018.,HMRC,,Commercial Directorate,Temp clerical/admin,,BUYINGTEAM LTD t/a Proxima,EC2V 6DN,,5100045023,23970
+,27/09/2018,HMRC,Marketing Promotion,HMRC,,Corporate Communications,Marketing Promotion,,ADAMANDEVE DDB,W2 6AA,,5100045127,72731.52
+,27/09/2018,HMRC,These are recharges to DWP for Hosting the Child Benefit system,HMRC,,Information Management Services,Proprietry sys maint,,Department for Work and Pensions,FY5 3TA,,5100045159,113938.69
+,28/09/2018,HMRC,Customs Declaration Service - IT Support,HMRC,,Customs Transformation,P04 Rate IT Serv Res,,BLOOM PROCUREMENT SERVICES LTD,NE1 3DY,,5100046013,537789.7
+,28/09/2018,HMRC,Contractor software development,HMRC,,Digital,Contin Labor Build,,EQUAL EXPERTS UK LTD,WC1H 9BB,,5100046068,384112.5
+,28/09/2018,HMRC,Contractor software development,HMRC,,Digital,Contin Labor Build,,EQUAL EXPERTS UK LTD,WC1H 9BB,,5100046070,77393.75
+,28/09/2018,HMRC,Legal Service Sol's,HMRC,,Solicitors Office,Legal Service Sol's,,GOVERNMENT LEGAL DEPARTMENT,WC2B 4TS,,5100046097,681.3
+,28/09/2018,HMRC,Legal Service Sol's,HMRC,,Solicitors Office,Legal Service Sol's,,GOVERNMENT LEGAL DEPARTMENT,WC2B 4TS,,5100046097,151095.51

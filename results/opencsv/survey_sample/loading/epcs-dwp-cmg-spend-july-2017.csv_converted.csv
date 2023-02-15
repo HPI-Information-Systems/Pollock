@@ -1,0 +1,3 @@
+Application Error
+com.opencsv.exceptions.CsvMalformedLineException: Unterminated quoted field at end of CSV line. Beginning of lost text: [",,,
+Line Number ,Posting Date ,MCH.Merchant Category Code (MCC),MCH.Merchant Name,FIN.Transactio...]

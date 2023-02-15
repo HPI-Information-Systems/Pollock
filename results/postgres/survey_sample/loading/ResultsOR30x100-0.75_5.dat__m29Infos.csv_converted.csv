@@ -1,0 +1,3 @@
+Application Error
+extra data after last expected column
+CONTEXT:  COPY table1, line 3: ""OR30x100-0.75_5.dat__m29";"1440";"58884";"OPTIMAL";"6.29";"58884";"OPTIMAL";"16.08";"76";"73";"5888..."

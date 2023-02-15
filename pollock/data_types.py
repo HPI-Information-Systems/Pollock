@@ -59,9 +59,7 @@ def parse_cell(val, strip_comma=False):
     try:
         dateutil.parser.parse(val, parserinfo=customDateParserInfo())
         return CellType.DATE
-    except ValueError:
-        pass
-    except TypeError:
+    except (ValueError, OverflowError, TypeError) as e:
         pass
     price = Price.fromstring(val)
     if (price.currency is not None) and (price.amount is not None):
@@ -72,7 +70,7 @@ def parse_cell(val, strip_comma=False):
 
 def normalize_cell(cell):
     if cell is None or cell == "":
-        return "null"
+        return ""
     if type(cell) == type("string"):
         val = cell
     else:
@@ -85,6 +83,8 @@ def normalize_cell(cell):
             return "0"
         elif val in ["True", "true", "1", 1, 1.]:
             return "1"
+        else:
+            return(str(bool(int(val))))
 
     elif typ == CellType.INTEGER:
         if val in ["NULL", "", "N/A"]:

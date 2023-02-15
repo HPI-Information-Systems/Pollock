@@ -1,0 +1,3 @@
+﻿EOCG Status,F17,Hyp Status,Original Status,Problem Name,D,EOCG Obj value,EOCG Runtime (total),Hyp Kmax,Hyp Kmin,HYP Obj. Value,Hyp Runtime,m,n,Original Obj. Value,Original Runtime,Total time limit
+OPTIMAL,"
+",OPTIMAL,OPTIMAL,OR30x100-0.75_1.dat__m21,21,57917,266.04,76,73,57917,15,21,100,57917,4.34,1440

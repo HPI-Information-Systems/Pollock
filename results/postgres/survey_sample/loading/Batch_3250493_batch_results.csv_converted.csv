@@ -1,0 +1,3 @@
+Application Error
+missing data for column "Approve"
+CONTEXT:  COPY table1, line 2: ""39O0SQZVJM6E7ADSLO0OB96V0UD7RK","3217B3DC4O3CK95BFOSJMLXXUAE416","Answer a survey about your opinio..."

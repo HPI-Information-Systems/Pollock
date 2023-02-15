@@ -1,0 +1,4 @@
+Application Error
+zero-length delimited identifier at or near """"
+LINE 1: ...),"fire X" varchar(65535),"fire Y" varchar(65535),"" varchar...
+                                                             ^

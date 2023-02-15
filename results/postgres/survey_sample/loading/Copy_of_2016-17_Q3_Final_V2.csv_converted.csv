@@ -1,0 +1,4 @@
+Application Error
+argument to option "encoding" must be a valid encoding name
+LINE 3: ENCODING 'CP949' 
+        ^

@@ -1,1 +1,2 @@
 clevercsv==0.7.4
+pandas==1.4.3

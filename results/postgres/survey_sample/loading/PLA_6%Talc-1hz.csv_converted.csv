@@ -1,0 +1,4 @@
+Application Error
+syntax error at or near "("
+LINE 1: ...rchar(65535),"E'(1.000 Hz)/MPa" varchar(65535),"E"(1.000 Hz)...
+                                                             ^

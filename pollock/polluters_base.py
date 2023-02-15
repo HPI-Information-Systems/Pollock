@@ -1,12 +1,6 @@
-import datetime
-
-import dateutil
-
 from .CSVFile import CSVFile, create_cell
 from lxml import etree
 from lxml.builder import E
-from .data_types import parse_cell, CellType, customDateParserInfo
-
 
 def addCells(file: CSVFile, row, position, n_cells=1, content="", role="", table=0):
     """
@@ -60,11 +54,16 @@ def addRows(file: CSVFile, cell_content="", n_rows=0, position=0, col_count=None
         pos = len(root)
 
     for j in range(n_rows):
-        row = etree.Element("row")
+        row_role = max(set(role), key=role.count) if type(role) == list else role
+        row = etree.Element("row", role=row_role)
         for i in range(col_count):
             rl = role[i] if type(role) == list else role
             content = cell_content[i] if type(cell_content) == list else cell_content
-            cell = create_cell(file, content, role=rl)
+            cell = create_cell(field_delimiter=file.field_delimiter,
+                               quotation_char=file.quotation_char,
+                               escape_char=file.escape_char,
+                               text=content or "",
+                               role=rl)
             row.insert(len(row), cell)
             if i < col_count - 1:
                 delimiter = E.field_delimiter(file.field_delimiter)
@@ -98,7 +97,10 @@ def addColumns(file: CSVFile, position, n_cols: int, col_names: list, cell_conte
             content = content if idx >= 1 else reversed_col_names[i]
             rl = role[idx] if type(role) == list else role
 
-            cell = create_cell(file, content, role=rl)
+            cell = create_cell(field_delimiter=file.field_delimiter,
+                               quotation_char=file.quotation_char,
+                               escape_char=file.escape_char,
+                               text=content or "", role=rl)
             delimiter = E.field_delimiter(file.field_delimiter)
 
             r.insert(row_pos, cell)
@@ -121,10 +123,7 @@ def changeCell(file: CSVFile, row: int, col: int, new_content, table=0):
         [c.remove(child) for child in c]
         insert_value_cell(file, c, new_content)
 
-
 def deleteCells(file: CSVFile, row: int, col, table=0):
-    """ Col can either be an int, a list or '*'
-    """
     root = file.xml.getroot()
 
     if type(row) == int and row < 0:

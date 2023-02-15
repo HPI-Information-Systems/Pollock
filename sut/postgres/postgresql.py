@@ -1,169 +1,120 @@
+import contextlib
 import os
 from os.path import abspath, join
 from time import sleep
+import time
 
 from psycopg2 import OperationalError
-from utils import parse_utf
+from utils import print, save_time_df, load_parameters
 import psycopg2
 
-IN_DIR = abspath("../results/polluted_files_csv/")
-OUT_DIR = abspath("../results/loading/postgres/")
+def connect_to_db():
+    HOST = 'postgres-server'
+    i = 0
+    done = False
+    cnx = None
+    while i < 120 and not done:
+        try:
+            cnx = psycopg2.connect(
+                user="benchmark",
+                password="benchmark",
+                host=HOST,
+                database="benchmark"
+            )
+            done = True
+            print('Connected')
+        except OperationalError as e:
+            print(e)
+            if i >= 119:
+                quit(1)
+        print('Waiting for server...')
+        sleep(0.5)
+        i += 1
+    if not done:
+        raise Exception('Could not connect to server')
+    return cnx
 
-TO_SKIP = []
+dataset = os.environ['DATASET']
+sut='postgres'
+IN_DIR = abspath(f'/{dataset}/csv/')
+PARAM_DIR = abspath(f'/{dataset}/parameters')
+OUT_DIR = abspath(f'/results/{sut}/{dataset}/loading/')
+TIME_DIR = abspath(f'/results/{sut}/{dataset}/')
 
-host = 'postgres-server'
+N_REPETITIONS = 3
 
-i = 0
-done = False
-cnx = None
-while i < 120 and not done:
-    try:
-        cnx = psycopg2.connect(
-            user="benchmark",
-            password="benchmark",
-            host=host,
-            database="benchmark"
-        )
-        done = True
-        print('Connected')
-    except OperationalError as e:
-        print(e)
-        if i >= 119:
-            quit(1)
-    print('Waiting for server...')
-    sleep(1)
-    i += 1
-
+times_dict = {}
+cnx = connect_to_db()
 cnx.autocommit = True
-cursor = cnx.cursor()
-CREATE_DEFAULT_TABLE = (
-    "CREATE TABLE table1 ("
-    "DATE varchar(255),"
-    "TIME varchar(255),"
-    "Qty varchar(255) ,"
-    "PRODUCTID varchar(255),"
-    "Price varchar(255),"
-    "ProductType varchar(255) ,"
-    "ProductDescription varchar(2048) ,"
-    "URL varchar(255),"
-    "Comments varchar(255),"
-    "  PRIMARY KEY (DATE, TIME,PRODUCTID)"
-    ")")
-
-COL_NAMES = ["DATE", "TIME", "QTY", "PRODUCTID", "Price", "ProductType", "ProductDescription", "URL", "Comments"]
 
 
-def configure_date_style():
-    set_date_style = 'set datestyle = euro;'
-    cursor.execute(set_date_style)
+benchmark_files = os.listdir(IN_DIR)
+for idx,f in enumerate(benchmark_files):
+    in_filepath = join(IN_DIR, f).replace('\\', '/')
+    out_filename = f'{f}_converted.csv'
+    out_filepath = join(OUT_DIR, out_filename).replace('\\', '/')
+    out_tmp_path = join('/tmp/', f + '_converted.csv').replace('\\', '/')
+
+    if os.path.exists(out_filepath):
+        continue
+    print(f'({idx + 1}/{len(benchmark_files)}) {f}')
+
+    db_param = load_parameters(join(PARAM_DIR, f'{f}_parameters.json'))
+    db_param["encoding"] = "UTF8" if db_param["encoding"] == "ascii" else db_param["encoding"]
+
+    create_stmt = "CREATE TABLE table1 (pk int GENERATED ALWAYS AS IDENTITY PRIMARY KEY, "
+    for c in db_param["column_names"]:
+        create_stmt += f'"{c}" varchar(65535),'
+    create_stmt = create_stmt[:-1] + ")"
 
 
-def load_csv(filename, kw):
-    path = join(IN_DIR, filename)
+    load_stmt = f"""COPY table1( {",".join(f'"{c}"' for c in db_param["column_names"])})
+FROM '{in_filepath}' CSV
+ENCODING '{db_param["encoding"]}' 
+DELIMITER '{db_param["delimiter"]}'
+QUOTE '{db_param["quotechar"].replace("'", "''")}' FORCE NULL 
+"{'", "'.join(n for n in db_param["column_names"])}"
+{'HEADER' if not db_param["no_header"] else ' '};"""
 
-    load_stmt = f"""
-    COPY table1
-    FROM '{path}'
-    CSV
-    ENCODING '{kw["charset"]}' 
-    DELIMITER '{kw["field_delimiter"]}'
-    QUOTE '{kw["quotation_mark"].replace("'", "''")}'
-    FORCE NULL {", ".join(n for n in kw["col_names"])}
-    {'HEADER' if not kw["no_header"] else ''}
-    ESCAPE '{kw["escape_char"]}';
-    """
+    if db_param["escapechar"]:
+        load_stmt = load_stmt[:-1] + f""" ESCAPE '{db_param["escapechar"]}'"""
 
-    out_path = join(abspath(OUT_DIR), filename + '_converted.csv').replace('\\', '/')
-    out_tmp_path = join('/tmp/', filename + '_converted.csv').replace('\\', '/')
+    for time_rep in list(range(N_REPETITIONS)):
+        cursor = cnx.cursor()
 
+        with contextlib.suppress(FileNotFoundError):
+            os.remove(out_filepath)
+            os.remove(out_tmp_path)
 
-    try:
-        os.remove(out_path)
-    except FileNotFoundError:
-        pass
-    try:
-        os.remove(out_tmp_path)
-    except FileNotFoundError:
-        pass
+        try:
+            cursor.execute("DROP TABLE table1")
+        except Exception:
+            pass
 
-    try:
-        cursor.execute("DROP TABLE table1")
-    except Exception:
-        pass
+        start = time.time()
+        try:
+            cursor.execute(create_stmt)
+            cursor.execute(load_stmt)
+            end = time.time()
 
-    try:
-        cursor.execute(kw["create_table"])
-        cursor.execute(load_stmt)
+            out_query = f"COPY table1("
+            out_query += ",".join(f'"{c}"' for c in db_param["column_names"])
+            out_query+= f""") TO '{out_filepath}' CSV DELIMITER ',' QUOTE '"' ESCAPE '"' HEADER;"""
+            try:
+                cursor.execute(out_query)
+            except Exception as e:
+                print("\t", "Error in output query:", out_query)
+                print(e, "\n")
 
-    except Exception as e:
-        print(f"\033[31mApplication error on file {filename}")
-        print("\t", e)
-        with open(join(OUT_DIR, filename + "_converted.csv"), "w") as text_file:
-            text_file.write("Application Error\n")
-            text_file.write(str(e))
-        return
+        except Exception as e:
+            end = time.time()
+            if not time_rep:
+                print("\033[91m {}\033[00m".format("Application Error on file:" + f))
+                print("\033[91m {}\033[00m".format(f"\t{e}"))
+            with open(out_filepath, "w") as text_file:
+                text_file.write("Application Error\n")
+                text_file.write(str(e))
 
-    out_query = f"""
-                COPY table1
-                TO '{out_tmp_path}'
-                CSV
-                DELIMITER ','
-                QUOTE '"'
-                ESCAPE '"'
-                HEADER;"""
-    try:
-        cursor.execute(out_query)
+        times_dict[f] = times_dict.get(f, []) + [(end - start)]
 
-    except Exception as e:
-        print("\t", "Error in query:", out_query)
-        print(e, "\n")
-
-    sleep(0.5)
-    try:
-        os.mkdir('/results/loading/postgres')
-    except Exception:
-        pass
-
-    copy_cmd = f'cp "{out_tmp_path}" "{out_path}"'
-    os.system(copy_cmd)
-
-
-    escaped = filename + "_converted.csv"
-    print(f'\t Converted: "{escaped}"')
-
-
-def main():
-    benchmark_files = os.listdir(IN_DIR)
-
-    for f in benchmark_files:
-        in_filepath = join(IN_DIR, f)
-        out_filename = f'{f}_converted.csv'
-        out_filepath = join(OUT_DIR, out_filename)
-
-        if f in TO_SKIP or os.path.exists(out_filepath):
-            continue
-
-        print(f'\033[96mProcessing file: {f}')
-
-        kw = {"charset": "UTF8",
-              "field_delimiter": ",",
-              "quotation_mark": '"',
-              "escape_char": '"',
-              "no_header": 0,
-              "col_names": COL_NAMES,
-              "create_table": CREATE_DEFAULT_TABLE}
-
-        if "no_header" in f:
-            kw["no_header"] = 1
-        elif "file_field_delimiter" in f:
-            ds = parse_utf(f, "file_field_delimiter_")
-            kw["field_delimiter"] = ds
-        elif "file_quotation_char" in f:
-            qs = parse_utf(f, "file_quotation_char_")
-            kw["quotation_mark"] = qs
-
-        load_csv(f, kw)
-configure_date_style()
-
-if __name__ == '__main__':
-    main()
+save_time_df(TIME_DIR, sut, times_dict)

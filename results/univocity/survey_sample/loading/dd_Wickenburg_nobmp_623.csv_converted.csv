@@ -1,0 +1,44 @@
+Application Error
+com.univocity.parsers.common.TextParsingException: Length of parsed input (4097) exceeds the maximum number of characters defined in your parser settings (4096). 
+Parser Configuration: CsvParserSettings:
+	Auto configuration enabled=true
+	Auto-closing enabled=true
+	Autodetect column delimiter=false
+	Autodetect quotes=false
+	Column reordering enabled=true
+	Delimiters for detection=null
+	Empty value=null
+	Escape unquoted values=false
+	Header extraction enabled=null
+	Headers=null
+	Ignore leading whitespaces=true
+	Ignore leading whitespaces in quotes=false
+	Ignore trailing whitespaces=true
+	Ignore trailing whitespaces in quotes=false
+	Input buffer size=1048576
+	Input reading on separate thread=true
+	Keep escape sequences=false
+	Keep quotes=false
+	Length of content displayed on error=-1
+	Line separator detection enabled=false
+	Maximum number of characters per column=4096
+	Maximum number of columns=512
+	Normalize escaped line separators=true
+	Null value=null
+	Number of records to read=all
+	Processor=none
+	Restricting data in exceptions=false
+	RowProcessor error handler=null
+	Selected fields=none
+	Skip bits as whitespace=true
+	Skip empty lines=true
+	Unescaped quote handling=nullFormat configuration:
+	CsvFormat:
+		Comment character=#
+		Field delimiter=,
+		Line separator (normalized)=\n
+		Line separator sequence=\n
+		Quote character="
+		Quote escape character="
+		Quote escape escape character=null
+Internal state when error was thrown: line=12, column=0, record=12, charIndex=5138, headers=[$$veh_info], content parsed=$$time[s];COG_x[m]_1;COG_y[m]_1;COG_z[m]_1;vel[km\h]_1;vel.dir.[deg]_1;vel_z[km\h]_1;acc_x[m\s2]_1;acc_y[m\s2]_1;acc_z[m\s2]_1;pitch[deg]_1;roll[deg]_1;yaw[deg]_1;acc_lon[m\s2]_1;acc_lat[m\s2]_1;acc_vert[m\s2]_1;pitch_vel[deg]_1;roll_vel[deg]_1;yaw_vel[deg]_1;steer_l[deg]_1;steer_r[deg]_1;HWYD[m]_1;HWYI[idx]_1;HWYV[km\h]_1;COG_x[m]_2;COG_y[m]_2;COG_z[m]_2;vel[km\h]_2;vel.dir.[deg]_2;vel_z[km\h]_2;acc_x[m\s2]_2;acc_y[m\s2]_2;acc_z[m\s2]_2;pitch[deg]_2;roll[deg]_2;yaw[deg]_2;acc_lon[m\s2]_2;acc_lat[m\s2]_2;acc_vert[m\s2]_2;pitch_vel[deg]_2;roll_vel[deg]_2;yaw_vel[deg]_2;steer_l[deg]_2;steer_r[deg]_2;HWYD[m]_2;HWYI[idx]_2;HWYV[km\h]_2;COG_x[m]_3;COG_y[m]_3;COG_z[m]_3;vel[km\h]_3;vel.dir.[deg]_3;vel_z[km\h]_3;acc_x[m\s2]_3;acc_y[m\s2]_3;acc_z[m\s2]_3;pitch[deg]_3;roll[deg]_3;yaw[deg]_3;acc_lon[m\s2]_3;acc_lat[m\s2]_3;acc_vert[m\s2]_3;pitch_vel[deg]_3;roll_vel[deg]_3;yaw_vel[deg]_3;steer_l[deg]_3;steer_r[deg]_3;HWYD[m]_3;HWYI[idx]_3;HWYV[km\h]_3;COG_x[m]_4;COG_y[m]_4;COG_z[m]_4;vel[km\h]_4;vel.dir.[deg]_4;vel_z[km\h]_4;acc_x[m\s2]_4;acc_y[m\s2]_4;acc_z[m\s2]_4;pitch[deg]_4;roll[deg]_4;yaw[deg]_4;acc_lon[m\s2]_4;acc_lat[m\s2]_4;acc_vert[m\s2]_4;pitch_vel[deg]_4;roll_vel[deg]_4;yaw_vel[deg]_4;steer_l[deg]_4;steer_r[deg]_4;HWYD[m]_4;HWYI[idx]_4;HWYV[km\h]_4;COG_x[m]_5;COG_y[m]_5;COG_z[m]_5;vel[km\h]_5;vel.dir.[deg]_5;vel_z[km\h]_5;acc_x[m\s2]_5;acc_y[m\s2]_5;acc_z[m\s2]_5;pitch[deg]_5;roll[deg]_5;yaw[deg]_5;acc_lon[m\s2]_5;acc_lat[m\s2]_5;acc_vert[m\s2]_5;pitch_vel[deg]_5;roll_vel[deg]_5;yaw_vel[deg]_5;steer_l[deg]_5;steer_r[deg]_5;HWYD[m]_5;HWYI[idx]_5;HWYV[km\h]_5;COG_x[m]_6;COG_y[m]_6;COG_z[m]_6;vel[km\h]_6;vel.dir.[deg]_6;vel_z[km\h]_6;acc_x[m\s2]_6;acc_y[m\s2]_6;acc_z[m\s2]_6;pitch[deg]_6;roll[deg]_6;yaw[deg]_6;acc_lon[m\s2]_6;acc_lat[m\s2]_6;acc_vert[m\s2]_6;pitch_vel[deg]_6;roll_vel[deg]_6;yaw_vel[deg]_6;steer_l[deg]_6;steer_r[deg]_6;HWYD[m]_6;HWYI[idx]_6;HWYV[km\h]_6;COG_x[m]_7;COG_y[m]_7;COG_z[m]_7;vel[km\h]_7;vel.dir.[deg]_7;vel_z[km\h]_7;acc_x[m\s2]_7;acc_y[m\s2]_7;acc_z[m\s2]_7;pitch[deg]_7;roll[deg]_7;yaw[deg]_7;acc_lon[m\s2]_7;acc_lat[m\s2]_7;acc_vert[m\s2]_7;pitch_vel[deg]_7;roll_vel[deg]_7;yaw_vel[deg]_7;steer_l[deg]_7;steer_r[deg]_7;HWYD[m]_7;HWYI[idx]_7;HWYV[km\h]_7;COG_x[m]_8;COG_y[m]_8;COG_z[m]_8;vel[km\h]_8;vel.dir.[deg]_8;vel_z[km\h]_8;acc_x[m\s2]_8;acc_y[m\s2]_8;acc_z[m\s2]_8;pitch[deg]_8;roll[deg]_8;yaw[deg]_8;acc_lon[m\s2]_8;acc_lat[m\s2]_8;acc_vert[m\s2]_8;pitch_vel[deg]_8;roll_vel[deg]_8;yaw_vel[deg]_8;steer_l[deg]_8;steer_r[deg]_8;HWYD[m]_8;HWYI[idx]_8;HWYV[km\h]_8;COG_x[m]_9;COG_y[m]_9;COG_z[m]_9;vel[km\h]_9;vel.dir.[deg]_9;vel_z[km\h]_9;acc_x[m\s2]_9;acc_y[m\s2]_9;acc_z[m\s2]_9;pitch[deg]_9;roll[deg]_9;yaw[deg]_9;acc_lon[m\s2]_9;acc_lat[m\s2]_9;acc_vert[m\s2]_9;pitch_vel[deg]_9;roll_vel[deg]_9;yaw_vel[deg]_9;steer_l[deg]_9;steer_r[deg]_9;HWYD[m]_9;HWYI[idx]_9;HWYV[km\h]_9;COG_x[m]_10;COG_y[m]_10;COG_z[m]_10;vel[km\h]_10;vel.dir.[deg]_10;vel_z[km\h]_10;acc_x[m\s2]_10;acc_y[m\s2]_10;acc_z[m\s2]_10;pitch[deg]_10;roll[deg]_10;yaw[deg]_10;acc_lon[m\s2]_10;acc_lat[m\s2]_10;acc_vert[m\s2]_10;pitch_vel[deg]_10;roll_vel[deg]_10;yaw_vel[deg]_10;steer_l[deg]_10;steer_r[deg]_10;HWYD[m]_10;HWYI[idx]_10;HWYV[km\h]_10;COG_x[m]_11;COG_y[m]_11;COG_z[m]_11;vel[km\h]_11;vel.dir.[deg]_11;vel_z[km\h]_11;acc_x[m\s2]_11;acc_y[m\s2]_11;acc_z[m\s2]_11;pitch[deg]_11;roll[deg]_11;yaw[deg]_11;acc_lon[m\s2]_11;acc_lat[m\s2]_11;acc_vert[m\s2]_11;pitch_vel[deg]_11;roll_vel[deg]_11;yaw_vel[deg]_11;steer_l[deg]_11;steer_r[deg]_11;HWYD[m]_11;HWYI[idx]_11;HWYV[km\h]_11;COG_x[m]_12;COG_y[m]_12;COG_z[m]_12;vel[km\h]_12;vel.dir.[deg]_12;vel_z[km\h]_12;acc_x[m\s2]_12;acc_y[m\s2]_12;acc_z[m\s2]_12;pitch[deg]_12;roll[deg]_12;yaw[deg]_12;acc_lon[m\s2]_12;acc_lat[m\s2]_12;acc_vert[m\s2]_12;pitch_vel[deg]_12;roll_vel[deg]_12;yaw_vel[deg]_12;steer_l[deg]_12;steer_r[deg]_12;HWYD[m]_12;HWYI[idx]_12;HWYV[km\h]_12;COG_x[m]_13;COG_y[m]_13;COG_z[m]_13;vel[km\h]_13;vel.dir.[deg]_13;vel_z[km\h]_13;acc_x[m\s2]_13;acc_y[m\s2]_13;acc_z[m\s2]_13;pitch[deg]_13;roll[deg]_13;yaw[deg]_13;acc_lon[m\s2]_13;acc_lat[m\s2]_13;acc_vert[m\s2]_13;pitch_vel[deg]_13;ro

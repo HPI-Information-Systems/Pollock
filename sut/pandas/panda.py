@@ -1,9 +1,8 @@
-from os.path import join
-
+from os.path import join, abspath
 import pandas as pd
+import time
 import os
-from utils import parse_utf
-
+from utils import print, save_time_df, load_parameters
 """
 (filepath_or_buffer, 
 delimiter=None, Delimiter to use. If sep is None, the Python parsing engine will be used and automatically detect the separator.
@@ -36,52 +35,76 @@ error_bad_lines=True,
 warn_bad_lines=True,
 low_memory=True"""
 
-IN_DIR = "/results/polluted_files_csv/"
-OUT_DIR = "/results/loading/pandas/"
+sut='pandas'
+DATASET = os.environ['DATASET']
+IN_DIR = abspath(f'/{DATASET}/csv/')
+PARAM_DIR = abspath(f'/{DATASET}/parameters')
+OUT_DIR = abspath(f'/results/{sut}/{DATASET}/loading/')
+TIME_DIR = abspath(f'/results/{sut}/{DATASET}/')
 
-TO_SKIP = []
+N_REPETITIONS = 3
 
-def load_csv(filename, *args, **kwargs):
-    try:
-        # Pandas does weird inference when not dtype=object, check row_field_delimiter files
-        df = pd.read_csv(IN_DIR + filename, dtype=object, on_bad_lines='skip', *args, **kwargs)
-    except Exception as e:
-        print(filename)
-        print("\t", e)
-        with open(OUT_DIR + filename + "_converted.csv", "w") as text_file:
-            text_file.write("Application Error\n")
-            text_file.write(str(e))
-        return
-
-    df.to_csv(join(OUT_DIR, filename + "_converted.csv"), index=False)
-
-
+times_dict = {}
 benchmark_files = os.listdir(IN_DIR)
-
-for f in benchmark_files:
+for idx,file in enumerate(benchmark_files):
+    f = os.path.basename(file)
     in_filepath = join(IN_DIR, f)
     out_filename = f'{f}_converted.csv'
     out_filepath = join(OUT_DIR, out_filename)
-
-    if f in TO_SKIP or os.path.exists(out_filepath):
+    sut_params = load_parameters(join(PARAM_DIR, f'{f}_parameters.json'))
+    if os.path.exists(out_filepath):
         continue
+    print(f"({idx}/{len(benchmark_files)}) {f}")
 
-    kw = {}
+    for time_rep in range(N_REPETITIONS):
+        kw = {}
 
-    if "no_header" in f:
-        kw = {"header": None}
+        kw["header"]="infer"
+        kw["delimiter"] = None # this means is automatically inferred
+        kw["encoding"] = sut_params["encoding"]
 
-    elif "file_field_delimiter" in f:
-        ds = parse_utf(f, "file_field_delimiter_")
-        # print(f"'{ds}'")
-        kw = {"delimiter": ds}
+        if sut_params["quotechar"] != '"':
+            quote = sut_params["quotechar"]
+            if quote:
+                quote = quote[0]
+            kw["quotechar"]= quote
 
-    elif "file_quotation_char" in f:
-        qs = parse_utf(f, "file_quotation_char_")
-        # print(f"'{ds}'")
-        kw = {"quotechar": qs}
+        if sut_params["escapechar"] != sut_params["quotechar"]:
+            escape = sut_params["escapechar"]
+            if escape:
+                escape = escape[0]
+            kw["escapechar"] = escape or None
+            kw["doublequote"] = False
+        else:
+            kw["escapechar"] = None
+            kw["doublequote"] = True
 
-    elif "file_preamble" in f:
-        kw = {"skiprows": 2}  # should we?
+        if sut_params["record_delimiter"] != "\r\n":
+            rowdel = sut_params["record_delimiter"]
+            rowdel = rowdel[0] if rowdel else None
+            kw["lineterminator"] = rowdel
 
-    load_csv(f, **kw)
+        preamble = int(sut_params["preamble_rows"])
+        if int(sut_params["preamble_rows"]) != 0:
+            kw["skiprows"] = preamble
+
+        start = time.time()
+        try:
+            df = pd.read_csv(in_filepath, dtype=object, on_bad_lines='skip', engine="c", **kw)
+            end = time.time()
+            df.to_csv(out_filepath, index=False)
+        except Exception as e:
+            end = time.time()
+            print("\t", e)
+            with open(out_filepath, "w") as text_file:
+                text_file.write("Application Error\n")
+                text_file.write(str(e))
+
+        times_dict[f] = times_dict.get(f, []) + [(end - start)]
+
+        try:
+            del start, end, df, text_file
+        except:
+            pass
+
+save_time_df(TIME_DIR, sut, times_dict)

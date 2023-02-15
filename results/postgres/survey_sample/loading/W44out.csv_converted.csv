@@ -1,0 +1,4 @@
+Application Error
+zero-length delimited identifier at or near """"
+LINE 1: ...35),"12_24" varchar(65535),"12_25" varchar(65535),"" varchar...
+                                                             ^

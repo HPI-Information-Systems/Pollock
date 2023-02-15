@@ -1,43 +1,43 @@
 from __future__ import print_function
+import json
 import os
-import time
+import argparse
+import traceback
+
 from pqdm.processes import pqdm
 import pandas as pd
-from lxml import etree
+from typing import List
+
 import pollock.metrics as metrics
 from sut.utils import print
-from pollock.CSVFile import CSVFile
-import argparse
-import json
 
-def evaluate_single_file(polluted_dir, result_dir="", filename="", sut="", verbose=False):
-    if type(polluted_dir) == list: #Required for multiprocessing
-        polluted_dir, result_dir, filename, sut, verbose = polluted_dir[0], polluted_dir[1], polluted_dir[2], polluted_dir[3], polluted_dir[4]
-    sut_dir = f"{result_dir}/loading/{sut}/"
+from dotenv import load_dotenv
+load_dotenv()
+
+def evaluate_single_file(filename:str, dataset:str, sut:str, verbose=False, n_jobs=1):
+    sut_dir = f"results/{sut}/{dataset}/loading/"
+    clean_path = f"{dataset}/clean/{filename}"
+    loaded_path = f"{sut_dir}/{filename}_converted.csv"
 
     dict_measures = {"file": filename}
-
     if verbose:
         print(f"'{filename}'")
     try:
-        f1_tree = etree.parse(polluted_dir + filename + ".xml")
-        f2 = CSVFile(sut_dir + filename + "_converted.csv", autodetect=False)
-        succ = metrics.successful(f2.xml)
+        succ = metrics.successful_csv(loaded_path)
         dict_measures[sut + "_success"] = succ
         dict_measures[sut + "_header_precision"], \
         dict_measures[sut + "_header_recall"], \
-        dict_measures[sut + "_header_f1"] = metrics.header_measures(f1_tree, f2.xml) if succ else [0, 0, 0]
-
+        dict_measures[sut + "_header_f1"], \
         dict_measures[sut + "_record_precision"], \
         dict_measures[sut + "_record_recall"], \
-        dict_measures[sut + "_record_f1"] = metrics.record_measures(f1_tree, f2.xml) if succ else [0, 0, 0]
-
+        dict_measures[sut + "_record_f1"], \
         dict_measures[sut + "_cell_precision"], \
         dict_measures[sut + "_cell_recall"], \
-        dict_measures[sut + "_cell_f1"] = metrics.cell_measures(f1_tree, f2.xml) if succ else [0, 0, 0]
+        dict_measures[sut + "_cell_f1"] = metrics.header_record_cell_measures_csv(clean_path,loaded_path, n_jobs) \
+            if succ else [0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     except Exception as e:
-        print("Exception:", e)
+        print("Exception:", traceback.format_exc())
         if not verbose:
             print("On file:", filename)
         for measure in ("header_precision",
@@ -54,51 +54,54 @@ def evaluate_single_file(polluted_dir, result_dir="", filename="", sut="", verbo
     return dict_measures
 
 
-def evaluate_single_run(polluted_dir, result_dir, sut, verbose=False, njobs=-1):
-    filenames = [pf[:-4] for pf in os.listdir(polluted_dir) if (pf.endswith("xml"))]
-    print("Length of filenames:", len(filenames), flush=True)
-    if os.cpu_count() < njobs or njobs == -1:
-        file_measures = list(map(lambda f: evaluate_single_file(polluted_dir, result_dir, f, sut, verbose=verbose), filenames))
-    else:
-        args = [list(x) for x in zip([polluted_dir] * len(filenames),
-                                     [result_dir] * len(filenames),
-                                     filenames,
-                                     [sut] * len(filenames),
-                                     [verbose] * len(filenames))]
-        file_measures = pqdm(args, evaluate_single_file, n_jobs=njobs)
-    results_df = pd.DataFrame(file_measures)
-    result_file = f"{result_dir}/measures/{sut}_results.csv"
-    results_df.to_csv(result_file, index=False)
+def evaluate_single_run(files: List[str], dataset: str, result_file:str, sut:str, verbose=False, n_jobs=1):
 
-    if verbose:
-        print(results_df)
+    if os.cpu_count()< n_jobs:
+        file_measures = list(map(lambda f: evaluate_single_file(filename=f, dataset=dataset, sut=sut, verbose=verbose), files))
+    else:
+        tiny_files = [f for f in files if os.path.getsize(dataset+"/"+f)/ 1024 < 500]
+        args = [{"filename" : f, "dataset":dataset, "sut": sut, "verbose": verbose} for f in tiny_files]
+        tiny_file_measures = pqdm(args, evaluate_single_file, n_jobs=n_jobs, argument_type="kwargs")
+
+        print("Evaluating large files...")
+        large_filenames = [f for f in files if os.path.getsize(dataset+"/"+f)/ 1024 >= 500]
+        large_file_measures = []
+        for f in large_filenames:
+            large_file_measures.append(evaluate_single_file(f, dataset, sut, verbose=verbose, n_jobs=n_jobs))
+
+        file_measures = tiny_file_measures+large_file_measures
+    results_df = pd.DataFrame(file_measures)
+    results_df.to_csv(result_file, index=False)
+    if verbose: print(results_df)
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--sut", default=None, help="The single system to benchmark, if not running the evaluation for all of them")
-    parser.add_argument("--polluted", default="./results/polluted_files_xml/", help="The folder containg the XML polluted benchmark files")
+    parser.add_argument("--dataset", default="polluted_files", help="The dataset containing the input CSV files")
     parser.add_argument("--result", default="./results", help="The root path where the results of the loading are")
     parser.add_argument("--verbose", default=False, help="Whether to print filenames as they are processed")
     parser.add_argument("--njobs", default=100, help="The number of jobs to parallelize the computation")
 
     args = parser.parse_args()
     UPDATE_SYSTEM = args.sut
-    POLLUTED_DIR = args.polluted
+    dataset = args.dataset
     RESULT_DIR = args.result
     N_JOBS = int(args.njobs)
 
     verbose = bool(args.verbose)
-    systems = [s for s in next(os.walk(f"{RESULT_DIR}/loading"))[1] if not ((s == "archives") or ("old" in s))]
-    files = [f[:-4] for f in os.listdir(POLLUTED_DIR) if f[-3:] == "xml"]
+    systems = [s for s in next(os.walk(f"{RESULT_DIR}"))[1] if not (s== "archives")]
+
+    files= [f for f in os.listdir(dataset+"/csv") if f.endswith("csv")]
     aggregate = []
     global_df = pd.DataFrame({"file": files})
     for s in systems:
+        result_file = f"{RESULT_DIR}/{s}/{dataset}/{s}_results.csv"
         if UPDATE_SYSTEM is not None and s != UPDATE_SYSTEM:
             pass
         else:
             print("\nEvaluating", s, "...", flush=True)
-            evaluate_single_run(POLLUTED_DIR, RESULT_DIR, s, njobs=N_JOBS, verbose=verbose)
+            evaluate_single_run(files=files, dataset=dataset, result_file=result_file, sut=s, n_jobs=N_JOBS, verbose=verbose)
         df = pd.read_csv(f"{RESULT_DIR}/measures/{s}_results.csv")
         d_aggregate = {"".join(key.split("_")[1:]): val for key, val in df.mean(axis=0, numeric_only=True).items()}
         d_aggregate.update({"sut": s})
@@ -107,18 +110,22 @@ def main():
     aggregate_df = pd.DataFrame(aggregate).set_index("sut")
     aggregate_df["simple"] = aggregate_df.sum(axis=1, numeric_only=True)
 
-    with open("pollock_weights.json", "r") as f:
-        weights = json.load(f)
-    global_df["weight"] = [weights.get(x, -1) for x in global_df["file"].tolist()]
-    global_df["normalized_weight"] = global_df["weight"] / sum(global_df["weight"])
-    for sut in systems:
-        partial_mean = global_df[[c for c in global_df.columns if sut in c]].sum(axis=1) * global_df["normalized_weight"]
-        weighted_score = sum(partial_mean)
-        aggregate_df.loc[sut, "weighted"] = weighted_score
+    if dataset == "polluted_files":
+        with open("pollock_weights.json", "r") as f:
+            weights = json.load(f)
+        global_df["weight"] = [weights.get(x, -1) for x in global_df["file"].tolist()]
+        global_df["normalized_weight"] = global_df["weight"] / sum(global_df["weight"])
+        for sut in systems:
+            partial_mean = global_df[[c for c in global_df.columns if sut in c]].sum(axis=1) * global_df["normalized_weight"]
+            weighted_score = sum(partial_mean)
+            aggregate_df.loc[sut, "weighted"] = weighted_score
+        print("\n",aggregate_df[["simple","weighted"]], flush=True)
 
-    global_df.to_csv(RESULT_DIR + "/global_results.csv", index=False)
-    aggregate_df.to_csv(RESULT_DIR + "/aggregate_results.csv")
-    print("\n",aggregate_df[["simple","weighted"]], flush=True)
+    else:
+        print("\n", aggregate_df[["simple"]], flush=True)
+
+    global_df.to_csv(RESULT_DIR + f"/global_results_{dataset}.csv", index=False)
+    aggregate_df.to_csv(RESULT_DIR + f"/aggregate_results_{dataset}.csv")
 
 if __name__ == "__main__":
     main()

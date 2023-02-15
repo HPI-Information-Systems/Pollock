@@ -60,14 +60,14 @@ The following command will build the docker image to generate the polluted files
 
     docker-compose up --build pollution
 
-After this step, the set of benchmark files are contained in the two folders "results/polluted_files_csv/" and "results/polluted_files_xml/".
-The former contains the generated polluted files in the .csv format, while the latter their XML trees with metadata attributes.
-The results of this steps can be found in the repository under `results/polluted_files_csv/` and `results/polluted_files_xml/`.
+After this step, the set of benchmark files are contained in the folder `polluted_files`.
+Inside this folder there are three sub-folders: `csv` containing the generated polluted files in the .csv format, 
+`clean` containing the cleaned versions of the generated files, and `parameters` containing JSON files storing the corresponding loading parameters for each file.
 The files in the repository uses Git Large File Storage (LFS), so to correctly load their contents use:
 ```git lfs checkout```.
 
 ### Step 2: Loading polluted files in each SUT
-Once the folder `results/polluted_files_csv/` contains the polluted files, the next step is to load them in each of the systems under test. 
+Once the folder `polluted_files/` contains the polluted files, the next step is to load them in each of the systems under test. 
 If a unix-based systems is used, the following one-liner executes loading for all SUT:
 
     chmod +x benchmark.sh; ./benchmark.sh    
@@ -94,9 +94,9 @@ Otherwise, loading can be done by running the following docker-compose commands 
     docker-compose up mysql-client
 </details>
 
-At the end of the loading stages, the results will be available in the folder `results/loading/{sut}`, where `{sut}` stands for a given SUT name.
-Alternatively, the results of this step can be found, for each of the SUT tested in the Pollock paper, archived in `results/loading/archives/`.
-If users wish to skip step 2, by unzipping each systems' archive, the folder `results/loading/{sut}` will be created.
+At the end of the loading stages, the results will be available in the folder `results/{sut}/polluted_files`, where `{sut}` stands for a given SUT name.
+Alternatively, the results of this step can be found in the repository.
+If users wish to skip step 2, they can extract each systems' archive in the folder `results/{sut}`.
 We also include archives for the `spreadweb`, `spreaddesktop`, and `dataviz` systems, for which due to their commercial nature, we do not share the scripts to obtain the output files.
 
 ### Step 3: Pollock scores calculation
@@ -104,8 +104,8 @@ To run the evaluation step, use the command:
 
     docker-compose up evaluate
 
-The script outputs the benchmark scores for each of the polluted files in a csv file under `results/measures/` for each of the systems.
-Moreover, all results are saved in the file `results/global_results.csv` and aggregated in the file `results/aggregate_results.csv`.
+The script outputs the benchmark scores for each of the polluted files in a csv file under `results/{sut}/` for each of the systems.
+Moreover, all results are saved in the file `results/global_results_polluted_files.csv` and aggregated in the file `results/aggregate_results_polluted_files.csv`.
 The script also outputs the results of the benchmark with the simple and weighted Pollock scores.
 
 ## Pollution list
@@ -161,7 +161,7 @@ To benchmark a specific system, run the `benchmark.py` script with the `--sut` a
 `docker-compose run evaluation python3 evaluate.py --sut pycsv-client`
 
 The script reports the overall success, completeness, and conciseness score and outputs the specific results for each of the benchmark files in a CSV file, whose path can be specified with the --result parameter.
-(This command updates the `global_results.csv` and `aggregate_results.csv` files).
+(This command updates the result CSV files).
 
 For the full list of parameters, run:
 
@@ -174,4 +174,8 @@ To experiment with the survey sample file, its content should be as follows:
 ```
     #DATASET=polluted_files
     DATASET=survey_sample
+```
+To evaluate the results of the survey sample, run evaluate script with:
+```
+    docker-compose run evaluation python3 evaluate.py --dataset survey_sample
 ```

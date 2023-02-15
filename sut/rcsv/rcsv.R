@@ -1,64 +1,74 @@
-IN_DIR <- './results/polluted_files_csv/'
-OUT_DIR <- './results/loading/rcsv/'
+sut <- 'rcsv'
+dataset <- Sys.getenv('DATASET')
+IN_DIR <- paste0('/', dataset, '/csv/')
+PARAM_DIR <- paste0('/', dataset, '/parameters/')
+OUT_DIR <- paste0('/results/', sut, '/', dataset, '/loading/')
+TIME_DIR <- paste0('/results/', sut, '/', dataset, '/')
+N_REPETITIONS <- 3
+library("rjson")
 
-parse_utf <- function(filename, pollution) {
-  last_enc <- substring(filename, nchar(pollution) + 1, nchar(filename) - 4)
-  hex_arr <- strsplit(last_enc, "_")
-  s <- ""
-  for (d in hex_arr) {
-    for (e in d) {
-      s <- paste0(s, rawToChar(as.raw(strtoi(e))))
-    }
-  }
-  return(s)
-}
-
-process_file <- function(in_filename, idx, total, header, separator, quote) {
-  print(paste0('Processing file (', idx, '/', total, ') ', in_filename))
-
-  in_filepath <- file.path(IN_DIR, in_filename)
-
-  out_filename <- paste0(in_filename, '_converted.csv')
-  out_filepath <- file.path(OUT_DIR, out_filename)
-
-  tryCatch({
-    data <- read.csv(in_filepath, header = header, sep = separator, quote = quote) # TODO parse header, separator, quote
-    write.csv(data, out_filepath,row.names = FALSE)
-
-  }, error = function(e) {
-    out_file_connection <- file(out_filepath)
-    print(paste("Application Error on file", in_filename))
-    print(paste(e))
-    writeLines(paste0("Application Error\n", e), out_file_connection)
-    close(out_file_connection)
-  })
-
-}
 
 benchmark_files <- list.files(IN_DIR)
 
+times_dict <- list()
+idx <- 0
+for (in_filename in benchmark_files) {
+  idx <- idx + 1
 
-c <- 0
-for (f in benchmark_files) {
-  c <- c + 1
-  header <- TRUE
-  quotation_char <- '\"'
-  separator <- ','
-
-  out_filename <- paste0(f, '_converted.csv')
+  in_filepath <- file.path(IN_DIR, in_filename)
+  out_filename <- paste0(in_filename, '_converted.csv')
   out_filepath <- file.path(OUT_DIR, out_filename)
+  param_filepath <- file.path(PARAM_DIR, paste0(in_filename, '_parameters.json'))
   if (file.exists(out_filepath)) {
-      next
+    next
   }
-  val <- grepl(f, "file_field_delimiter")
-
-  if (grepl("no_header", f)) {
-    header <- FALSE
-  } else if (grepl("file_field_delimiter", f)) {
-    separator <- parse_utf(f, "file_field_delimiter_")
-  }else if (grepl("file_quotation_char", f)) {
-    quotation_char <- parse_utf(f, "file_quotation_char_")
+  params <- fromJSON(file=param_filepath)
+  encoding <- params$encoding
+  if (grepl("utf", encoding)) {
+    encoding <- toupper(encoding)
+  } else if (encoding == "ascii") {
+    encoding <- ""
   }
+  separator <- ifelse(!length(params$delimiter), params$delimiter, ",")
+  quote <- ifelse(!length(params$quotechar), params$quotechar, "\"")
+  escape <- ifelse(!length(params$escapechar), params$escapechar, "\"")
+  preamble <- as.integer(params$preamble_lines)
+  header <- as.integer(params$header_lines)
 
-  process_file(f, c, length(benchmark_files), header, separator, quotation_char)
+  skiplines <- ifelse((preamble > 0), preamble, 0)
+  header <- ifelse((header > 0), TRUE, FALSE)
+  headerlines <- ifelse((header > 0), header, 0)
+  print(paste0('Processing file (', idx, '/', length(benchmark_files), ') ', in_filename))
+
+  time_range <- 0:(N_REPETITIONS - 1)
+  for (time_rep in time_range) {
+    n_rows <- 0
+    start_time <- Sys.time()
+    tryCatch({
+      data <- read.csv(in_filepath, header = header, sep = separator, quote = quote, skip = skiplines, encoding=encoding)
+      end_time <- Sys.time()
+      duration <- end_time - start_time
+      n_rows <- nrow(data)
+      write.csv(data, out_filepath, row.names = FALSE, na = "")
+    }, error = function(e) {
+      end_time <- Sys.time()
+      duration <- end_time - start_time
+      out_file_connection <- file(out_filepath)
+      print(paste("Application Error on file", in_filename))
+      print(paste(e))
+      writeLines(paste0("Application Error\n", e), out_file_connection)
+      close(out_file_connection)
+    })
+    times_dict[[in_filename]] <- c(times_dict[[in_filename]], duration)
+  }
 }
+
+if (length(times_dict) == 0) {
+  quit(save = "no", status = 0, runLast = FALSE)
+}
+time_filepath <- file.path(TIME_DIR, paste0(sut, '_time.csv'))
+time_file_connection <- file(time_filepath)
+times_df <- t(data.frame(times_dict))
+colnames(times_df) <- c(paste0(sut, '_time_', 0:(N_REPETITIONS - 1)))
+times_df <- data.frame("filename" = row.names(times_df), times_df)
+write.csv(times_df, time_file_connection, row.names = FALSE, na = "")
