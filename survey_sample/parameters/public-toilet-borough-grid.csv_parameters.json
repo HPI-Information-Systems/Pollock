@@ -1,0 +1,32 @@
+{
+    "encoding": "ascii",
+    "encoding_confidence": 1.0,
+    "delimiter": ",",
+    "quotechar": "",
+    "escapechar": "",
+    "row_delimiter": "\r\n",
+    "header_lines": "1",
+    "preamble_lines": "0",
+    "footnote_lines": "0",
+    "column_names": [
+        "BOROUGH",
+        "HPSC_Survey",
+        "Total number of toilets",
+        "Local authority flush toilets",
+        "Local authority steet urinals",
+        "Toilets in other public buildings",
+        "Community Toilet Scheme",
+        "Other private toilets accessible to public",
+        "Street or park name",
+        "Address or description",
+        "Postcode",
+        "Map",
+        "Disabled access",
+        "Charging",
+        "Opening hours",
+        "Staffing",
+        "Baby changing facilities",
+        "Website"
+    ],
+    "n_columns": 18
+}

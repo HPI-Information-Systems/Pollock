@@ -1,0 +1,19 @@
+{
+    "encoding": "ascii",
+    "encoding_confidence": 1.0,
+    "delimiter": ",",
+    "quotechar": "",
+    "escapechar": "",
+    "row_delimiter": "\r\n",
+    "header_lines": "2",
+    "preamble_lines": "0",
+    "footnote_lines": "0",
+    "column_names": [
+        "control X",
+        "control Y",
+        "fire X",
+        "fire Y",
+        ""
+    ],
+    "n_columns": 5
+}

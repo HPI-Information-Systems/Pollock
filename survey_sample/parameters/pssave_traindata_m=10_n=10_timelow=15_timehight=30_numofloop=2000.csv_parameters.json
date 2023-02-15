@@ -1,0 +1,24 @@
+{
+    "encoding": "ascii",
+    "encoding_confidence": 1.0,
+    "delimiter": ",",
+    "quotechar": "",
+    "escapechar": "",
+    "row_delimiter": "",
+    "header_lines": "0",
+    "preamble_lines": "0",
+    "footnote_lines": "0",
+    "column_names": [
+        "col_0",
+        "col_1",
+        "col_2",
+        "col_3",
+        "col_4",
+        "col_5",
+        "col_6",
+        "col_7",
+        "col_8",
+        "col_9"
+    ],
+    "n_columns": 10
+}

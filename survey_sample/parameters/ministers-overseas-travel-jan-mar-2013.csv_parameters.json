@@ -1,0 +1,21 @@
+{
+    "encoding": "utf-8",
+    "encoding_confidence": 0.99,
+    "delimiter": ",",
+    "quotechar": "\"",
+    "escapechar": "",
+    "row_delimiter": "\r\n",
+    "header_lines": "1",
+    "preamble_lines": "3",
+    "footnote_lines": "0",
+    "column_names": [
+        "Name",
+        "Date(s) of trip",
+        "Destination",
+        "Purpose of trip",
+        "\u2018No 32 (The Royal) Squadron\u2019 or \u2018other RAF\u2019 or \u2018Charter\u2019 or \u2018Eurostar\u2019",
+        "Number of officials accompanying Minister, where non-scheduled travel is used",
+        "Total cost including travel, and accommodation of Minister only"
+    ],
+    "n_columns": 7
+}

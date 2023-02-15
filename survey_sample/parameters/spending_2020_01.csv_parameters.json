@@ -1,0 +1,29 @@
+{
+    "encoding": "utf-8",
+    "encoding_confidence": 0.99,
+    "delimiter": ",",
+    "quotechar": "",
+    "escapechar": "",
+    "row_delimiter": "",
+    "header_lines": "1",
+    "preamble_lines": "0",
+    "footnote_lines": "0",
+    "column_names": [
+        "Organisation Code",
+        "Organisation Label",
+        "Effective Date",
+        "Organisational Unit",
+        "Service Division Label",
+        "Category Internal Name",
+        "Purpose",
+        "Detailed Expenditure Code",
+        "Payment Date",
+        "Transaction Number",
+        "Irrecoverable VAT Amount",
+        "Amount",
+        "Capital Or Revenue",
+        "Benificiary Name",
+        "Procurement Card"
+    ],
+    "n_columns": 15
+}

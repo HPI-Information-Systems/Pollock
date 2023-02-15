@@ -1,0 +1,16 @@
+{
+    "delimiter": ",",
+    "quotechar": "",
+    "escapechar": "",
+    "row_delimiter": "\r\n",
+    "header_lines": "1",
+    "preamble_lines": "1",
+    "footnote_lines": "0",
+    "column_names": [
+        "cm-1",
+        "A"
+    ],
+    "encoding": "ascii",
+    "encoding_confidence": 1.0,
+    "n_columns": 2
+}

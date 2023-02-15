@@ -1,0 +1,23 @@
+{
+    "encoding": "utf-8",
+    "encoding_confidence": 0.99,
+    "delimiter": ",",
+    "quotechar": "\"",
+    "escapechar": "",
+    "row_delimiter": "\r\n",
+    "header_lines": "1",
+    "preamble_lines": "0",
+    "footnote_lines": "0",
+    "column_names": [
+        "Parent Department",
+        "Organisation",
+        "Unit",
+        "Reporting Senior Post",
+        "Grade",
+        "Payscale Minimum (£)",
+        "Payscale Maximum (£)",
+        "Generic Job Title",
+        "Number of Posts in FTE",
+        "Professional/Occupational Group"],
+    "n_columns":10
+}

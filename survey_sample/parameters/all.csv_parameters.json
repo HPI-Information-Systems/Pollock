@@ -1,0 +1,25 @@
+{
+    "encoding": "utf-8",
+    "encoding_confidence": 0.99,
+    "delimiter": ",",
+    "quotechar": "\"",
+    "escapechar": "\"",
+    "row_delimiter": "\r\n",
+    "header_lines": "1",
+    "preamble_lines": "0",
+    "footnote_lines": "0",
+    "column_names": [
+        "Id",
+        "Title",
+        "Author",
+        "Abstract",
+        "DOI",
+        "Kw",
+        "qry-heter",
+        "qry-n",
+        "qry-ieee-1",
+        "qry-ieee-2",
+        "qry-ieee-3"
+    ],
+    "n_columns": 11
+}

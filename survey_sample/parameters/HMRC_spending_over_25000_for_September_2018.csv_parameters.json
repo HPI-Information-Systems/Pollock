@@ -1,0 +1,28 @@
+{
+    "encoding": "utf-8",
+    "encoding_confidence": 0.99,
+    "delimiter": ",",
+    "quotechar": "\"",
+    "escapechar": "",
+    "row_delimiter": "\r\n",
+    "header_lines": "1",
+    "preamble_lines": "0",
+    "footnote_lines": "0",
+    "column_names": [
+        "Department family",
+        "Entity",
+        "Date",
+        "Expense type",
+        "Expense area",
+        "Supplier",
+        "Transaction number",
+        "Amount",
+        "Description",
+        "Supplier Postcode",
+        "Supplier Type",
+        "Contract Number",
+        "Project Code",
+        "Expenditure Type"
+    ],
+    "n_columns": 14
+}

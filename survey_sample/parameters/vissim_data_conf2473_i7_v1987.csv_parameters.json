@@ -1,0 +1,23 @@
+{
+    "encoding": "ascii",
+    "encoding_confidence": 1.0,
+    "delimiter": ",",
+    "quotechar": "",
+    "escapechar": "",
+    "row_delimiter": "\r\n",
+    "header_lines": "1",
+    "preamble_lines": "0",
+    "footnote_lines": "0",
+    "column_names": [
+        "time[s]",
+        "posx[m]",
+        "posy[m]",
+        "pospathx[m]",
+        "pospathy[m]",
+        "vel[km/h]",
+        "accx[m/ss]",
+        "yaw[rad]",
+        ""
+    ],
+    "n_columns": 9
+}

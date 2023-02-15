@@ -1,0 +1,33 @@
+{
+    "encoding": "ascii",
+    "encoding_confidence": 1.0,
+    "delimiter": ",",
+    "quotechar": "\"",
+    "escapechar": "",
+    "row_delimiter": "\r\n",
+    "header_lines": "1",
+    "preamble_lines": "0",
+    "footnote_lines": "0",
+    "column_names": [
+        "",
+        "Year",
+        "ngames",
+        "number.neutral.site",
+        "raw.mean.HFE",
+        "FE.mov.HFE",
+        "RE.mov.HFE",
+        "se.FE.mov.HFE",
+        "se.RE.mov.HFE",
+        "nu_prime_eta",
+        "nu_prime_eta.permutation.percentile",
+        "mean_nu_eta",
+        "mean_nu_eta_ttest_pvalue",
+        "mean_eta_hat",
+        "mean_eta_hat_ttest_pvalue",
+        "X.mean_sim.",
+        "mean_sim",
+        "X.bias_sim.",
+        "bias_sim"
+    ],
+    "n_columns": 19
+}

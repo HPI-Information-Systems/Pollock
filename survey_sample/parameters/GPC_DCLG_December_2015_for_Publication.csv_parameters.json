@@ -1,0 +1,24 @@
+{
+    "encoding": "ascii",
+    "encoding_confidence": 1.0,
+    "delimiter": ",",
+    "quotechar": "\"",
+    "escapechar": "",
+    "row_delimiter": "\r\n",
+    "header_lines": "1",
+    "preamble_lines": "0",
+    "footnote_lines": "0",
+    "column_names": [
+        "Department Family",
+        "Entity",
+        "Clearing",
+        "Expense Type",
+        "Expense Area",
+        "Supplier",
+        "Doc Nbr",
+        "Item Text",
+        "Merchant category",
+        "Amount"
+    ],
+    "n_columns": 10
+}

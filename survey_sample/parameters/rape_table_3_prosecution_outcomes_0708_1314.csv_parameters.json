@@ -1,0 +1,29 @@
+{
+    "encoding": "ascii",
+    "encoding_confidence": 1.0,
+    "delimiter": ",",
+    "quotechar": "\"",
+    "escapechar": "",
+    "row_delimiter": "\r\n",
+    "header_lines": "1",
+    "preamble_lines": "0",
+    "footnote_lines": "0",
+    "column_names": [
+        "Prosecution Outcomes",
+        "2007 - 08 Volume",
+        "2007 - 08 Percentage",
+        "2008 - 09 Volume",
+        "2008 - 09 Percentage",
+        "2009 - 10 Volume",
+        "2009 - 10 Percentage",
+        "2010 - 11 Volume",
+        "2010 - 11 Percentage",
+        "2011 - 12 Volume",
+        "2011 - 12 Percentage",
+        "2012 - 13 Volume",
+        "2012 - 13 Percentage",
+        "2013 - 14 Volume",
+        "2013 - 14 Percentage"
+    ],
+    "n_columns": 15
+}

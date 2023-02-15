@@ -1,0 +1,22 @@
+{
+    "encoding": "ascii",
+    "delimiter": ",",
+    "quotechar": "\"",
+    "escapechar": "\"",
+    "row_delimiter": "\r\n",
+    "header_lines": 3,
+    "preamble_lines": 0,
+    "footnote_lines": 0,
+    "column_names": [
+        "DATE DATE DATE",
+        "TIME TIME TIME",
+        "Qty Qty Qty",
+        "PRODUCTID PRODUCTID PRODUCTID",
+        "Price Price Price",
+        "ProductType ProductType ProductType",
+        "ProductDescription ProductDescription ProductDescription",
+        "URL URL URL",
+        "Comments Comments Comments"
+    ],
+    "n_columns": 9
+}

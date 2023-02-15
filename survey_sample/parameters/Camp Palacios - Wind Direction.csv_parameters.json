@@ -1,0 +1,17 @@
+{
+    "encoding": "utf-8",
+    "encoding_confidence": 0.99,
+    "delimiter": ",",
+    "quotechar": "\"",
+    "escapechar": "\"",
+    "row_delimiter": "\r\n",
+    "header_lines": "0",
+    "preamble_lines": "0",
+    "footnote_lines": "0",
+    "column_names": [
+        "date",
+        "time",
+        "wind_direction"
+    ],
+    "n_columns": 3
+}

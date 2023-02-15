@@ -1,0 +1,18 @@
+{
+    "encoding": "utf-8",
+    "encoding_confidence": 0.99,
+    "delimiter": ",",
+    "quotechar": "\"",
+    "escapechar": "",
+    "row_delimiter": "\r\n",
+    "header_lines": "1",
+    "preamble_lines": "2",
+    "footnote_lines": "0",
+    "column_names": [
+        "userid",
+        "Gene Symbol",
+        "Gene Name",
+        "Entrez Gene"
+    ],
+    "n_columns": 4
+}

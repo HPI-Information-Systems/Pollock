@@ -1,0 +1,23 @@
+{
+    "encoding": "utf-8",
+    "encoding_confidence": 0.938125,
+    "delimiter": ",",
+    "quotechar": "\"",
+    "escapechar": "",
+    "row_delimiter": "\r\n",
+    "header_lines": "1",
+    "preamble_lines": "1",
+    "footnote_lines": "0",
+    "column_names": [
+        "Minister",
+        "Date",
+        "Name of organisation or individual",
+        "Purpose of meeting",
+        "",
+        "",
+        "",
+        "",
+        ""
+    ],
+    "n_columns": 9
+}

@@ -1,0 +1,19 @@
+{
+    "encoding": "utf-8",
+    "encoding_confidence": 0.99,
+    "delimiter": ",",
+    "quotechar": "",
+    "escapechar": "",
+    "row_delimiter": "\r\n",
+    "header_lines": "1",
+    "preamble_lines": "23",
+    "footnote_lines": "0",
+    "column_names": [
+        "##Temp./\u00a1\u00e3C",
+        "Time/min",
+        "tan d(1.000 Hz)",
+        "E'(1.000 Hz)/MPa",
+        "E\"(1.000 Hz)/MPa"
+    ],
+    "n_columns": 5
+}

@@ -1,0 +1,17 @@
+{
+    "encoding": "latin1",
+    "encoding_confidence": 0.73,
+    "delimiter": ",",
+    "quotechar": "\"",
+    "escapechar": "",
+    "row_delimiter": "\r\n",
+    "header_lines": "2",
+    "preamble_lines": "0",
+    "footnote_lines": "0",
+    "column_names": [
+        "Water consumption Total consumption (m3)",
+        "Consumption (m3)/ FTE",
+        "Total expenditure (\u00a3k)"
+    ],
+    "n_columns": 3
+}

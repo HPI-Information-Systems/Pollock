@@ -1,0 +1,33 @@
+{
+    "encoding": "utf-8",
+    "encoding_confidence": 0.87625,
+    "delimiter": ",",
+    "quotechar": "\"",
+    "escapechar": "",
+    "row_delimiter": "\r\n",
+    "header_lines": "1",
+    "preamble_lines": "0",
+    "footnote_lines": "0",
+    "column_names": [
+        "Post Unique Reference",
+        "Name",
+        "Grade (or equivalent)",
+        "Job Title",
+        "Job/Team Function",
+        "Parent Department",
+        "Organisation",
+        "Unit",
+        "Contact Phone",
+        "Contact E-mail",
+        "Reports to Senior Post",
+        "Salary Cost of Reports (\u00a3)",
+        "FTE",
+        "Actual Pay Floor (\u00a3)",
+        "Actual Pay Ceiling (\u00a3)",
+        "",
+        "Professional/Occupational Group",
+        "Notes",
+        "Valid?"
+    ],
+    "n_columns": 19
+}

@@ -1,0 +1,24 @@
+{
+    "encoding": "utf-8",
+    "encoding_confidence": 0.99,
+    "delimiter": ",",
+    "quotechar": "\"",
+    "escapechar": "",
+    "row_delimiter": "",
+    "header_lines": "1",
+    "preamble_lines": "2",
+    "footnote_lines": "0",
+    "column_names": [
+        "Directorate",
+        "Service Area",
+        "Group Description",
+        "Paid Date",
+        "Supplier Name",
+        "Internal Ref",
+        "Cap/Rev",
+        "Cost Centre",
+        "Cost Centre Name",
+        "Total"
+    ],
+    "n_columns": 10
+}
