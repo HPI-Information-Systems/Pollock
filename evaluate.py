@@ -3,6 +3,7 @@ import json
 import os
 import argparse
 import traceback
+import re
 
 from pqdm.processes import pqdm
 import pandas as pd
@@ -13,6 +14,17 @@ from sut.utils import print
 
 from dotenv import load_dotenv
 load_dotenv()
+
+
+SUT_ORDER = ["clevercs", "csvcommons", "rhypoparsr", 
+            "opencsv", "pandas", "pycsv", "rcsv", "univocity", 
+            "mariadb", "mysql", "postgres", "sqlite", "libreoffice", 
+            "spreaddesktop", "spreadweb", "dataviz"]
+
+SUB_MEASURES = {"table" : "file_double.*|file_header.*|file_no.*|file_one.*|file_multi.*|file_preamble.*",
+        "inconsistent": "%row_less.*|row_more",
+        "structural":"file_field.*|row_field.*|file_quote.*|file_record_delimiter.*|row_extra_quote.*|file_escape.*"}
+
 
 def evaluate_single_file(filename:str, dataset:str, sut:str, verbose=False, n_jobs=1):
     sut_dir = f"results/{sut}/{dataset}/loading/"
@@ -59,12 +71,12 @@ def evaluate_single_run(files: List[str], dataset: str, result_file:str, sut:str
     if os.cpu_count()< n_jobs:
         file_measures = list(map(lambda f: evaluate_single_file(filename=f, dataset=dataset, sut=sut, verbose=verbose), files))
     else:
-        tiny_files = [f for f in files if os.path.getsize(dataset+"/"+f)/ 1024 < 500]
+        tiny_files = [f for f in files if os.path.getsize(dataset+"/csv/"+f)/ 1024 < 500]
         args = [{"filename" : f, "dataset":dataset, "sut": sut, "verbose": verbose} for f in tiny_files]
         tiny_file_measures = pqdm(args, evaluate_single_file, n_jobs=n_jobs, argument_type="kwargs")
 
         print("Evaluating large files...")
-        large_filenames = [f for f in files if os.path.getsize(dataset+"/"+f)/ 1024 >= 500]
+        large_filenames = [f for f in files if os.path.getsize(dataset+"/csv/"+f)/ 1024 >= 500]
         large_file_measures = []
         for f in large_filenames:
             large_file_measures.append(evaluate_single_file(f, dataset, sut, verbose=verbose, n_jobs=n_jobs))
@@ -102,29 +114,38 @@ def main():
         else:
             print("\nEvaluating", s, "...")
             evaluate_single_run(files=files, dataset=dataset, result_file=result_file, sut=s, n_jobs=N_JOBS, verbose=verbose)
-        df = pd.read_csv(f"{RESULT_DIR}/measures/{s}_results.csv")
+        df = pd.read_csv(result_file)
         d_aggregate = {"".join(key.split("_")[1:]): val for key, val in df.mean(axis=0, numeric_only=True).items()}
         d_aggregate.update({"sut": s})
         aggregate += [d_aggregate]
         global_df = global_df.merge(df, how="outer", left_on="file", right_on="file")  # , suffixes=(None,"_"+s))
     aggregate_df = pd.DataFrame(aggregate).set_index("sut")
-    aggregate_df["simple"] = aggregate_df.sum(axis=1, numeric_only=True)
+    aggregate_df["pollock_simple"] = aggregate_df.sum(axis=1, numeric_only=True)
 
+    global_df.set_index("file", inplace=True)
     if dataset == "polluted_files":
+        for subset in SUB_MEASURES:
+            files = [f for f in global_df.index if re.search(SUB_MEASURES[subset],f)]
+            rows = global_df.loc[files].mean()
+            for measure in ["success","header_f1","record_f1","cell_f1"]:
+                aggregate_df[subset+"_"+ measure] = \
+                    [v for key,v in rows.items() if "_".join(key.split("_")[1:]) == measure]
+
         with open("pollock_weights.json", "r") as f:
             weights = json.load(f)
-        global_df["weight"] = [weights.get(x, -1) for x in global_df["file"].tolist()]
+        global_df["weight"] = [weights.get(x, -1) for x in global_df.index]
         global_df["normalized_weight"] = global_df["weight"] / sum(global_df["weight"])
         for sut in systems:
             partial_mean = global_df[[c for c in global_df.columns if sut in c]].sum(axis=1) * global_df["normalized_weight"]
             weighted_score = sum(partial_mean)
-            aggregate_df.loc[sut, "weighted"] = weighted_score
-        print("\n",aggregate_df[["simple","weighted"]])
+            aggregate_df.loc[sut, "pollock_weighted"] = weighted_score
+        # print("\n",aggregate_df.loc[SUT_ORDER][["simple","weighted"]])
+        print("\n",aggregate_df.loc[SUT_ORDER][[c for c in aggregate_df.columns if "_" in c]])
 
     else:
-        print("\n", aggregate_df[["simple"]])
+        print("\n", aggregate_df.loc[SUT_ORDER][["success","headerf1", "cellf1", "recordf1", "pollock_simple"]])
 
-    global_df.to_csv(RESULT_DIR + f"/global_results_{dataset}.csv", index=False)
+    global_df.to_csv(RESULT_DIR + f"/global_results_{dataset}.csv")
     aggregate_df.to_csv(RESULT_DIR + f"/aggregate_results_{dataset}.csv")
 
 if __name__ == "__main__":
