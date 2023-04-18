@@ -100,7 +100,7 @@ def main():
         if UPDATE_SYSTEM is not None and s != UPDATE_SYSTEM:
             pass
         else:
-            print("\nEvaluating", s, "...", flush=True)
+            print("\nEvaluating", s, "...")
             evaluate_single_run(files=files, dataset=dataset, result_file=result_file, sut=s, n_jobs=N_JOBS, verbose=verbose)
         df = pd.read_csv(f"{RESULT_DIR}/measures/{s}_results.csv")
         d_aggregate = {"".join(key.split("_")[1:]): val for key, val in df.mean(axis=0, numeric_only=True).items()}
@@ -119,10 +119,10 @@ def main():
             partial_mean = global_df[[c for c in global_df.columns if sut in c]].sum(axis=1) * global_df["normalized_weight"]
             weighted_score = sum(partial_mean)
             aggregate_df.loc[sut, "weighted"] = weighted_score
-        print("\n",aggregate_df[["simple","weighted"]], flush=True)
+        print("\n",aggregate_df[["simple","weighted"]])
 
     else:
-        print("\n", aggregate_df[["simple"]], flush=True)
+        print("\n", aggregate_df[["simple"]])
 
     global_df.to_csv(RESULT_DIR + f"/global_results_{dataset}.csv", index=False)
     aggregate_df.to_csv(RESULT_DIR + f"/aggregate_results_{dataset}.csv")
