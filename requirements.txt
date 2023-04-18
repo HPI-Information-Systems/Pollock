@@ -9,3 +9,4 @@ pqdm==0.2.0
 price-parser==0.3.4
 scipy==1.5.4
 python-dotenv==0.21.1
+joblib==0.17.0
