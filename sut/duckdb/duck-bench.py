@@ -51,46 +51,15 @@ for idx,file in enumerate(benchmark_files):
     in_filepath = join(IN_DIR, f)
     out_filename = f'{f}_converted.csv'
     out_filepath = join(OUT_DIR, out_filename)
-    sut_params = load_parameters(join(PARAM_DIR, f'{f}_parameters.json'))
     if os.path.exists(out_filepath):
         continue
     print(f"({idx}/{len(benchmark_files)}) {f}")
 
     for time_rep in range(N_REPETITIONS):
-        kw = {}
-
-        kw["header"]="infer"
-        kw["delimiter"] = None # this means is automatically inferred
-        kw["encoding"] = sut_params["encoding"]
-
-        if sut_params["quotechar"] != '"':
-            quote = sut_params["quotechar"]
-            if quote:
-                quote = quote[0]
-            kw["quotechar"]= quote
-
-        if sut_params["escapechar"] != sut_params["quotechar"]:
-            escape = sut_params["escapechar"]
-            if escape:
-                escape = escape[0]
-            kw["escapechar"] = escape or None
-            kw["doublequote"] = False
-        else:
-            kw["escapechar"] = None
-            kw["doublequote"] = True
-
-        if sut_params["record_delimiter"] != "\r\n":
-            rowdel = sut_params["record_delimiter"]
-            rowdel = rowdel[0] if rowdel else None
-            kw["lineterminator"] = rowdel
-
-        preamble = int(sut_params["preamble_rows"])
-        if int(sut_params["preamble_rows"]) != 0:
-            kw["skiprows"] = preamble
         con = duckdb.connect()
         start = time.time()
         try:
-            rel = con.from_query(f"SELECT * from read_csv('{in_filepath}', ignore_errors=true)")
+            rel = con.from_query(f"SELECT * from read_csv_auto('{in_filepath}', ignore_errors=true)")
             end = time.time()
             rel.write_csv(out_filepath, index=False)
         except Exception as e:
