@@ -206,6 +206,20 @@ services:
       - ./polluted_files:/polluted_files
       - ./survey_sample:/survey_sample
       - ./sut/univocity/:/app/
+
+  duckdb-client:
+    environment:
+      - DATASET=${DATASET}
+    build:
+      context: .
+      dockerfile: ./sut/duckdb/Dockerfile
+    volumes:
+      - ./results/duckdb:/results/duckdb
+      - ./polluted_files:/polluted_files
+      - ./survey_sample:/survey_sample
+      - ./sut/duckdb/:/app/
+      - ./sut/utils.py:/app/utils.py
+      
   csvcommons-client:
     build:
       context: .

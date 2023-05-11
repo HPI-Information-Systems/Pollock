@@ -5,6 +5,7 @@ docker-compose up csvcommons-client
 docker-compose up univocity-client
 docker-compose up pycsv-client
 docker-compose up pandas-client
+docker-compose up duckdb-client
 docker-compose up rcsv-client
 docker-compose up clevercs-client
 docker-compose up rhypoparsr-client
