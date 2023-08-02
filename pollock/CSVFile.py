@@ -3,6 +3,7 @@ import csv
 import os
 import sys
 from pathlib import Path
+import json as json 
 
 import chardet
 from clevercsv.cparser_util import parse_string
