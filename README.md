@@ -5,22 +5,22 @@ The highlights of our experiments are these results, obtained on 16 different sy
 
 | System under test                                | Pollock score (simple) | Pollock score (weighted)|
 | :----|:----|:----|
-|CleverCSV 0.7.4       |9.05  |9.49|
-|CSVCommons 1.9.0     |6.63  |9.29|
-|Hypoparsr 0.1.0     |3.73  |4.41|
-|OpenCSV 5.6        |6.62  |7.80|
-|Pandas  1.4.3     |9.88  |9.75|
-|Python native csv 3.10.5          |9.71  |9.47|
-|R native csv 4.2.1          |7.78  |6.76|
-|UniVocity 2.9.1      |9.35  |7.97|
-|Mariadb 10.9.3        |8.81  |7.44|
-|MySQL 8.0.31          |8.88  |7.45|
-|PostgreSQL 15.0       |0.14  |7.33|
-|SQLite 3.39.0 |9.94  |9.73|
-|LibreOffice Calc 7.3.6    |9.75  |7.52|
-|SpreadDesktop  |9.79  |9.29|
-|SpreadWeb      |9.65  |9.29|
-|Dataviz|4.93|5.51|
+|CleverCSV 0.7.4       |9.19  |9.45|
+|CSVCommons 1.9.0     |6.64  |9.25|
+|Hypoparsr 0.1.0     |3.88  |4.37|
+|OpenCSV 5.6        |6.63  |7.74|
+|Pandas  1.4.3     |9.89  |9.43|
+|Python native csv 3.10.5          |9.72  |9.43|
+|R native csv 4.2.1          |7.79  |6.40|
+|UniVocity 2.9.1      |9.93  |7.93|
+|Mariadb 10.9.3        |9.58  |7.48|
+|MySQL 8.0.31          |9.58  |7.48|
+|PostgreSQL 15.0       |0.13  |6.96|
+|SQLite 3.39.0 |9.95  |9.37|
+|LibreOffice Calc 7.3.6    |9.92  |7.83|
+|SpreadDesktop  |9.92  |9.59|
+|SpreadWeb      |9.72  |9.43|
+|Dataviz|5.00|5.15|
 
 </div>
 
@@ -158,14 +158,14 @@ and, once the server is up and running:
 `docker-compose up postgres-client`
 To benchmark a specific system, run the `benchmark.py` script with the `--sut` argument followed by the name of the corresponding system folder, e.g.:
 
-`docker-compose run evaluation python3 evaluate.py --sut pycsv-client`
+`docker-compose run evaluate python3 evaluate.py --sut pycsv-client`
 
 The script reports the overall success, completeness, and conciseness score and outputs the specific results for each of the benchmark files in a CSV file, whose path can be specified with the --result parameter.
 (This command updates the result CSV files).
 
 For the full list of parameters, run:
 
-`docker-compose run evaluation python3 evaluate.py --help`
+`docker-compose run evaluate python3 evaluate.py --help`
 
 ## Extra: Change experiment dataset
 The repository contains a .env file that every scripts reads from, specifying which dataset to run the experiments on.
