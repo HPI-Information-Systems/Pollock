@@ -5,10 +5,6 @@ from price_parser import Price
 
 warnings.simplefilter(action='ignore', category=UnknownTimezoneWarning)
 
-from backports.datetime_fromisoformat import MonkeyPatch
-
-MonkeyPatch.patch_fromisoformat()
-
 import dateutil.parser
 
 
