@@ -22,7 +22,7 @@ def get_loading_times(sut, dataset):
     # Calculate the square root of the variance of the loading times
     benchmark_time_std = np.sqrt(np.var(all_times))
 
-    return f'{round_down(benchmark_time * 1000)} +- {round_down(benchmark_time_std * 1000)}'
+    return f'{round(benchmark_time * 1000, 2)} +- {round(benchmark_time_std * 1000, 2)}'
 
 def generate_table_5():
      # Read the csv file

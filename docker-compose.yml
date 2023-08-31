@@ -255,8 +255,6 @@ services:
       - ./paper_tables.py:/app/paper_tables.py
       - ./sut/utils.py:/app/utils.py
 
-
-
 volumes:
   mariadb-tmp:
   mysql-tmp:
