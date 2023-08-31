@@ -240,7 +240,6 @@ services:
       - ./survey_sample:/app/survey_sample
       - ./evaluate.py:/app/evaluate.py
       - ./sut/utils.py:/app/utils.py
-  # Run paper_tables.py to generate the tables in the paper
   paper-tables:
     image: paper_tables
     build:
