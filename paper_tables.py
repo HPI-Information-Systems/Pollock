@@ -3,16 +3,17 @@ import numpy as np
 import math
 
 custom_order = {"clevercs": 0, "csvcommons": 1, "rhypoparsr": 2, "opencsv": 3, "pandas": 4, "pycsv": 5, "rcsv": 6, "univocity": 7, "mariadb": 8,
-                    "mysql": 9, "postgres": 10, "sqlite": 11, "libreoffice": 12, "msexcel": 13, "googlesheets": 14, "tableau": 15}
+                    "mysql": 9, "postgres": 10, "sqlite": 11, "libreoffice": 12, "spreaddesktop": 13, "spreadweb": 14, "dataviz": 15}
 
 def round_down(n, decimals=2):
     multiplier = 10 ** decimals
     return math.floor(n * multiplier) / float(multiplier)
 
 # Get the loading times
-def get_loading_times(sut, dataset):
+def get_loading_times(sut, dataset, dataframe=None):
 
-    sut_time_df = pd.read_csv(f"results/{sut}/{dataset}/{sut}_time.csv")
+    # Check if dataframe is None, if not, read csv file
+    sut_time_df = dataframe if dataframe is not None else pd.read_csv(f"results/{sut}/{dataset}/{sut}_time.csv")
 
     all_times = sut_time_df[sut_time_df.columns[1:]].values.flatten()
 
@@ -26,24 +27,40 @@ def get_loading_times(sut, dataset):
 
 def generate_table_5():
      # Read the csv file
-    df = pd.read_csv('results/aggregate_results_polluted_files.csv')
+    df = pd.read_csv('results/global_results_polluted_files.csv')
 
     headers = ['𝑆', '𝐻𝐹1', '𝑅𝐹1', '𝐶𝐹1', 'Loading time (ms)']
 
-    # Create a table that has the sut as index and the headers as columns
-    table_7 = pd.DataFrame(columns=headers, index=df['sut'])
+    # Create a table that has the sut as index and the headers as columns. Sut gotten from the custom order
+    table_5 = pd.DataFrame(columns=headers, index=custom_order.keys())
+
+    # Get from df the row where file is "source.csv"
+    source_row = df.loc[df['file'] == 'source.csv']
+
 
     # Fill the table
-    for _, row in df.iterrows():
-        table_7.loc[row['sut'], '𝑆'] = round_down(row['success'])
-        table_7.loc[row['sut'], '𝐻𝐹1'] = round_down(row['headerf1'])
-        table_7.loc[row['sut'], '𝑅𝐹1'] = round_down(row['recordf1'])
-        table_7.loc[row['sut'], '𝐶𝐹1'] = round_down(row['cellf1'])
+    for sut in custom_order.keys():
+
+        # Only add the ones where success, header_f1, record_f1 and cell_f1 are not 1
+        if source_row[f'{sut}_success'].values[0] == 1 and source_row[f'{sut}_header_f1'].values[0] == 1 and source_row[f'{sut}_record_f1'].values[0] == 1 and source_row[f'{sut}_cell_f1'].values[0] == 1:
+            # Remove the sut from the table
+            table_5 = table_5.drop(sut)
+            continue
+
+        table_5.loc[sut, '𝑆'] = round_down(source_row[f'{sut}_success'].values[0])
+        table_5.loc[sut, '𝐻𝐹1'] = round_down(source_row[f'{sut}_header_f1'].values[0])
+        table_5.loc[sut, '𝑅𝐹1'] = round_down(source_row[f'{sut}_record_f1'].values[0])
+        table_5.loc[sut, '𝐶𝐹1'] = round_down(source_row[f'{sut}_cell_f1'].values[0])
+
+        # Create a dataframe with just the row where file is "source.csv"
+        source_row_time_df = pd.read_csv(f"results/{sut}/polluted_files/{sut}_time.csv")
+        source_row_time_df = source_row_time_df.loc[source_row_time_df['filename'] == 'source.csv']
 
         # Get the loading times
-        table_7.loc[row['sut'], 'Loading time (ms)'] = get_loading_times(sut=row['sut'], dataset='polluted_files')
+        table_5.loc[sut, 'Loading time (ms)'] = get_loading_times(sut=sut, dataset='polluted_files', dataframe=source_row_time_df)
+
     
-    return table_7
+    return table_5
 
 def generate_table_6():
     # Read the csv file
