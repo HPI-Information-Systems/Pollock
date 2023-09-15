@@ -7,7 +7,6 @@ warnings.simplefilter(action='ignore', category=UnknownTimezoneWarning)
 
 import dateutil.parser
 
-
 class CellType():
     EMPTY = "TYPE_EMPTY"  # 0
     BOOLEAN = "TYPE_BOOLEAN"  # 1
