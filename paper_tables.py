@@ -1,9 +1,12 @@
 import pandas as pd
 import numpy as np
 import math
+import re
 
 custom_order = {"clevercs": 0, "csvcommons": 1, "rhypoparsr": 2, "opencsv": 3, "pandas": 4, "pycsv": 5, "rcsv": 6, "univocity": 7, "mariadb": 8,
                     "mysql": 9, "postgres": 10, "sqlite": 11, "libreoffice": 12, "spreaddesktop": 13, "spreadweb": 14, "dataviz": 15}
+
+SUTS = custom_order.keys()
 
 def round_down(n, decimals=2):
     multiplier = 10 ** decimals
@@ -29,10 +32,10 @@ def generate_table_5():
      # Read the csv file
     df = pd.read_csv('results/global_results_polluted_files.csv')
 
-    headers = ['𝑆', '𝐻𝐹1', '𝑅𝐹1', '𝐶𝐹1', 'Loading time (ms)']
+    headers = ['S', 'HF1', 'RF1', 'CF1', 'Loading time (ms)']
 
     # Create a table that has the sut as index and the headers as columns. Sut gotten from the custom order
-    table_5 = pd.DataFrame(columns=headers, index=custom_order.keys())
+    table = pd.DataFrame(columns=headers, index=custom_order.keys())
 
     # Get from df the row where file is "source.csv"
     source_row = df.loc[df['file'] == 'source.csv']
@@ -44,97 +47,96 @@ def generate_table_5():
         # Only add the ones where success, header_f1, record_f1 and cell_f1 are not 1
         if source_row[f'{sut}_success'].values[0] == 1 and source_row[f'{sut}_header_f1'].values[0] == 1 and source_row[f'{sut}_record_f1'].values[0] == 1 and source_row[f'{sut}_cell_f1'].values[0] == 1:
             # Remove the sut from the table
-            table_5 = table_5.drop(sut)
+            table = table.drop(sut)
             continue
 
-        table_5.loc[sut, '𝑆'] = round_down(source_row[f'{sut}_success'].values[0])
-        table_5.loc[sut, '𝐻𝐹1'] = round_down(source_row[f'{sut}_header_f1'].values[0])
-        table_5.loc[sut, '𝑅𝐹1'] = round_down(source_row[f'{sut}_record_f1'].values[0])
-        table_5.loc[sut, '𝐶𝐹1'] = round_down(source_row[f'{sut}_cell_f1'].values[0])
+        table.loc[sut, 'S'] = round_down(source_row[f'{sut}_success'].values[0])
+        table.loc[sut, 'HF1'] = round_down(source_row[f'{sut}_header_f1'].values[0])
+        table.loc[sut, 'RF1'] = round_down(source_row[f'{sut}_record_f1'].values[0])
+        table.loc[sut, 'CF1'] = round_down(source_row[f'{sut}_cell_f1'].values[0])
 
         # Create a dataframe with just the row where file is "source.csv"
         source_row_time_df = pd.read_csv(f"results/{sut}/polluted_files/{sut}_time.csv")
         source_row_time_df = source_row_time_df.loc[source_row_time_df['filename'] == 'source.csv']
 
         # Get the loading times
-        table_5.loc[sut, 'Loading time (ms)'] = get_loading_times(sut=sut, dataset='polluted_files', dataframe=source_row_time_df)
+        table.loc[sut, 'Loading time (ms)'] = get_loading_times(sut=sut, dataset='polluted_files', dataframe=source_row_time_df)
 
     
-    return table_5
+    return table
 
 def generate_table_6():
-    # Read the csv file
-    df = pd.read_csv('results/aggregate_results_polluted_files.csv')
+    df = pd.read_csv('results/global_results_polluted_files.csv')
+    df.set_index('file', inplace=True)
 
-    # Headers and subheaders
-    headers = ['File and table pollution', 'Inconsistent number of delimiters', 'Structural character change']
-    subheaders = ['𝑆', '𝐻𝐹1', '𝑅𝐹1', '𝐶𝐹1']
+    headers = ['File and table pollution', 
+               'Inconsistent number of delimiters', 
+               'Structural character change']
+    subheaders = ['S', 'HF1', 'RF1', 'CF1']
+    rexes = ["file_double.*|file_header.*|file_no.*|file_one.*|file_multi.*|file_preamble.*",
+            "%row_less.*|row_more",
+            "file_field.*|row_field.*|file_quote.*|file_record_delimiter.*|row_extra_quote.*|file_escape.*"]
+    
+    metrics = ['success', 'header_f1', 'record_f1', 'cell_f1']
 
-
-    # Create the table (with the headers and subheaders), but Pollock score should contain Simple and Weighted as subheaders, not the other ones
+    # Create the table index (with the headers and subheaders), append the pollock score and loading time
     table_header = pd.MultiIndex.from_product([headers, subheaders])
+    table_header = table_header.insert(len(table_header), ('Pollock score', 'Simple'))
+    table_header = table_header.insert(len(table_header), ('Pollock score', 'Weighted'))
+    table_header = table_header.insert(len(table_header), ('Loading time (ms)', ''))
 
-    # Edit the table to add the Pollock score subheaders
-    table_header = table_header.insert(12, ('Pollock score', 'Simple'))
-    table_header = table_header.insert(13, ('Pollock score', 'Weighted'))
-    table_header = table_header.insert(14, ('Loading time (ms)', ''))
+    table = pd.DataFrame(columns=table_header, index=SUTS)
 
-    table = pd.DataFrame(columns=table_header, index=df['sut'])
+    for sut in SUTS:
+        for idx,header in enumerate(headers):
+            rx = rexes[idx]
+            files = [f for f in df.index if re.search(rx,f)]
 
-    # Fill the table
-    for _, row in df.iterrows():
-        # File and table pollution
-        table.loc[row['sut'], ('File and table pollution', '𝑆')] = round_down(row['success'])
-        table.loc[row['sut'], ('File and table pollution', '𝐻𝐹1')] = round_down(row['headerf1'])
-        table.loc[row['sut'], ('File and table pollution', '𝑅𝐹1')] = round_down(row['recordf1'])
-        table.loc[row['sut'], ('File and table pollution', '𝐶𝐹1')] = round_down(row['cellf1'])
+            means = df.loc[files].mean()
+            for jdx, metric in enumerate(metrics):
+                value = means[sut + "_" + metric]
+                table.loc[sut, (header, subheaders[jdx])] = round_down(value)
 
-        # Inconsistent number of delimiters
-        table.loc[row['sut'], ('Inconsistent number of delimiters', '𝑆')] = round_down(row['inconsistent_success'])
-        table.loc[row['sut'], ('Inconsistent number of delimiters', '𝐻𝐹1')] = round_down(row['inconsistent_header_f1'])
-        table.loc[row['sut'], ('Inconsistent number of delimiters', '𝑅𝐹1')] = round_down(row['inconsistent_record_f1'])
-        table.loc[row['sut'], ('Inconsistent number of delimiters', '𝐶𝐹1')] = round_down(row['inconsistent_cell_f1'])
+        pollock_simple = sum(df.mean().loc[[c for c in df.columns if sut in c]])
+        table.loc[sut, ("Pollock score", "Simple")] = round_down(pollock_simple)
 
-        # Structural character change
-        table.loc[row['sut'], ('Structural character change', '𝑆')] = round_down(row['structural_success'])
-        table.loc[row['sut'], ('Structural character change', '𝐻𝐹1')] = round_down(row['structural_header_f1'])
-        table.loc[row['sut'], ('Structural character change', '𝑅𝐹1')] = round_down(row['structural_record_f1'])
-        table.loc[row['sut'], ('Structural character change', '𝐶𝐹1')] = round_down(row['structural_cell_f1'])
+        partial_mean = df[[c for c in df.columns if sut in c]].sum(axis=1) * df["normalized_weight"]
+        pollock_weighted = sum(partial_mean)
+        table.loc[sut, ("Pollock score", "Weighted")] = round_down(pollock_weighted)
 
-        # Pollock score
-        table.loc[row['sut'], ('Pollock score', 'Simple')] = round_down(row['pollock_simple'])
-        table.loc[row['sut'], ('Pollock score', 'Weighted')] = round_down(row['pollock_weighted'])
-
-        # Get the loading times
-        table.loc[row['sut'], ('Loading time (ms)', '')] = get_loading_times(sut=row['sut'], dataset='polluted_files')
-
-    # Sort the table by the custom order
-    table = table.sort_values(by=['sut'], key=lambda x: x.map(custom_order))
+        loading_time = get_loading_times(sut=sut, dataset='polluted_files')
+        table.loc[sut, ("Loading time (ms)", "")] = loading_time
 
     return table
 
 
 def generate_table_7():
-    # Read the csv file
-    df = pd.read_csv('results/aggregate_results_survey_sample.csv')
 
-    headers = ['𝑆', '𝐻𝐹1', '𝑅𝐹1', '𝐶𝐹1', 'Po.', 'Loading time (ms)']
+    df = pd.read_csv('results/global_results_survey_sample.csv')
+    df.set_index('file', inplace=True)
 
-    # Create a table that has the sut as index and the headers as columns
-    table_7 = pd.DataFrame(columns=headers, index=df['sut'])
+    headers = ['S', 'HF1', 'RF1', 'CF1', 'Po.', 'Loading time (ms)']
+    metrics = ['success', 'header_f1', 'record_f1', 'cell_f1', 'pollock_simple', 'loading_time']
 
-    # Fill the table
-    for _, row in df.iterrows():
-        table_7.loc[row['sut'], '𝑆'] = round_down(row['success'])
-        table_7.loc[row['sut'], '𝐻𝐹1'] = round_down(row['headerf1'])
-        table_7.loc[row['sut'], '𝑅𝐹1'] = round_down(row['recordf1'])
-        table_7.loc[row['sut'], '𝐶𝐹1'] = round_down(row['cellf1'])
-        table_7.loc[row['sut'], 'Po.'] = round_down(row['pollock_simple'])
+    table = pd.DataFrame(columns=headers, index=SUTS)
 
-        # Get the loading times
-        table_7.loc[row['sut'], 'Loading time (ms)'] = get_loading_times(sut=row['sut'], dataset='survey_sample')
-    
-    return table_7
+    for sut in SUTS:
+        for idx,header in enumerate(headers):
+            metric = metrics[idx]
+            if metric == 'loading_time':
+                value = get_loading_times(sut=sut, dataset='survey_sample') 
+            elif metric == 'pollock_simple':
+                pollock_simple = sum(df.mean().loc[[c for c in df.columns if sut in c]])
+                value = round_down(pollock_simple)
+            else:
+                means = df.mean()
+                value = means[sut + "_" + metric]
+                value = round_down(value)
+
+            table.loc[sut, header] = value
+
+    return table
+
 
 if __name__ == "__main__":
     table_5 = generate_table_5()
@@ -145,9 +147,21 @@ if __name__ == "__main__":
 
     table_6 = generate_table_6()
     print('---------- Table 6: Pollock results (rounding down) of the 16 systems under test, grouped by pollution type. ----------')
+    print('\n\tFile and table pollution (12 files)')
+    print(table_6['File and table pollution'])
+
+    print('\n\tInconsistent number of delimiters (1428 files)')
+    print(table_6['Inconsistent number of delimiters'])
+    
+    print('\n\tStructural character change (850 files)')
+    print(table_6['Structural character change'])
+    
+    print('\n\tPollock score (2289 +1 files) and Average file-wise time (ms)')
+    print(table_6[['Pollock score', 'Loading time (ms)']])
     print()
-    print(table_6)
-    print()
+    # Uncomment for full table
+    # print(table_6)
+
 
     table_7 = generate_table_7()
     print('---------- Table 7: Results on a sample of 100 files from our survey. ----------')
