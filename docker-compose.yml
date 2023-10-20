@@ -224,7 +224,7 @@ services:
       context: .
       dockerfile: Dockerfile-pollution
     volumes:
-      - ./polluted_files:/polluted_files
+      - ./polluted_files:/app/polluted_files
       - ./results/source.csv:/app/results/source.csv
   evaluate:
     image: evaluate
