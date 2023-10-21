@@ -8,6 +8,9 @@ OUT_CSV_PATH = "./polluted_files/csv/"
 OUT_CLEAN_PATH = "./polluted_files/clean/"
 OUT_PARAMETERS_PATH = "./polluted_files/parameters/"
 
+os.system('mkdir -p ' + OUT_CSV_PATH)
+os.system('mkdir -p ' + OUT_CLEAN_PATH)
+os.system('mkdir -p ' + OUT_PARAMETERS_PATH)
 os.system('cd ' + OUT_CSV_PATH + ' && rm *.csv')
 
 def execute_polluter(file: CSVFile, polluter, new_filename=None, *args, **kwargs):
