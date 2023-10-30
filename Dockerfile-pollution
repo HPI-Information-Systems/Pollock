@@ -3,6 +3,7 @@ FROM python:3.8
 WORKDIR /app
 COPY ./pollute_main.py ./
 COPY ./evaluate.py ./
+COPY ./paper_tables.py ./
 COPY ./requirements.txt ./
 COPY ./pollock_weights.json ./
 COPY ./pollock ./pollock
