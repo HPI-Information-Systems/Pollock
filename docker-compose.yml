@@ -266,6 +266,20 @@ services:
       - ./survey_sample:/app/survey_sample
       - ./evaluate.py:/app/evaluate.py
       - ./sut/utils.py:/app/utils.py
+  paper-tables:
+    image: paper_tables
+    build:
+      context: .
+      dockerfile: Dockerfile-pollution
+    environment:
+      - DATASET=${DATASET}
+    command: ["python3", "/app/paper_tables.py"]
+    volumes:
+      - ./results:/app/results
+      - ./polluted_files:/app/polluted_files
+      - ./survey_sample:/app/survey_sample
+      - ./paper_tables.py:/app/paper_tables.py
+      - ./sut/utils.py:/app/utils.py
 
 volumes:
   mariadb-tmp:

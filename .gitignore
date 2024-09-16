@@ -4,6 +4,9 @@ __pycache__/
 *$py.class
 *.class
 
+# Pollock
+*.docx
+
 # Database files
 *.db
 

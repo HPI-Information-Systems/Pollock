@@ -158,14 +158,14 @@ and, once the server is up and running:
 `docker-compose up postgres-client`
 To benchmark a specific system, run the `benchmark.py` script with the `--sut` argument followed by the name of the corresponding system folder, e.g.:
 
-`docker-compose run evaluation python3 evaluate.py --sut pycsv-client`
+`docker-compose run evaluate python3 evaluate.py --sut pycsv-client`
 
 The script reports the overall success, completeness, and conciseness score and outputs the specific results for each of the benchmark files in a CSV file, whose path can be specified with the --result parameter.
 (This command updates the result CSV files).
 
 For the full list of parameters, run:
 
-`docker-compose run evaluation python3 evaluate.py --help`
+`docker-compose run evaluate python3 evaluate.py --help`
 
 ## Extra: Change experiment dataset
 The repository contains a .env file that every scripts reads from, specifying which dataset to run the experiments on.

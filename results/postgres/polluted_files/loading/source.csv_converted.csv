@@ -1,4 +1,4 @@
-date,time,qty,productid,price,producttype,productdescription,url,comments
+DATE,TIME,Qty,PRODUCTID,Price,ProductType,ProductDescription,URL,Comments
 28/01/2018,00:00,2,MG-8769,$74.69,Men's Waterproof Hiking Boots,These waterproof hiking boots for men are rugged enough for peak performance yet light and quick enough to keep feet from feeling weighed down.,https://www.example.com/product/MG_8769.html,
 29/01/2018,00:15,0,RI-3895,$29.81,Light-Up Running Jacket,"The next level of weather protection. This light-up jacket resists the elements and keeps you visible in low-light conditions. From running, biking or walking the dog, the durable construction and innovative safety features won't let you down.",https://www.example.com/product/RI_3895.html,
 30/01/2018,00:30,1,RI-8070,$80.08,Men's Ventilated Trail Shoes,"Great grip and super extra breathability make these amazing ventilated hikers ideal for warm, dry conditions.",https://www.example.com/product/RI_8070.html,
