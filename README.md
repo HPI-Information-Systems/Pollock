@@ -92,6 +92,7 @@ Otherwise, loading can be done by running the following docker-compose commands 
     docker-compose up postgres-client
     docker-compose up mariadb-client
     docker-compose up mysql-client
+    docker-compose up duckdb-client
 </details>
 
 At the end of the loading stages, the results will be available in the folder `results/{sut}/polluted_files`, where `{sut}` stands for a given SUT name.
