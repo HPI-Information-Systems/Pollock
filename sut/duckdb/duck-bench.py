@@ -14,6 +14,48 @@ TIME_DIR = abspath(f'/results/{sut}/{DATASET}/')
 
 N_REPETITIONS = 3
 
+{
+    "encoding": "ascii",
+    "delimiter": ",",
+    "quotechar": "\"",
+    "escapechar": "",
+    "row_delimiter": "\r\n",
+    "header_lines": 1,
+    "preamble_lines": 0,
+    "footnote_lines": 0,
+    "column_names": [
+        "DATE",
+        "TIME",
+        "Qty",
+        "PRODUCTID",
+        "Price",
+        "ProductType",
+        "ProductDescription",
+        "URL",
+        "Comments"
+    ],
+    "n_columns": 9
+}
+
+def generate_parameters(sut):
+    kw = {}
+    kw["delimiter"] = sut["delimiter"]
+    kw["quotechar"] = sut["quotechar"]
+    kw["escapechar"] = sut["escapechar"]
+    # kw["lineterminator"] = sut["record_delimiter"]
+    kw["skiprows"] = sut["preamble_rows"]
+    if sut["header_lines"] == 0:
+        kw["header"] = False
+    else:
+        kw["header"] = True
+    kw["ignore_errors"] = True
+    columns = {}
+    for name in sut["column_names"]:
+        columns[name] = 'VARCHAR'
+    kw["columns"] = columns
+    kw["auto_detect"] = False
+    return kw
+
 times_dict = {}
 benchmark_files = os.listdir(IN_DIR)
 for idx,file in enumerate(benchmark_files):
@@ -21,6 +63,8 @@ for idx,file in enumerate(benchmark_files):
     in_filepath = join(IN_DIR, f)
     out_filename = f'{f}_converted.csv'
     out_filepath = join(OUT_DIR, out_filename)
+    options_json = load_parameters(join(PARAM_DIR, f'{f}_parameters.json'))
+    kw = generate_parameters(options_json)
     if os.path.exists(out_filepath):
         continue
     print(f"({idx}/{len(benchmark_files)}) {f}")
@@ -29,7 +73,7 @@ for idx,file in enumerate(benchmark_files):
         con = duckdb.connect()
         start = time.time()
         try:
-            rel = con.from_query(f"FROM read_csv('{in_filepath}', ignore_errors=true)")
+            rel = con.read_csv(in_filepath, **kw)
             end = time.time()
             rel = rel.df()
             rel.to_csv(out_filepath, index=False)

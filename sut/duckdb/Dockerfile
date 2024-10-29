@@ -12,7 +12,8 @@ RUN pip install --no-cache-dir -r duckdb-requirements.txt
 # Clone the duckdb repository and build it
 RUN git clone https://github.com/pdet/duckdb.git && \
     cd duckdb && \
-    git checkout feature && \
+    git checkout poll_csv && \
+    git pull && \
     cd tools/pythonpkg  && \
     python3 setup.py install && \
     cd ../../..
