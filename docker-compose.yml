@@ -126,17 +126,29 @@ services:
       - ./survey_sample:/survey_sample
       - ./sut/pandas/:/app/
       - ./sut/utils.py:/app/utils.py
-  duckdb-client:
+  duckdbparse-client:
     environment:
       - DATASET=${DATASET}
     build:
       context: .
-      dockerfile: ./sut/duckdb/Dockerfile
+      dockerfile: ./sut/duckdbparse/Dockerfile
     volumes:
-      - ./results/duckdb:/results/duckdb
+      - ./results/duckdbparse:/results/duckdbparse
       - ./polluted_files:/polluted_files
       - ./survey_sample:/survey_sample
-      - ./sut/duckdb/:/app/
+      - ./sut/duckdbparse/:/app/
+      - ./sut/utils.py:/app/utils.py
+  duckdbauto-client:
+    environment:
+      - DATASET=${DATASET}
+    build:
+      context: .
+      dockerfile: ./sut/duckdbauto/Dockerfile
+    volumes:
+      - ./results/duckdbauto:/results/duckdbauto
+      - ./polluted_files:/polluted_files
+      - ./survey_sample:/survey_sample
+      - ./sut/duckdbauto/:/app/
       - ./sut/utils.py:/app/utils.py
   opencsv-client:
     build:

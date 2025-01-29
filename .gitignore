@@ -139,4 +139,4 @@ dmypy.json
 
 *.DS_Store
 
-polluted_files/
+*.csv
