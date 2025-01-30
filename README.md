@@ -1,7 +1,9 @@
 # Pollock
 Pollock is a benchmark for data loading on character-delimited files, developed at the Information Systems Group of the Hasso Plattner Institute.
-The highlights of our experiments are these results, obtained on 16 different systems under test:
+The highlights of our experiments are these results, obtained on 17 different systems under test:
 <div align="center">
+
+## Pollock Score (Simple)
 
 | System under test        | Pollock score (simple)  |
 | ------------------------ | ----------------------- |
@@ -24,7 +26,7 @@ The highlights of our experiments are these results, obtained on 16 different sy
 | Hypoparsr 0.1.0          | **3.888**               |
 | PostgreSQL 15.0          | **0.136**               |
 
-## Ordered by Pollock Score (Weighted)
+## Pollock Score (Weighted)
 
 | System under test        | Pollock score (weighted)  |
 | ------------------------ | ------------------------- |
