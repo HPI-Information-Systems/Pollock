@@ -77,7 +77,7 @@ The results of the Pollock benchmark can be obtained in three steps:
     3. Calculating the Pollock scores with the output files for each SUT.
 
 For convenience, in this repository we already provide the intermediate artifacts necessary to run the steps 2. and 3., so that our results can be reproduced with different degrees of completeness.
-We include results for 16 different systems:
+We include results for 17 different systems:
  - 6 csv loading modules: `clevercsv`,`csvcommons`,`hypoparsr`,`opencsv`,`pandas`,`pycsv`,`rcsv`, `univocity`
  - 5 rdbms: `mariadb`,`mysql`,`postgres`,`sqlite`, `duckdb`
  - 3 spreadsheet systems: `libreoffice`,`spreaddesktop`,`spreadweb`
