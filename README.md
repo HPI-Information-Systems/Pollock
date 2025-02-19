@@ -79,7 +79,7 @@ The results of the Pollock benchmark can be obtained in three steps:
 For convenience, in this repository we already provide the intermediate artifacts necessary to run the steps 2. and 3., so that our results can be reproduced with different degrees of completeness.
 We include results for 16 different systems:
  - 6 csv loading modules: `clevercsv`,`csvcommons`,`hypoparsr`,`opencsv`,`pandas`,`pycsv`,`rcsv`, `univocity`
- - 4 rdbms: `mariadb`,`mysql`,`postgres`,`sqlite`
+ - 5 rdbms: `mariadb`,`mysql`,`postgres`,`sqlite`, `duckdb`
  - 3 spreadsheet systems: `libreoffice`,`spreaddesktop`,`spreadweb`
  - A data visualization tool, `dataviz`
 
