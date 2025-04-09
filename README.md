@@ -3,52 +3,28 @@ Pollock is a benchmark for data loading on character-delimited files, developed 
 The highlights of our experiments are these results, obtained on 17 different systems under test:
 <div align="center">
 
-## Pollock Score (Simple)
+## Pollock Score (ranked by simple score)
 
-| System under test        | Pollock score (simple)  |
-| ------------------------ | ----------------------- |
-| DuckDB 1.2               | **9.961**               |
-| SQLite 3.39.0            | **9.955**               |
-| UniVocity 2.9.1          | **9.939**               |
-| LibreOffice Calc 7.3.6   | **9.925**               |
-| SpreadDesktop            | **9.929**               |
-| SpreadWeb                | **9.721**               |
-| Python native csv 3.10.5 | **9.721**               |
-| Pandas 1.4.3             | **9.895**               |
-| MySQL 8.0.31             | **9.587**               |
-| Mariadb 10.9.3           | **9.585**               |
-| CleverCSV 0.7.4          | **9.193**               |
-| DuckDB 1.2 (Auto)        | **9.075**               |
-| R native csv 4.2.1       | **7.792**               |
-| CSVCommons 1.9.0         | **6.647**               |
-| OpenCSV 5.6              | **6.632**               |
-| Dataviz                  | **5.003**               |
-| Hypoparsr 0.1.0          | **3.888**               |
-| PostgreSQL 15.0          | **0.136**               |
-
-## Pollock Score (Weighted)
-
-| System under test        | Pollock score (weighted)  |
-| ------------------------ | ------------------------- |
-| DuckDB 1.2               | **9.599**                 |
-| SpreadDesktop            | **9.597**                 |
-| CleverCSV 0.7.4          | **9.453**                 |
-| Python native csv 3.10.5 | **9.436**                 |
-| SpreadWeb                | **9.431**                 |
-| Pandas 1.4.3             | **9.431**                 |
-| SQLite 3.39.0            | **9.375**                 |
-| CSVCommons 1.9.0         | **9.253**                 |
-| DuckDB 1.2 (Auto)        | **8.439**                 |
-| UniVocity 2.9.1          | **7.936**                 |
-| LibreOffice Calc 7.3.6   | **7.833**                 |
-| OpenCSV 5.6              | **7.746**                 |
-| MySQL 8.0.31             | **7.484**                 |
-| Mariadb 10.9.3           | **7.483**                 |
-| PostgreSQL 15.0          | **6.961**                 |
-| R native csv 4.2.1       | **6.405**                 |
-| Dataviz                  | **5.152**                 |
-| Hypoparsr 0.1.0          | **4.372**                 |
-
+| System under test        | Pollock score (simple)  | Pollock score (weighted)  |
+| ------------------------ | ----------------------- | ------------------------- |
+| DuckDB 1.2               | **9.961**               | **9.599**                 |
+| SQLite 3.39.0            | **9.955**               | **9.375**                 |
+| UniVocity 2.9.1          | **9.939**               | **7.936**                 |
+| LibreOffice Calc 7.3.6   | **9.925**               | **7.833**                 |
+| SpreadDesktop            | **9.929**               | **9.597**                 |
+| SpreadWeb                | **9.721**               | **9.431**                 |
+| Python native csv 3.10.5 | **9.721**               | **9.436**                 |
+| Pandas 1.4.3             | **9.895**               | **9.431**                 |
+| MySQL 8.0.31             | **9.587**               | **7.484**                 |
+| Mariadb 10.9.3           | **9.585**               | **7.483**                 |
+| CleverCSV 0.7.4          | **9.193**               | **9.453**                 |
+| DuckDB 1.2 (Auto)        | **9.075**               | **8.439**                 |
+| R native csv 4.2.1       | **7.792**               | **6.405**                 |
+| CSVCommons 1.9.0         | **6.647**               | **9.253**                 |
+| OpenCSV 5.6              | **6.632**               | **7.746**                 |
+| Dataviz                  | **5.003**               | **5.152**                 |
+| Hypoparsr 0.1.0          | **3.888**               | **4.372**                 |
+| PostgreSQL 15.0          | **0.136**               | **6.961**                 |
 
 
 </div>
