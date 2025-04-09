@@ -5,7 +5,6 @@ from time import time
 from pathlib import Path
 import pandas as pd
 
-
 def parse_utf(filename, pollution):
     """
     Convenience function to split for example "table_field_delimiter_0x20.csv" into the string "," to feed as a parameter.

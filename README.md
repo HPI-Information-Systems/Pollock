@@ -1,26 +1,31 @@
 # Pollock
 Pollock is a benchmark for data loading on character-delimited files, developed at the Information Systems Group of the Hasso Plattner Institute.
-The highlights of our experiments are these results, obtained on 16 different systems under test:
+The highlights of our experiments are these results, obtained on 17 different systems under test:
 <div align="center">
 
-| System under test                                | Pollock score (simple) | Pollock score (weighted)|
-| :----|:----|:----|
-|CleverCSV 0.7.4       |9.19  |9.45|
-|CSVCommons 1.9.0     |6.64  |9.25|
-|Hypoparsr 0.1.0     |3.88  |4.37|
-|OpenCSV 5.6        |6.63  |7.74|
-|Pandas  1.4.3     |9.89  |9.43|
-|Python native csv 3.10.5          |9.72  |9.43|
-|R native csv 4.2.1          |7.79  |6.40|
-|UniVocity 2.9.1      |9.93  |7.93|
-|Mariadb 10.9.3        |9.58  |7.48|
-|MySQL 8.0.31          |9.58  |7.48|
-|PostgreSQL 15.0       |0.13  |6.96|
-|SQLite 3.39.0 |9.95  |9.37|
-|LibreOffice Calc 7.3.6    |9.92  |7.83|
-|SpreadDesktop  |9.92  |9.59|
-|SpreadWeb      |9.72  |9.43|
-|Dataviz|5.00|5.15|
+## Pollock Score (ranked by simple score)
+
+| System under test        | Pollock score (simple)  | Pollock score (weighted)  |
+| ------------------------ | ----------------------- | ------------------------- |
+| DuckDB 1.2               | **9.961**               | **9.599**                 |
+| SQLite 3.39.0            | **9.955**               | **9.375**                 |
+| UniVocity 2.9.1          | **9.939**               | **7.936**                 |
+| LibreOffice Calc 7.3.6   | **9.925**               | **7.833**                 |
+| SpreadDesktop            | **9.929**               | **9.597**                 |
+| SpreadWeb                | **9.721**               | **9.431**                 |
+| Python native csv 3.10.5 | **9.721**               | **9.436**                 |
+| Pandas 1.4.3             | **9.895**               | **9.431**                 |
+| MySQL 8.0.31             | **9.587**               | **7.484**                 |
+| Mariadb 10.9.3           | **9.585**               | **7.483**                 |
+| CleverCSV 0.7.4          | **9.193**               | **9.453**                 |
+| DuckDB 1.2 (Auto)        | **9.075**               | **8.439**                 |
+| R native csv 4.2.1       | **7.792**               | **6.405**                 |
+| CSVCommons 1.9.0         | **6.647**               | **9.253**                 |
+| OpenCSV 5.6              | **6.632**               | **7.746**                 |
+| Dataviz                  | **5.003**               | **5.152**                 |
+| Hypoparsr 0.1.0          | **3.888**               | **4.372**                 |
+| PostgreSQL 15.0          | **0.136**               | **6.961**                 |
+
 
 </div>
 
@@ -48,9 +53,9 @@ The results of the Pollock benchmark can be obtained in three steps:
     3. Calculating the Pollock scores with the output files for each SUT.
 
 For convenience, in this repository we already provide the intermediate artifacts necessary to run the steps 2. and 3., so that our results can be reproduced with different degrees of completeness.
-We include results for 16 different systems:
+We include results for 17 different systems:
  - 6 csv loading modules: `clevercsv`,`csvcommons`,`hypoparsr`,`opencsv`,`pandas`,`pycsv`,`rcsv`, `univocity`
- - 4 rdbms: `mariadb`,`mysql`,`postgres`,`sqlite`
+ - 5 rdbms: `mariadb`,`mysql`,`postgres`,`sqlite`, `duckdb`
  - 3 spreadsheet systems: `libreoffice`,`spreaddesktop`,`spreadweb`
  - A data visualization tool, `dataviz`
 
@@ -92,6 +97,8 @@ Otherwise, loading can be done by running the following docker-compose commands 
     docker-compose up postgres-client
     docker-compose up mariadb-client
     docker-compose up mysql-client
+    docker-compose up duckdbparse-client
+    docker-compose up duckdbauto-client
 </details>
 
 At the end of the loading stages, the results will be available in the folder `results/{sut}/polluted_files`, where `{sut}` stands for a given SUT name.
