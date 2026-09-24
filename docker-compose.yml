@@ -241,6 +241,18 @@ services:
       - ./polluted_files:/polluted_files
       - ./survey_sample:/survey_sample
       - ./sut/csvcommons/:/app/
+  sieve-client:
+    environment:
+      - DATASET=${DATASET}
+    build:
+      context: .
+      dockerfile: ./sut/sieve/Dockerfile
+    volumes:
+      - ./results/sieve:/results/sieve
+      - ./polluted_files:/polluted_files
+      - ./survey_sample:/survey_sample
+      - ./sut/sieve/:/app/
+      - ./sut/utils.py:/app/utils.py
   pollution:
     image: pollock_pollution
     command: ["python3", "/app/pollute_main.py"]

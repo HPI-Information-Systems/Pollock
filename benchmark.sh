@@ -12,6 +12,7 @@ docker-compose up clevercs-client
 docker-compose up rhypoparsr-client
 docker-compose up libreoffice-client
 docker-compose up sqlite-client
+docker-compose up sieve-client
 
 docker-compose up postgres-client
 docker-compose up mariadb-client

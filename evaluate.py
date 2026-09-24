@@ -17,7 +17,7 @@ load_dotenv()
 
 
 SUT_ORDER = ["clevercs", "csvcommons", "rhypoparsr", 
-            "opencsv", "pandas", "duckdbparse","duckdbauto", "pycsv", "rcsv", "univocity", 
+            "opencsv", "pandas", "duckdbparse","duckdbauto", "pycsv", "rcsv", "univocity", "sieve", 
             "mariadb", "mysql", "postgres", "sqlite", "libreoffice", 
             "spreaddesktop", "spreadweb", "dataviz"]
 
