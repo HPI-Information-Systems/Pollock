@@ -7,6 +7,7 @@ The highlights of our experiments are these results, obtained on 17 different sy
 
 | System under test        | Pollock score (simple)  | Pollock score (weighted)  |
 | ------------------------ | ----------------------- | ------------------------- |
+| sieve 0.1.0 [^sieve]     | **9.997**               | **9.992**                 |
 | DuckDB 1.2               | **9.961**               | **9.599**                 |
 | SQLite 3.39.0            | **9.955**               | **9.375**                 |
 | UniVocity 2.9.1          | **9.939**               | **7.936**                 |
@@ -28,6 +29,10 @@ The highlights of our experiments are these results, obtained on 17 different sy
 
 
 </div>
+
+sieve (a pure-Python CSV loader, standard library only) is developed at https://github.com/KenWuqianghao/sieve.
+
+[^sieve]: sieve's script (`sut/sieve/sieve-bench.py`) passes only the file path; sieve detects encoding, dialect, header and preamble from the bytes. The other scripts in `sut/` read each file's `parameters.json` and pass parts of it to their system (for DuckDB 1.2: delimiter, quote, escape, rows to skip and column names; the DuckDB 1.2 (Auto) script passes none).
 
 ## Repository structure
 
@@ -99,6 +104,7 @@ Otherwise, loading can be done by running the following docker-compose commands 
     docker-compose up mysql-client
     docker-compose up duckdbparse-client
     docker-compose up duckdbauto-client
+    docker-compose up sieve-client
 </details>
 
 At the end of the loading stages, the results will be available in the folder `results/{sut}/polluted_files`, where `{sut}` stands for a given SUT name.
